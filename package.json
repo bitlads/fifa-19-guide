@@ -7,6 +7,7 @@
     "@types/react": "^16.3.14",
     "@types/react-native": "^0.55.14",
     "@types/react-native-tab-view": "^1.0.2",
+    "@types/react-navigation": "^2.0.17",
     "@types/react-test-renderer": "^16.0.1",
     "jest-expo": "~27.0.0",
     "prettier": "^1.14.2",
@@ -53,6 +54,7 @@
     "expo": "^27.0.1",
     "react": "16.3.1",
     "react-native": "~0.55.2",
-    "react-native-tab-view": "^1.0.2"
+    "react-native-tab-view": "^1.0.2",
+    "react-navigation": "^2.12.0"
   }
 }
