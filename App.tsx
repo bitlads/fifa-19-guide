@@ -1,16 +1,48 @@
 import * as React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Dimensions, SafeAreaView, StyleSheet } from 'react-native'
+import { TabView, TabBar, SceneMap } from 'react-native-tab-view'
+import HomeScreen from './src/HomeScreen'
 
-export default class App extends React.Component<{}> {
+const initialLayout = {
+  height: 0,
+  width: Dimensions.get('window').width
+}
+
+interface IState {
+  index: Number
+  routes: { key: string; title: string }[]
+}
+
+export default class App extends React.Component<{}, IState> {
+  state = {
+    index: 0,
+    routes: [{ key: 'home', title: 'Home' }, { key: 'skills', title: 'Skills' }, { key: 'celebrations', title: 'Celebrations' }]
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.ts to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#FAFAFA' }}>
+        <TabView
+          navigationState={this.state}
+          renderScene={this.renderScene}
+          renderTabBar={this.renderTabBar}
+          onIndexChange={this.handleIndexChange}
+          initialLayout={initialLayout}
+          tabBarPosition="bottom"
+        />
+      </SafeAreaView>
     )
   }
+
+  private handleIndexChange = (index: Number) => this.setState({ index })
+
+  private renderTabBar = (props: any) => <TabBar {...props} style={styles.tabBar} indicatorStyle={styles.indicator} />
+
+  private renderScene = SceneMap({
+    home: () => <HomeScreen />,
+    skills: () => <HomeScreen />,
+    celebrations: () => <HomeScreen />
+  })
 }
 
 const styles = StyleSheet.create({
@@ -19,5 +51,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  tabBar: {
+    backgroundColor: '#000'
+  },
+  indicator: {
+    backgroundColor: '#fff'
   }
 })
