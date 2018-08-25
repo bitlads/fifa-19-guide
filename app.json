@@ -1,9 +1,29 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0",
+    "sdkVersion": "29.0.0",
     "packagerOpts": {
       "sourceExts": ["ts", "tsx"],
       "transformer": "node_modules/react-native-typescript-transformer/index.js"
+    },
+    "name": "Ultimate Guide for FIFA 19",
+    "description": "Pocket companion for FIFA 19",
+    "version": "0.0.1",
+    "githubUrl": "https://github.com/bitlads/fifa-19-guide",
+    "icon": "./src/assets/images/icon.png",
+    "slug": "fifa-19-guide",
+    "assetBundlePatterns": ["**/*"],
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "platforms": ["ios", "android"],
+    "ios": {
+      "bundleIdentifier": "io.bitlads.fifa19",
+      "supportsTablet": true,
+      "icon": "./src/assets/images/icon.png"
+    },
+    "android": {
+      "package": "io.bitlads.fifa19",
+      "versionCode": 1
     }
   }
 }
