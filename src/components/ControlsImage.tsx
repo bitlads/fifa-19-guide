@@ -55,6 +55,10 @@ export default class ControlsImage extends React.Component<Props> {
         return require('../assets/images/ps/ls.png')
       case 'rs':
         return require('../assets/images/ps/rs.png')
+      case 'l3':
+        return require('../assets/images/ps/ls.png')
+      case 'r3':
+        return require('../assets/images/ps/rs.png')
       case 'l':
         return require('../assets/images/left.png')
       case 'r':
@@ -89,6 +93,10 @@ export default class ControlsImage extends React.Component<Props> {
       case 'ls':
         return require('../assets/images/xb/ls.png')
       case 'rs':
+        return require('../assets/images/xb/rs.png')
+      case 'l3':
+        return require('../assets/images/xb/ls.png')
+      case 'r3':
         return require('../assets/images/xb/rs.png')
       case 'l':
         return require('../assets/images/left.png')

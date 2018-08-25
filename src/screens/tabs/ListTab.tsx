@@ -18,18 +18,19 @@ interface Celebration {
 interface Props {
   t(key: string): string
   category: string
-  isXboxSelected: boolean
 }
 
 interface State {
   data: Array<any>
+  isXboxSelected: boolean
 }
 
 export default class ListTab extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
     this.state = {
-      data: []
+      data: [],
+      isXboxSelected: true
     }
   }
 
@@ -41,7 +42,11 @@ export default class ListTab extends React.Component<Props, State> {
     const sections = this.makeSections()
     return (
       <View style={styles.container}>
-        <Toggle isXbSelected={this.props.isXboxSelected} onToggleXb={() => {}} onTogglePs={() => {}} />
+        <Toggle
+          isXbSelected={this.state.isXboxSelected}
+          onToggleXb={() => this.setState({ isXboxSelected: true })}
+          onTogglePs={() => this.setState({ isXboxSelected: false })}
+        />
         <SectionList
           style={{ flex: 1 }}
           renderItem={this.renderItem}
@@ -78,23 +83,23 @@ export default class ListTab extends React.Component<Props, State> {
       return sections
     } else {
       let sections = [
-        { title: 'Running', data: new Array<Celebration>() },
-        { title: 'Finishing', data: new Array<Celebration>() },
-        { title: 'Pro Unlockables', data: new Array<Celebration>() },
-        { title: 'EA FC Unlockables', data: new Array<Celebration>() }
+        { title: this.props.t('runningMoves'), data: new Array<Celebration>() },
+        { title: this.props.t('finishingMoves'), data: new Array<Celebration>() },
+        { title: this.props.t('proUnlockables'), data: new Array<Celebration>() },
+        { title: this.props.t('eaFcUnlockables'), data: new Array<Celebration>() }
       ]
       this.state.data.map((item: Celebration) => {
         switch (item.type) {
-          case 'Running':
+          case 'runningMoves':
             sections[0].data.push(item)
             break
-          case 'Finishing':
+          case 'finishingMoves':
             sections[1].data.push(item)
             break
-          case 'Pro Unlockables':
+          case 'proUnlockables':
             sections[2].data.push(item)
             break
-          case 'EA FC Unlockables':
+          case 'eaFcUnlockables':
             sections[3].data.push(item)
             break
         }
@@ -119,7 +124,7 @@ export default class ListTab extends React.Component<Props, State> {
           {item.new && <Text style={styles.new}>{this.props.t('main:new')}</Text>}
         </View>
 
-        <ControlsImage controls={item.controls} isXb={this.props.isXboxSelected} t={this.props.t} />
+        <ControlsImage controls={item.controls} isXb={this.state.isXboxSelected} t={this.props.t} />
       </View>
     )
   }

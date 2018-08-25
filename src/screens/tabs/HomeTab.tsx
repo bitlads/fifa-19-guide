@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Linking, ScrollView, StyleSheet, Text, View } from 'react-native'
 import HomeButton from '../../components/HomeButton'
 
 interface IProps {
@@ -32,7 +32,11 @@ export default class HomeTab extends React.Component<IProps> {
               <Text style={{ color: '#fff', fontSize: 36, alignSelf: 'center' }}>{this.daysLeft}</Text>
               <Text style={{ color: '#fff', alignSelf: 'center' }}>{this.props.t('main:days_until')}</Text>
             </View>
-            <HomeButton text={this.props.t('main:preorder_now')} actionText={this.props.t('main:preorder')} onPress={() => {}} />
+            <HomeButton
+              text={this.props.t('main:preorder_now')}
+              actionText={this.props.t('main:preorder')}
+              onPress={() => Linking.openURL('http://a.co/d/fJLqixe')}
+            />
           </View>
         </ScrollView>
       </View>
