@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
-import Toggle from '../../components/Toggle'
 import HomeButton from '../../components/HomeButton'
 
 interface IProps {
@@ -23,7 +22,6 @@ export default class HomeTab extends React.Component<IProps> {
   render() {
     return (
       <View style={styles.container}>
-        <Toggle isXbSelected={this.props.isXboxSelected} onToggleXb={() => this.props.onToggleXb} onTogglePs={() => this.props.onTogglePs} />
         <ScrollView style={styles.home}>
           <View style={styles.card}>
             <Text style={styles.cardTitle}>{this.props.t('main:dev_message')}</Text>

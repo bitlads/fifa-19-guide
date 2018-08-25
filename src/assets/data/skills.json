@@ -1,0 +1,222 @@
+[
+  {
+    "controls": "hold @lt + tap @rb",
+    "id": "ballJuggle",
+    "stars": 1
+  },
+  {
+    "controls": "hold @lb + @rb",
+    "id": "footFake",
+    "stars": 1
+  },
+  {
+    "controls": "@rs flick @r",
+    "id": "bodyFeintR",
+    "stars": 2
+  },
+  {
+    "controls": "@rs flick @l",
+    "id": "bodyFeintL",
+    "stars": 2
+  },
+  {
+    "controls": "@rs roll @u @r",
+    "id": "stepoverR",
+    "stars": 2
+  },
+  {
+    "controls": "@rs roll @u @l",
+    "id": "stepoverL",
+    "stars": 2
+  },
+  {
+    "controls": "@rs roll @r @u",
+    "id": "reverseStepoverR",
+    "stars": 2
+  },
+  {
+    "controls": "@rs roll @l @u",
+    "id": "reverseStepoverL",
+    "stars": 2
+  },
+  {
+    "controls": "@rs hold @l",
+    "id": "ballRollL",
+    "stars": 2
+  },
+  {
+    "controls": "@rs hold @r",
+    "id": "ballRollR",
+    "stars": 2
+  },
+  {
+    "controls": "@rb + @ls flick @d",
+    "id": "dragBack",
+    "stars": 2
+  },
+  {
+    "controls": "@rs flick @u @d",
+    "id": "heelFlick",
+    "stars": 3
+  },
+  {
+    "controls": "@rs flick @u @u @u",
+    "id": "flickUp",
+    "stars": 3
+  },
+  {
+    "controls": "@rs roll @d @l @u @r",
+    "id": "rouletteR",
+    "stars": 3
+  },
+  {
+    "controls": "@rs roll @d @r @u @l",
+    "id": "rouletteL",
+    "stars": 3
+  },
+  {
+    "controls": "@rs roll @l @d @r",
+    "id": "fakeLeftGoRight",
+    "stars": 3
+  },
+  {
+    "controls": "@rs roll @r @d @l",
+    "id": "fakeRightGoLeft",
+    "stars": 3
+  },
+  {
+    "controls": "tap @r3",
+    "id": "ballHop",
+    "stars": 4
+  },
+  {
+    "controls": "@rs flick @u @d",
+    "id": "heelToHeelFlick",
+    "stars": 4
+  },
+  {
+    "controls": "@rs flick @d @u @u",
+    "id": "simpleRainbow",
+    "stars": 4
+  },
+  {
+    "controls": "@rs flick @d hold @u flick @u",
+    "id": "advRainbow",
+    "stars": 4
+  },
+  {
+    "controls": "@rs roll @l @d @r",
+    "id": "feintLeftExitRight",
+    "stars": 4
+  },
+  {
+    "controls": "@rs roll @r @d @l",
+    "id": "feintRightExitLeft",
+    "stars": 4
+  },
+  {
+    "controls": "@rs @dl @dl",
+    "id": "spinLeft",
+    "stars": 4
+  },
+  {
+    "controls": "@rs @dr @dr",
+    "id": "spinRight",
+    "stars": 4
+  },
+  {
+    "controls": "@rs flick @u flick @l",
+    "id": "stopAndTurnL",
+    "stars": 4
+  },
+  {
+    "controls": "@rs flick @u flick @r",
+    "id": "stopAndTurnR",
+    "stars": 4
+  },
+  {
+    "controls": "@rs hold @l @ls hold @r",
+    "id": "ballRollCutR",
+    "stars": 4
+  },
+  {
+    "controls": "@rs hold @r @ls hold @l",
+    "id": "ballRollCutL",
+    "stars": 4
+  },
+  {
+    "controls": "@rs roll @r @d @l",
+    "id": "elastico",
+    "stars": 5
+  },
+  {
+    "controls": "@rs roll @l @d @r",
+    "id": "reverseElastico",
+    "stars": 5
+  },
+  {
+    "controls": "@rs hold @d",
+    "id": "quickBallRolls",
+    "stars": 5
+  },
+  {
+    "controls": "@rs roll @d @l @rs roll @l @d @r",
+    "id": "hocusPocus",
+    "stars": 5
+  },
+  {
+    "controls": "@rs roll @d @r @rs roll @r @d @l",
+    "id": "tripleElastico",
+    "stars": 5
+  },
+  {
+    "controls": "@rs hold @r flick @u",
+    "id": "ballRollFlickL",
+    "stars": 5
+  },
+  {
+    "controls": "@rs hold @l flick @u",
+    "id": "ballRollFlickR",
+    "stars": 5
+  },
+  {
+    "controls": "@rs flick @u @u @d",
+    "id": "sombreroFlick",
+    "stars": 5
+  },
+  {
+    "controls": "@rs flick @u flick @l",
+    "id": "turnAndSpinL",
+    "stars": 5
+  },
+  {
+    "controls": "@rs flick @u flick @r",
+    "id": "turnAndSpinR",
+    "stars": 5
+  },
+  {
+    "controls": "@rs hold @l then @rs flick @r",
+    "id": "ballRollFakeL",
+    "stars": 5
+  },
+  {
+    "controls": "@rs hold @r then @ rs flick @l",
+    "id": "ballRollFakeR",
+    "stars": 5
+  },
+  {
+    "controls": "hold @lt + @x or @b then @a + @ls @d",
+    "id": "rabonaFake",
+    "stars": 5
+  },
+  {
+    "controls": "@rs flick @d flick @l",
+    "id": "elasticoChopL",
+    "stars": 5
+  },
+  {
+    "controls": "@rs flick @d flick @r",
+    "id": "elasticoChopR",
+    "stars": 5
+  }
+]

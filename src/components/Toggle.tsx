@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
   toggle: {
     flexDirection: 'row',
     padding: 10,
-    margin: 10,
     backgroundColor: '#424242'
   },
   xbButton: {

@@ -3,6 +3,7 @@ import { Dimensions, SafeAreaView, StyleSheet, View } from 'react-native'
 import { translate } from 'react-i18next'
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view'
 import HomeTab from './tabs/HomeTab'
+import ListTab from './tabs/ListTab'
 
 const initialLayout = {
   height: 0,
@@ -62,7 +63,7 @@ class TabScreen extends React.Component<IProps, IState> {
         onTogglePs={() => this.setState({ isXbox: false })}
       />
     ),
-    skills: () => <View />,
+    skills: () => <ListTab t={this.props.t} category="Skills" isXboxSelected={this.state.isXbox} />,
     celebrations: () => <View />
   })
 }
