@@ -9,6 +9,12 @@ interface SkillMove {
   controls: string
 }
 
+interface Celebration {
+  id: string
+  type: string
+  controls: string
+}
+
 interface Props {
   t(key: string): string
   category: string
@@ -16,7 +22,7 @@ interface Props {
 }
 
 interface State {
-  data: Array<SkillMove>
+  data: Array<any>
 }
 
 export default class ListTab extends React.Component<Props, State> {
@@ -49,22 +55,52 @@ export default class ListTab extends React.Component<Props, State> {
   }
 
   private getJsonFromCategory() {
-    return require('../../assets/data/skills.json')
+    if (this.props.category === 'Skills') {
+      return require('../../assets/data/skills.json')
+    } else {
+      return require('../../assets/data/celebrations.json')
+    }
   }
 
   private makeSections() {
     if (!this.state.data) return []
-    let sections = [
-      { title: `1 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
-      { title: `2 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
-      { title: `3 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
-      { title: `4 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
-      { title: `5 ${this.props.t('main:star')}`, data: new Array<SkillMove>() }
-    ]
-    this.state.data.map(item => {
-      sections[item.stars - 1].data.push(item)
-    })
-    return sections
+    if (this.props.category === 'Skills') {
+      let sections = [
+        { title: `1 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
+        { title: `2 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
+        { title: `3 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
+        { title: `4 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
+        { title: `5 ${this.props.t('main:star')}`, data: new Array<SkillMove>() }
+      ]
+      this.state.data.map((item: SkillMove) => {
+        sections[item.stars - 1].data.push(item)
+      })
+      return sections
+    } else {
+      let sections = [
+        { title: 'Running', data: new Array<Celebration>() },
+        { title: 'Finishing', data: new Array<Celebration>() },
+        { title: 'Pro Unlockables', data: new Array<Celebration>() },
+        { title: 'EA FC Unlockables', data: new Array<Celebration>() }
+      ]
+      this.state.data.map((item: Celebration) => {
+        switch (item.type) {
+          case 'Running':
+            sections[0].data.push(item)
+            break
+          case 'Finishing':
+            sections[1].data.push(item)
+            break
+          case 'Pro Unlockables':
+            sections[2].data.push(item)
+            break
+          case 'EA FC Unlockables':
+            sections[3].data.push(item)
+            break
+        }
+      })
+      return sections
+    }
   }
 
   private renderSectionHeader = ({ section: { title } }: any) => {

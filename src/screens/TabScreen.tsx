@@ -64,7 +64,7 @@ class TabScreen extends React.Component<IProps, IState> {
       />
     ),
     skills: () => <ListTab t={this.props.t} category="Skills" isXboxSelected={this.state.isXbox} />,
-    celebrations: () => <View />
+    celebrations: () => <ListTab t={this.props.t} category="Celbrations" isXboxSelected={this.state.isXbox} />
   })
 }
 

@@ -1,0 +1,680 @@
+[
+  {
+    "new": false,
+    "type": "Running",
+    "id": "oneArmRaised",
+    "controls": "hold @b"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "thumbSuck",
+    "controls": "hold @x"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "earTwist",
+    "controls": "hold @y"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "fingerPoints",
+    "controls": "tap @b then hold @b"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "armsOut",
+    "controls": "tap @x then hold @x"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "wristFlick",
+    "controls": "tap @y then hold @y"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "aeroplane",
+    "controls": "hold @r3"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "pointToSky",
+    "controls": "hold @rs @u"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "shhhh",
+    "controls": "hold @rs @r"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "telephone",
+    "controls": "hold @rs @d"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "canYouHearMe",
+    "controls": "hold @rs @l"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "handsOut",
+    "controls": "flick @rs @r then hold @rs @l"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "comeOn",
+    "controls": "flick @rs @l then hold @rs @r"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "blowKisses",
+    "controls": "flick @rs @d then hold @rs @u"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "doubleArmSwing",
+    "controls": "flick @rs @u then hold @rs @d"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "flyingBird",
+    "controls": "flick @rs @r then hold @rs @r"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "handOnHead",
+    "controls": "flick @rs @l then hold @rs @l"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "heartSymbol",
+    "controls": "flick @rs @d then hold @rs @d"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "armsPointingUp",
+    "controls": "flick @rs @u then hold @rs @u"
+  },
+  {
+    "new": false,
+    "type": "Running",
+    "id": "windmill",
+    "controls": "roll @rs @u @r @d @l"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "pointToSkyFinish",
+    "controls": "hold @lb press @b"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "showRespect",
+    "controls": "hold @lb tap @b x2"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "spanishDance",
+    "controls": "hold @lt flick @rs @u @u"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "bellyFlop",
+    "controls": "hold @lb press @x"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "ridingWave",
+    "controls": "hold @lb press @y"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "x",
+    "controls": "hold @lb flick @rs @d @d"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "bigMan",
+    "controls": "hold @lb hold @rs @r"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "babyGirl",
+    "controls": "hold @lb hold @rs @l"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "chestSlide",
+    "controls": "hold @lb flick @rs @d @u"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "walkLikeMe",
+    "controls": "hold @lb flick @rs @l @r"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "signatureMove",
+    "controls": "press @a"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "mask",
+    "controls": "hold @lb flick @rs @u @u"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "handSpring",
+    "controls": "hold @lb roll @rs @u @r @d @l"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "floorSpin",
+    "controls": "hold @lb roll @rs @u @l @d @r"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "timber",
+    "controls": "hold @lt press @b"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "cellPhone",
+    "controls": "hold @lt press @x"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "hypnosis",
+    "controls": "hold @lt press @y"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "workout",
+    "controls": "hold @lt tap @x x2"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "stirThePot",
+    "controls": "hold @lt tap @y x2"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "mannequin",
+    "controls": "hold @lt hold @rs @u"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "iCantHearYou",
+    "controls": "hold @lt hold @rs @r"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "heart",
+    "controls": "hold @lt hold @rs @d"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "brickFall",
+    "controls": "hold @lt hold @rs @l"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "pipe",
+    "controls": "hold @lt flick @rs @u @d"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "scorpion",
+    "controls": "hold @lt flick @rs @l @r"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "whoAmI",
+    "controls": "hold @lt flick @rs @r @l"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "kneeSlideToSit",
+    "controls": "hold @lt flick @rs @d @d"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "kneeSlideFail",
+    "controls": "hold @lt flick @rs @l @l"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "waddle",
+    "controls": "hold @lt roll @rs @u @r @d @l"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "twistFlip",
+    "controls": "hold @lt roll @rs @u @l @d @r"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "rugby",
+    "controls": "hold @rt press @r3"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "elbow",
+    "controls": "hold @rb tap @y x2"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "kissTheRing",
+    "controls": "hold @rt tap @b x2"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "theSalute",
+    "controls": "hold @rb press @y"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "chestThump",
+    "controls": "hold @rt @rs flick @d flick @d"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "pushItDown",
+    "controls": "hold @rb tap @b x2"
+  },
+  {
+    "new": false,
+    "type": "Finishing",
+    "id": "glamourSlide",
+    "controls": "hold @rb @rs flick @l flick @l"
+  },
+  {
+    "new": true,
+    "type": "Finishing",
+    "id": "littleBrother",
+    "controls": "hold @lt tap @b x2"
+  },
+  {
+    "new": true,
+    "type": "Finishing",
+    "id": "giddyUp",
+    "controls": "hold @lb press @r3"
+  },
+  {
+    "new": true,
+    "type": "Finishing",
+    "id": "phoneItIn",
+    "controls": "hold @lb hold @rs @u"
+  },
+  {
+    "new": true,
+    "type": "Finishing",
+    "id": "doubleSIII",
+    "controls": "press @a (Ronaldo Signature)"
+  },
+  {
+    "new": true,
+    "type": "Finishing",
+    "id": "hangLoose",
+    "controls": "hold @lb hold @rs @u @d"
+  },
+  {
+    "new": true,
+    "type": "Finishing",
+    "id": "neighbourhood",
+    "controls": "hold @lt flick @rs @d @d"
+  },
+  {
+    "new": true,
+    "type": "Finishing",
+    "id": "kissTheGround",
+    "controls": "hold @lt hold @rs @r"
+  },
+  {
+    "new": true,
+    "type": "Finishing",
+    "id": "matador",
+    "controls": "hold @rt hold @rs @d @u"
+  },
+  {
+    "new": true,
+    "type": "Finishing",
+    "id": "millyRock",
+    "controls": "press @a (Lingard Signature)"
+  },
+  {
+    "new": true,
+    "type": "Finishing",
+    "id": "numberOne",
+    "controls": "press @a (Ronaldo Signature)"
+  },
+  {
+    "new": true,
+    "type": "Finishing",
+    "id": "crocodile",
+    "controls": "press @a (Griezmann Signature)"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "manyBows",
+    "controls": "hold @rt hold @rs @u"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "pardon",
+    "controls": "hold @rt hold @rs @r"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "fallToKneesBeg",
+    "controls": "hold @rt hold @rs @d"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "backflips",
+    "controls": "hold @rt tap @x x2"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "slideOnBack",
+    "controls": "hold @rb tap @x x2"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "cockroach",
+    "controls": "hold @rb press @r3"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "riverDance",
+    "controls": "hold @rb flick @rs @u @u"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "breakDance",
+    "controls": "hold @rb flick @rs @r @r"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "praiseOnKnees",
+    "controls": "hold @rt hold @rs @l"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "backwardsWorm",
+    "controls": "hold @rb roll @rs @u @l @d @r"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "uncontrolledBackflip",
+    "controls": "hold @rt roll @rs @r @l @d @l"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "handstand",
+    "controls": "hold @rt roll @rs @u @l @d @r"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "spinAndFall",
+    "controls": "hold @rt flick @rs @u @u"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "rowingOnKnees",
+    "controls": "hold @rt flick @rs @l @l"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "seatedRowing",
+    "controls": "hold @rt flick @rs @r @r"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "kneeWalk",
+    "controls": "hold @rt press @x"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "cradleSwing",
+    "controls": "hold @rt press @y"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "baby",
+    "controls": "hold @rt tap @y x2"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "flyingDive",
+    "controls": "hold @rb hold @rs @u"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "karateKicks",
+    "controls": "hold @rb hold @rs @r"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "jumpKicks",
+    "controls": "hold @rb hold @rs @d"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "iceSkating",
+    "controls": "hold @rb flick @rs @d @u"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "golfSwing",
+    "controls": "hold @rb flick @rs @l @r"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "dance1",
+    "controls": "hold @rt flick @rs @d @u"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "dance2",
+    "controls": "hold @rt flick @rs @u @d"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "dance 3",
+    "controls": "hold @rt flick @rs @l @r"
+  },
+  {
+    "new": false,
+    "type": "Pro Unlockables",
+    "id": "dance 4",
+    "controls": "hold @rt flick @rs @r @l"
+  },
+  {
+    "new": false,
+    "type": "EA FC Unlockables",
+    "id": "ko",
+    "controls": "hold @lb tap @x x2"
+  },
+  {
+    "new": false,
+    "type": "EA FC Unlockables",
+    "id": "rightHereRightNow",
+    "controls": "hold @rb press @b"
+  },
+  {
+    "new": false,
+    "type": "EA FC Unlockables",
+    "id": "handBite",
+    "controls": "hold @lt flick @rs @d @u"
+  },
+  {
+    "new": false,
+    "type": "EA FC Unlockables",
+    "id": "standTall",
+    "controls": "hold @rb @rs hold @l"
+  },
+  {
+    "new": false,
+    "type": "EA FC Unlockables",
+    "id": "kissTheWrist",
+    "controls": "hold @lt tap @b x2"
+  },
+  {
+    "new": false,
+    "type": "EA FC Unlockables",
+    "id": "oldMan",
+    "controls": "hold @lt press @r3"
+  },
+  {
+    "new": false,
+    "type": "EA FC Unlockables",
+    "id": "calmDown",
+    "controls": "hold @lb tap @y x2"
+  },
+  {
+    "new": false,
+    "type": "EA FC Unlockables",
+    "id": "theBear",
+    "controls": "hold @lb hold @rs @u"
+  },
+  {
+    "new": false,
+    "type": "EA FC Unlockables",
+    "id": "motorbike",
+    "controls": "hold @lb hold @rs @d"
+  },
+  {
+    "new": false,
+    "type": "EA FC Unlockables",
+    "id": "bailandoRobot",
+    "controls": "hold @lb flick @rs @u @d"
+  },
+  {
+    "new": false,
+    "type": "EA FC Unlockables",
+    "id": "muevelo",
+    "controls": "hold @lb flick @rs @r @l"
+  },
+  {
+    "new": false,
+    "type": "EA FC Unlockables",
+    "id": "pattyCake",
+    "controls": "hold @lb flick @rs @r @r"
+  },
+  {
+    "new": false,
+    "type": "EA FC Unlockables",
+    "id": "muscleFlex",
+    "controls": "hold @rb flick @rs @u @d"
+  },
+  {
+    "new": false,
+    "type": "EA FC Unlockables",
+    "id": "pushUps",
+    "controls": "hold @rb flick @rs @r @l"
+  },
+  {
+    "new": false,
+    "type": "EA FC Unlockables",
+    "id": "theWorm",
+    "controls": "hold @rb + roll @rs @u @r @d @l"
+  },
+  {
+    "new": false,
+    "type": "EA FC Unlockables",
+    "id": "dance",
+    "controls": "hold @rb flick @rs @d @d"
+  },
+  {
+    "new": false,
+    "type": "EA FC Unlockables",
+    "id": "prancingBird",
+    "controls": "hold @rb press @x"
+  },
+  {
+    "new": false,
+    "type": "EA FC Unlockables",
+    "id": "gallopDance",
+    "controls": "hold @lb press @r3"
+  }
+]
