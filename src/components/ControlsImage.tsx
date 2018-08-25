@@ -109,7 +109,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#303030'
+    backgroundColor: '#303030',
+    flexWrap: 'wrap'
   },
   home: {
     flex: 1

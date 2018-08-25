@@ -78,7 +78,11 @@ export default class ListTab extends React.Component<Props, State> {
   private renderItem = ({ item, index }: any) => {
     return (
       <View style={styles.item} key={index}>
-        <Text style={{ fontSize: 18, color: '#fff' }}>{item.id}</Text>
+        <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 5 }}>
+          <Text style={{ fontSize: 18, color: '#fff' }}>{this.props.t(`main:${item.id}`)}</Text>
+          {item.new && <Text style={styles.new}>{this.props.t('main:new')}</Text>}
+        </View>
+
         <ControlsImage controls={item.controls} isXb={this.props.isXboxSelected} t={this.props.t} />
       </View>
     )
@@ -98,5 +102,14 @@ const styles = StyleSheet.create({
     padding: 10,
     borderBottomWidth: 1,
     borderColor: '#ffffff1f'
+  },
+  new: {
+    fontSize: 12,
+    color: '#fff',
+    backgroundColor: '#d32f2f',
+    borderRadius: 5,
+    marginLeft: 10,
+    paddingLeft: 5,
+    paddingRight: 5
   }
 })
