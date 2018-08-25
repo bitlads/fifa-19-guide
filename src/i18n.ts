@@ -31,7 +31,11 @@ i18n
           thank_you: 'Thank you for downloading Ultimate Guide for FIFA 19. The app is constantly updated with new information so check back often!',
           days_until: 'days until FIFA 19',
           preorder: 'Preorder',
-          preorder_now: 'Preorder today for exclusive Ultimate Team content'
+          preorder_now: 'Preorder today for exclusive Ultimate Team content',
+          hold: 'Hold',
+          flick: 'Flick',
+          roll: 'Roll',
+          click: 'click'
         }
       },
       es: {
@@ -45,7 +49,11 @@ i18n
             'Gracias por descargar Guía Máxima de FIFA 19. ¡La app es actualizada constantemente con información nuevo entonces vuelva pronto para ver mas contenido!',
           days_until: 'días hasta FIFA 19',
           preorder: 'Reserva',
-          preorder_now: 'Reserva hoy para contenido especial de Ultimate Team'
+          preorder_now: 'Reserva hoy para contenido especial de Ultimate Team',
+          hold: 'Mantener',
+          flick: 'Toque',
+          roll: 'Rota',
+          click: 'Mantener Pulsado'
         }
       }
     },

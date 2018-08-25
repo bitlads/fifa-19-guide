@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text, SectionList, StyleSheet, View } from 'react-native'
 import Toggle from '../../components/Toggle'
+import ControlsImage from '../../components/ControlsImage'
 
 interface SkillMove {
   id: string
@@ -78,7 +79,7 @@ export default class ListTab extends React.Component<Props, State> {
     return (
       <View style={styles.item} key={index}>
         <Text style={{ fontSize: 18, color: '#fff' }}>{item.id}</Text>
-        <Text style={{ fontSize: 18, color: '#fff' }}>{item.controls}</Text>
+        <ControlsImage controls={item.controls} isXb={this.props.isXboxSelected} t={this.props.t} />
       </View>
     )
   }
