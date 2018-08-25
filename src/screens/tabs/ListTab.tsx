@@ -55,11 +55,11 @@ export default class ListTab extends React.Component<Props, State> {
   private makeSections() {
     if (!this.state.data) return []
     let sections = [
-      { title: '1 Star', data: new Array<SkillMove>() },
-      { title: '2 Star', data: new Array<SkillMove>() },
-      { title: '3 Star', data: new Array<SkillMove>() },
-      { title: '4 Star', data: new Array<SkillMove>() },
-      { title: '5 Star', data: new Array<SkillMove>() }
+      { title: `1 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
+      { title: `2 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
+      { title: `3 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
+      { title: `4 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
+      { title: `5 ${this.props.t('main:star')}`, data: new Array<SkillMove>() }
     ]
     this.state.data.map(item => {
       sections[item.stars - 1].data.push(item)
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   },
   header: {
     padding: 5,
-    backgroundColor: '#4CAF50'
+    backgroundColor: '#FFAB00'
   },
   item: {
     padding: 10,

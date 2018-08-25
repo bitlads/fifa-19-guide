@@ -25,7 +25,10 @@ export default class Toggle extends React.Component<Props> {
 const styles = StyleSheet.create({
   toggle: {
     flexDirection: 'row',
-    padding: 10,
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 10,
+    paddingBottom: 10,
     backgroundColor: '#424242'
   },
   xbButton: {

@@ -13,11 +13,15 @@ export default class ControlsImage extends React.Component<Props> {
     return <View style={styles.container}>{items.map(this.renderItem)}</View>
   }
 
-  private renderItem = (item: string) => {
+  private renderItem = (item: string, index: number) => {
     if (item.substring(0, 1) === '@') {
-      return <Image style={styles.image} resizeMode="contain" source={this.getImageFromButton(item.substr(1))} />
+      return <Image key={index} style={styles.image} resizeMode="contain" source={this.getImageFromButton(item.substr(1))} />
     } else {
-      return <Text style={styles.text}>{this.localize(item)}</Text>
+      return (
+        <Text key={index} style={styles.text}>
+          {this.localize(item)}
+        </Text>
+      )
     }
   }
 

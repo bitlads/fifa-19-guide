@@ -35,7 +35,8 @@ i18n
           hold: 'Hold',
           flick: 'Flick',
           roll: 'Roll',
-          click: 'click'
+          click: 'click',
+          star: 'Star'
         }
       },
       es: {
@@ -53,7 +54,8 @@ i18n
           hold: 'Mantener',
           flick: 'Toque',
           roll: 'Rota',
-          click: 'Mantener Pulsado'
+          click: 'Mantener Pulsado',
+          star: 'Estrella'
         }
       }
     },

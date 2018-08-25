@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Dimensions, SafeAreaView, StyleSheet, View } from 'react-native'
+import { Dimensions, SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import { translate } from 'react-i18next'
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view'
 import HomeTab from './tabs/HomeTab'
@@ -52,7 +52,7 @@ class TabScreen extends React.Component<IProps, IState> {
 
   private handleIndexChange = (index: Number) => this.setState({ index })
 
-  private renderTabBar = (props: any) => <TabBar {...props} style={styles.tabBar} indicatorStyle={styles.indicator} />
+  private renderTabBar = (props: any) => <TabBar {...props} style={styles.tabBar} labelStyle={styles.label} indicatorStyle={styles.indicator} scrollEnabled />
 
   private renderScene = SceneMap({
     home: () => (
@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
   tabBar: {
     backgroundColor: '#212121'
   },
+  label: {},
   indicator: {
     backgroundColor: '#fff'
   }
