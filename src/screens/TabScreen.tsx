@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Dimensions, SafeAreaView, StyleSheet } from 'react-native'
+import { Dimensions, SafeAreaView, StyleSheet, View } from 'react-native'
 import { translate } from 'react-i18next'
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view'
 import HomeTab from './tabs/HomeTab'
@@ -16,16 +16,22 @@ interface IProps {
 interface IState {
   index: Number
   routes: { key: string; title: string }[]
+  isXbox: boolean
 }
 
 class TabScreen extends React.Component<IProps, IState> {
   state = {
     index: 0,
-    routes: [{ key: 'home', title: 'Home' }, { key: 'skills', title: 'Skills' }, { key: 'celebrations', title: 'Celebrations' }]
+    routes: [
+      { key: 'home', title: this.props.t('main:home') },
+      { key: 'skills', title: this.props.t('main:skills') },
+      { key: 'celebrations', title: this.props.t('main:celebrations') }
+    ],
+    isXbox: true
   }
 
-  static navigationOptions = ({ navigation, screenProps }) => ({
-    title: screenProps.t('home:hello')
+  static navigationOptions = ({ navigation, screenProps }: any) => ({
+    title: screenProps.t('main:app_name')
   })
 
   render() {
@@ -48,13 +54,20 @@ class TabScreen extends React.Component<IProps, IState> {
   private renderTabBar = (props: any) => <TabBar {...props} style={styles.tabBar} indicatorStyle={styles.indicator} />
 
   private renderScene = SceneMap({
-    home: () => <HomeTab />,
-    skills: () => <HomeTab />,
-    celebrations: () => <HomeTab />
+    home: () => (
+      <HomeTab
+        t={this.props.t}
+        isXboxSelected={this.state.isXbox}
+        onToggleXb={() => this.setState({ isXbox: true })}
+        onTogglePs={() => this.setState({ isXbox: false })}
+      />
+    ),
+    skills: () => <View />,
+    celebrations: () => <View />
   })
 }
 
-export default translate(['home', 'common'], { wait: true })(TabScreen)
+export default translate(['main', 'common'], { wait: true })(TabScreen)
 
 const styles = StyleSheet.create({
   container: {

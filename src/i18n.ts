@@ -22,13 +22,30 @@ i18n
 
     resources: {
       en: {
-        home: {
-          hello: 'Hello'
+        main: {
+          app_name: 'Ultimate Guide for FIFA 19',
+          home: 'Home',
+          skills: 'Skills',
+          celebrations: 'Celebrations',
+          dev_message: 'Message from the developer',
+          thank_you: 'Thank you for downloading Ultimate Guide for FIFA 19. The app is constantly updated with new information so check back often!',
+          days_until: 'days until FIFA 19',
+          preorder: 'Preorder',
+          preorder_now: 'Preorder today for exclusive Ultimate Team content'
         }
       },
       es: {
-        home: {
-          hello: 'Hola'
+        main: {
+          app_name: 'Guía Máxima de FIFA 19',
+          home: 'Casa',
+          skills: 'Filigranas',
+          celebrations: 'Celebraciones',
+          dev_message: 'Mensaje del desarrollador',
+          thank_you:
+            'Gracias por descargar Guía Máxima de FIFA 19. ¡La app es actualizada constantemente con información nuevo entonces vuelva pronto para ver mas contenido!',
+          days_until: 'días hasta FIFA 19',
+          preorder: 'Reserva',
+          preorder_now: 'Reserva hoy para contenido especial de Ultimate Team'
         }
       }
     },
