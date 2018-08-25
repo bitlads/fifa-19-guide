@@ -572,6 +572,18 @@
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
 
+"@types/expo@^27.0.8":
+  version "27.0.8"
+  resolved "https://registry.yarnpkg.com/@types/expo/-/expo-27.0.8.tgz#c8780b665eb5785689e6444c23a8ae2c9bd39e07"
+  dependencies:
+    "@types/fbemitter" "*"
+    "@types/react" "*"
+    "@types/react-native" "*"
+
+"@types/fbemitter@*":
+  version "2.0.32"
+  resolved "https://registry.yarnpkg.com/@types/fbemitter/-/fbemitter-2.0.32.tgz#8ed204da0f54e9c8eaec31b1eec91e25132d082c"
+
 "@types/glob@*":
   version "5.0.35"
   resolved "https://registry.yarnpkg.com/@types/glob/-/glob-5.0.35.tgz#1ae151c802cece940443b5ac246925c85189f32a"
@@ -579,6 +591,10 @@
     "@types/events" "*"
     "@types/minimatch" "*"
     "@types/node" "*"
+
+"@types/i18next@*", "@types/i18next@^8.4.4":
+  version "8.4.4"
+  resolved "https://registry.yarnpkg.com/@types/i18next/-/i18next-8.4.4.tgz#76591ab5974b65910e44b8860202d4f544f39b9d"
 
 "@types/jest@^22.2.3":
   version "22.2.3"
@@ -596,6 +612,13 @@
   version "15.5.5"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.5.tgz#17038dd322c2325f5da650a94d5f9974943625e3"
   dependencies:
+    "@types/react" "*"
+
+"@types/react-i18next@^7.8.2":
+  version "7.8.2"
+  resolved "https://registry.yarnpkg.com/@types/react-i18next/-/react-i18next-7.8.2.tgz#a388e3a2b97da361761000cdcd23b9a621f81472"
+  dependencies:
+    "@types/i18next" "*"
     "@types/react" "*"
 
 "@types/react-native-tab-view@^1.0.2":
@@ -3360,6 +3383,12 @@ html-encoding-sniffer@^1.0.2:
   dependencies:
     whatwg-encoding "^1.0.1"
 
+html-parse-stringify2@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/html-parse-stringify2/-/html-parse-stringify2-2.0.1.tgz#dc5670b7292ca158b7bc916c9a6735ac8872834a"
+  dependencies:
+    void-elements "^2.0.1"
+
 http-errors@1.6.2:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/http-errors/-/http-errors-1.6.2.tgz#0a002cc85707192a7e7946ceedc11155f60ec736"
@@ -3399,6 +3428,10 @@ https-proxy-agent@^2.2.1:
   dependencies:
     agent-base "^4.1.0"
     debug "^3.1.0"
+
+i18next@^11.6.0:
+  version "11.6.0"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-11.6.0.tgz#e0047aa3e3a0080f6f318426f90597cbb0d6ddd5"
 
 iconv-lite@0.4.19:
   version "0.4.19"
@@ -5672,6 +5705,14 @@ react-google-maps@^7.3.0:
     scriptjs "2.5.8"
     warning "3.0.0"
 
+react-i18next@^7.11.0:
+  version "7.11.0"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-7.11.0.tgz#8933cc8d75dce015204ba921ece099810e2944d4"
+  dependencies:
+    hoist-non-react-statics "^2.3.1"
+    html-parse-stringify2 "2.0.1"
+    prop-types "^15.6.0"
+
 react-is@^16.3.1, react-is@^16.4.2:
   version "16.4.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.2.tgz#84891b56c2b6d9efdee577cc83501dfc5ecead88"
@@ -7205,6 +7246,10 @@ verror@1.10.0:
 very-fast-args@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/very-fast-args/-/very-fast-args-1.1.0.tgz#e16d1d1faf8a6e596a246421fd90a77963d0b396"
+
+void-elements@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
 
 w3c-hr-time@^1.0.1:
   version "1.0.1"

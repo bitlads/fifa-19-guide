@@ -1,11 +1,16 @@
 import * as React from 'react'
 import { Dimensions, SafeAreaView, StyleSheet } from 'react-native'
+import { translate } from 'react-i18next'
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view'
-import HomeTab from './HomeTab'
+import HomeTab from './tabs/HomeTab'
 
 const initialLayout = {
   height: 0,
   width: Dimensions.get('window').width
+}
+
+interface IProps {
+  t(key: string): string
 }
 
 interface IState {
@@ -13,11 +18,15 @@ interface IState {
   routes: { key: string; title: string }[]
 }
 
-export default class TabScreen extends React.Component<{}, IState> {
+class TabScreen extends React.Component<IProps, IState> {
   state = {
     index: 0,
     routes: [{ key: 'home', title: 'Home' }, { key: 'skills', title: 'Skills' }, { key: 'celebrations', title: 'Celebrations' }]
   }
+
+  static navigationOptions = ({ navigation, screenProps }) => ({
+    title: screenProps.t('home:hello')
+  })
 
   render() {
     return (
@@ -44,6 +53,8 @@ export default class TabScreen extends React.Component<{}, IState> {
     celebrations: () => <HomeTab />
   })
 }
+
+export default translate(['home', 'common'], { wait: true })(TabScreen)
 
 const styles = StyleSheet.create({
   container: {
