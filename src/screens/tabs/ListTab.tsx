@@ -61,9 +61,9 @@ export default class ListTab extends React.Component<Props, State> {
 
   private getJsonFromCategory() {
     if (this.props.category === 'Skills') {
-      return require('../../assets/data/skills.json')
+      return require('../../../assets/skills.json')
     } else {
-      return require('../../assets/data/celebrations.json')
+      return require('../../../assets/celebrations.json')
     }
   }
 
