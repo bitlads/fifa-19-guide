@@ -1,7 +1,9 @@
 import * as React from 'react'
-import { Dimensions, SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, SafeAreaView, StyleSheet } from 'react-native'
 import { translate } from 'react-i18next'
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view'
+import { AdMobBanner } from 'expo'
+import { ADMOB_BANNER_ID } from '../Secrets'
 import HomeTab from './tabs/HomeTab'
 import ListTab from './tabs/ListTab'
 
@@ -37,7 +39,7 @@ class TabScreen extends React.Component<IProps, IState> {
 
   render() {
     return (
-      <SafeAreaView style={{ flex: 1, backgroundColor: '#FAFAFA' }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#303030' }}>
         <TabView
           navigationState={this.state}
           renderScene={this.renderScene}
@@ -46,6 +48,7 @@ class TabScreen extends React.Component<IProps, IState> {
           initialLayout={initialLayout}
           tabBarPosition="bottom"
         />
+        <AdMobBanner style={{ alignSelf: 'center' }} adUnitID={ADMOB_BANNER_ID} bannerSize="fullBanner" testDeviceID="EMULATOR" />
       </SafeAreaView>
     )
   }
@@ -63,8 +66,8 @@ class TabScreen extends React.Component<IProps, IState> {
         onTogglePs={() => this.setState({ isXbox: false })}
       />
     ),
-    skills: () => <ListTab t={this.props.t} category="Skills" isXboxSelected={this.state.isXbox} />,
-    celebrations: () => <ListTab t={this.props.t} category="Celbrations" isXboxSelected={this.state.isXbox} />
+    skills: () => <ListTab t={this.props.t} category="Skills" />,
+    celebrations: () => <ListTab t={this.props.t} category="Celbrations" />
   })
 }
 
