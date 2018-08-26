@@ -41,10 +41,9 @@ i18n
           then: 'Then',
           star: 'Star',
           new: 'New',
-          runningMoves: 'Running Moves',
-          finishingMoves: 'Finishing Moves',
-          proUnlockables: 'Pro Unlockables',
-          eaFcUnlockables: 'EA FC Unlockables',
+          or: 'or',
+          newInFifa19: 'New in FIFA 19',
+          newStuff: '- 20 new skill moves\n- 11 new celebrations\n- Champions League Mode\n- Survival Mode',
           //SKILLS
           stopAndTurnR: 'Stop and Turn Right (while running)',
           heelFlickTurn: 'Heel Flick Turn',
@@ -120,6 +119,10 @@ i18n
           rouletteR: 'Roulette Right',
           tornadoSpinR: 'Tornado Spin Right',
           //CELEBRATIONS
+          runningMoves: 'Running Moves',
+          finishingMoves: 'Finishing Moves',
+          proUnlockables: 'Pro Unlockables',
+          eaFcUnlockables: 'EA FC Unlockables',
           pardon: 'Pardon',
           dance: 'Dance',
           kneeWalk: 'Knee Walk',
@@ -238,7 +241,7 @@ i18n
       es: {
         main: {
           app_name: 'Guía Máxima de FIFA 19',
-          home: 'Casa',
+          home: 'Inicio',
           skills: 'Filigranas',
           celebrations: 'Celebraciones',
           dev_message: 'Mensaje del desarrollador',
@@ -256,10 +259,9 @@ i18n
           then: 'Luego',
           star: 'Estrella',
           new: 'Nuevo',
-          runningMoves: 'Movimietos en Carrera',
-          finishingMoves: 'Movimientos de Finalización',
-          proUnlockables: 'Desbloqueables Pro',
-          eaFcUnlockables: 'Desbloqueables de EAS FC',
+          or: 'o',
+          newInFifa19: 'Nuevo en FIFA 19',
+          newStuff: '- 20 filigranas nuevas\n- 11 celebraciones nuevas\n- Modo Liga de Campeones\n- Modo Supervivencia',
           //SKILLS
           stopAndTurnR: 'Parar y girar a la derecha(en carrera)',
           heelFlickTurn: 'Heel Flick Turn',
@@ -335,6 +337,10 @@ i18n
           rouletteR: 'Ruleta derecha',
           tornadoSpinR: 'Tornado Spin Right',
           //CELEBRATIONS
+          runningMoves: 'Movimietos en Carrera',
+          finishingMoves: 'Movimientos de Finalización',
+          proUnlockables: 'Desbloqueables Pro',
+          eaFcUnlockables: 'Desbloqueables de EAS FC',
           pardon: '¿Disculpa?',
           dance: 'Baile',
           kneeWalk: 'Andar de rodillas',

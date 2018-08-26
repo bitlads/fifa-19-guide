@@ -38,6 +38,10 @@ export default class HomeTab extends React.Component<IProps> {
               onPress={() => Linking.openURL('http://a.co/d/fJLqixe')}
             />
           </View>
+          <View style={styles.card}>
+            <Text style={styles.cardTitle}>{this.props.t('main:newInFifa19')}</Text>
+            <Text style={styles.cardText}>{this.props.t('main:newStuff')}</Text>
+          </View>
         </ScrollView>
       </View>
     )

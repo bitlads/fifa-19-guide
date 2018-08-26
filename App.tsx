@@ -12,7 +12,9 @@ const Stack = createStackNavigator(
     initialRouteName: 'Tabs',
     navigationOptions: {
       headerStyle: {
-        backgroundColor: '#212121'
+        backgroundColor: '#212121',
+        elevation: 0,
+        shadowOpacity: 0
       },
       headerTintColor: '#fff',
       headerTitleStyle: {

@@ -46,7 +46,6 @@ class TabScreen extends React.Component<IProps, IState> {
           renderTabBar={this.renderTabBar}
           onIndexChange={this.handleIndexChange}
           initialLayout={initialLayout}
-          tabBarPosition="bottom"
         />
         <AdMobBanner style={{ alignSelf: 'center' }} adUnitID={ADMOB_BANNER_ID} bannerSize="fullBanner" testDeviceID="EMULATOR" />
       </SafeAreaView>
