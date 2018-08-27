@@ -621,13 +621,6 @@
     "@types/i18next" "*"
     "@types/react" "*"
 
-"@types/react-native-tab-view@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@types/react-native-tab-view/-/react-native-tab-view-1.0.2.tgz#680c7969b0f5a1b3aaa3177c4ae35aeb81d0b1ff"
-  dependencies:
-    "@types/react" "*"
-    "@types/react-native" "*"
-
 "@types/react-native@*":
   version "0.56.11"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.56.11.tgz#03523c23e580f7c0e9297ca9af330bd12678e749"
@@ -5894,7 +5887,7 @@ react-native-tab-view@^0.0.77:
   dependencies:
     prop-types "^15.6.0"
 
-react-native-tab-view@^1.0.0, react-native-tab-view@^1.0.2:
+react-native-tab-view@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-1.0.2.tgz#66e0bc6d38a227ed2b212e3a256b7902f6ce02ed"
   dependencies:

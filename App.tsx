@@ -30,10 +30,12 @@ const LocalizedStack = ({ t }: any) => {
   return <StackNav screenProps={{ t }} />
 }
 
-const ReloadAppOnLanguageChange = translate('common', {
+const options: any = {
   bindI18n: 'languageChanged',
   bindStore: false
-})(LocalizedStack)
+}
+
+const ReloadAppOnLanguageChange = translate('common', options)(LocalizedStack)
 
 export default class App extends React.Component<{}> {
   render() {

@@ -4,6 +4,8 @@ import ControlsImage from '../components/ControlsImage'
 import { translate } from 'react-i18next'
 import { NavigationScreenProps } from 'react-navigation'
 import { TranslationProps } from '../Const'
+import { ADMOB_BANNER_ID } from '../Secrets'
+import { AdMobBanner } from 'expo'
 
 interface SkillMove {
   id: string
@@ -53,6 +55,7 @@ class ListScreen extends React.Component<Props, State> {
           keyExtractor={(item, index) => item + index}
           removeClippedSubviews={true}
         />
+        <AdMobBanner style={{ alignSelf: 'center' }} adUnitID={ADMOB_BANNER_ID} bannerSize="fullBanner" testDeviceID="EMULATOR" />
       </View>
     )
   }

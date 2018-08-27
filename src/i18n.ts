@@ -2,11 +2,13 @@ import i18n from 'i18next'
 import Expo from 'expo'
 import { reactI18nextModule } from 'react-i18next'
 
+const expo: any = Expo
+
 const languageDetector = {
   type: 'languageDetector',
   async: true, // flags below detection to be async
   detect: (callback: any) => {
-    return /*'en'; */ Expo.DangerZone.Localization.getCurrentLocaleAsync().then((lng: any) => {
+    return /*'en'; */ expo.DangerZone.Localization.getCurrentLocaleAsync().then((lng: any) => {
       callback(lng.replace('_', '-'))
     })
   },
