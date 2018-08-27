@@ -1,7 +1,9 @@
 import React from 'react'
 import { Text, SectionList, StyleSheet, View } from 'react-native'
-import Toggle from '../../components/Toggle'
-import ControlsImage from '../../components/ControlsImage'
+import ControlsImage from '../components/ControlsImage'
+import { translate } from 'react-i18next'
+import { NavigationScreenProps } from 'react-navigation'
+import { TranslationProps } from '../Const'
 
 interface SkillMove {
   id: string
@@ -15,23 +17,24 @@ interface Celebration {
   controls: string
 }
 
-interface Props {
-  t(key: string): string
-  category: string
-}
+interface Props extends NavigationScreenProps, TranslationProps {}
 
 interface State {
   data: Array<any>
-  isXboxSelected: boolean
 }
 
-export default class ListTab extends React.Component<Props, State> {
+class ListScreen extends React.Component<Props, State> {
+  private category: string
+  private isXboxSelected: boolean
+
   constructor(props: Props) {
     super(props)
     this.state = {
-      data: [],
-      isXboxSelected: true
+      data: []
     }
+    const { navigation } = this.props
+    this.category = navigation.getParam('category', '')
+    this.isXboxSelected = navigation.getParam('isXboxSelected', true)
   }
 
   componentDidMount() {
@@ -42,11 +45,6 @@ export default class ListTab extends React.Component<Props, State> {
     const sections = this.makeSections()
     return (
       <View style={styles.container}>
-        <Toggle
-          isXbSelected={this.state.isXboxSelected}
-          onToggleXb={() => this.setState({ isXboxSelected: true })}
-          onTogglePs={() => this.setState({ isXboxSelected: false })}
-        />
         <SectionList
           style={{ flex: 1 }}
           renderItem={this.renderItem}
@@ -59,17 +57,23 @@ export default class ListTab extends React.Component<Props, State> {
     )
   }
 
+  static navigationOptions = ({ navigation }: NavigationScreenProps) => {
+    return {
+      title: navigation.getParam('title', '')
+    }
+  }
+
   private getJsonFromCategory() {
-    if (this.props.category === 'Skills') {
-      return require('../../../assets/skills.json')
+    if (this.category === 'Skills') {
+      return require('../../assets/skills.json')
     } else {
-      return require('../../../assets/celebrations.json')
+      return require('../../assets/celebrations.json')
     }
   }
 
   private makeSections() {
     if (!this.state.data) return []
-    if (this.props.category === 'Skills') {
+    if (this.category === 'Skills') {
       let sections = [
         { title: `1 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
         { title: `2 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
@@ -124,11 +128,13 @@ export default class ListTab extends React.Component<Props, State> {
           {item.new && <Text style={styles.new}>{this.props.t('main:new')}</Text>}
         </View>
 
-        <ControlsImage controls={item.controls} isXb={this.state.isXboxSelected} t={this.props.t} />
+        <ControlsImage controls={item.controls} isXb={this.isXboxSelected} t={this.props.t} />
       </View>
     )
   }
 }
+
+export default translate(['main', 'common'], { wait: true })(ListScreen)
 
 const styles = StyleSheet.create({
   container: {

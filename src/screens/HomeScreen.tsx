@@ -1,18 +1,24 @@
 import * as React from 'react'
 import { Linking, ScrollView, StyleSheet, Text, View } from 'react-native'
-import HomeButton from '../../components/HomeButton'
+import HomeButton from '../components/HomeButton'
+import { translate } from 'react-i18next'
+import { NavigationScreenProps } from 'react-navigation'
+import { TranslationProps } from '../Const'
+import Toggle from '../components/Toggle'
 
-interface IProps {
-  t(key: string): string
+interface Props extends NavigationScreenProps, TranslationProps {}
+
+interface State {
   isXboxSelected: boolean
-  onToggleXb(): void
-  onTogglePs(): void
 }
 
-export default class HomeTab extends React.Component<IProps> {
+class HomeScreen extends React.Component<Props, State> {
   private daysLeft: number
-  constructor(props: IProps) {
+  constructor(props: Props) {
     super(props)
+    this.state = {
+      isXboxSelected: true
+    }
     const today = new Date()
     const release = new Date('September 28, 2018 00:00:00')
     var timeDiff = Math.abs(release.getTime() - today.getTime())
@@ -23,6 +29,11 @@ export default class HomeTab extends React.Component<IProps> {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.home}>
+          <Toggle
+            isXbSelected={this.state.isXboxSelected}
+            onToggleXb={() => this.setState({ isXboxSelected: true })}
+            onTogglePs={() => this.setState({ isXboxSelected: false })}
+          />
           <View style={styles.card}>
             <Text style={styles.cardTitle}>{this.props.t('main:dev_message')}</Text>
             <Text style={styles.cardText}>{this.props.t('main:thank_you')}</Text>
@@ -42,11 +53,37 @@ export default class HomeTab extends React.Component<IProps> {
             <Text style={styles.cardTitle}>{this.props.t('main:newInFifa19')}</Text>
             <Text style={styles.cardText}>{this.props.t('main:newStuff')}</Text>
           </View>
+          <View style={styles.row}>
+            <HomeButton
+              text={this.props.t('main:skills')}
+              actionText={this.props.t('main:skills')}
+              onPress={() => this.navigate('Skills', this.props.t('main:skills'))}
+            />
+            <HomeButton
+              text={this.props.t('main:celebrations')}
+              actionText={this.props.t('main:celebrations')}
+              onPress={() => this.navigate('Celebrations', this.props.t('main:celebrations'))}
+            />
+          </View>
         </ScrollView>
       </View>
     )
   }
+
+  static navigationOptions = {
+    title: 'Home'
+  }
+
+  private navigate(category: string, title: string) {
+    this.props.navigation.navigate('List', {
+      category,
+      title,
+      isXboxSelected: this.state.isXboxSelected
+    })
+  }
 }
+
+export default translate(['main', 'common'], { wait: true })(HomeScreen)
 
 const styles = StyleSheet.create({
   container: {

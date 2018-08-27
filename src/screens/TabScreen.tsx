@@ -1,11 +1,11 @@
-import * as React from 'react'
-import { Dimensions, SafeAreaView, StyleSheet } from 'react-native'
+/*import * as React from 'react'
+import { Dimensions, SafeAreaView, StyleSheet, View } from 'react-native'
 import { translate } from 'react-i18next'
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view'
 import { AdMobBanner } from 'expo'
 import { ADMOB_BANNER_ID } from '../Secrets'
 import HomeTab from './tabs/HomeTab'
-import ListTab from './tabs/ListTab'
+import ListTab from './ListScreen'
 
 const initialLayout = {
   height: 0,
@@ -34,7 +34,8 @@ class TabScreen extends React.Component<IProps, IState> {
   }
 
   static navigationOptions = ({ navigation, screenProps }: any) => ({
-    title: screenProps.t('main:app_name')
+    drawerLabel: 'Home',
+    drawerIcon: ({ tintColor }) => <View style={{ height: 20, width: 20, backgroundColor: '#fff' }} />
   })
 
   render() {
@@ -86,4 +87,4 @@ const styles = StyleSheet.create({
   indicator: {
     backgroundColor: '#fff'
   }
-})
+})*/

@@ -1,15 +1,17 @@
 import * as React from 'react'
-import TabScreen from './src/screens/TabScreen'
+import HomeScreen from './src/screens/HomeScreen'
+import ListScreen from './src/screens/ListScreen'
 import { createStackNavigator } from 'react-navigation'
 import { I18nextProvider, translate } from 'react-i18next'
 import i18n from './src/i18n'
 
-const Stack = createStackNavigator(
+const StackNav = createStackNavigator(
   {
-    Tabs: TabScreen
+    Home: HomeScreen,
+    List: ListScreen
   },
   {
-    initialRouteName: 'Tabs',
+    initialRouteName: 'Home',
     navigationOptions: {
       headerStyle: {
         backgroundColor: '#212121',
@@ -25,7 +27,7 @@ const Stack = createStackNavigator(
 )
 
 const LocalizedStack = ({ t }: any) => {
-  return <Stack screenProps={{ t }} />
+  return <StackNav screenProps={{ t }} />
 }
 
 const ReloadAppOnLanguageChange = translate('common', {
