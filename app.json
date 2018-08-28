@@ -7,7 +7,7 @@
     },
     "name": "Ultimate Guide for FIFA 19",
     "description": "Pocket companion for FIFA 19",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "githubUrl": "https://github.com/bitlads/fifa-19-guide",
     "icon": "./assets/icon.png",
     "slug": "fifa-19-guide",
@@ -27,7 +27,7 @@
     },
     "android": {
       "package": "io.bitlads.fifa19",
-      "versionCode": 1
+      "versionCode": 2
     }
   }
 }

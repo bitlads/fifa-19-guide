@@ -4,6 +4,7 @@ import HomeButton from '../components/HomeButton'
 import { translate } from 'react-i18next'
 import { NavigationScreenProps } from 'react-navigation'
 import { TranslationProps } from '../Const'
+import { FIFA_19_AMAZON_LINK } from '../Secrets'
 import Toggle from '../components/Toggle'
 
 interface Props extends NavigationScreenProps, TranslationProps {}
@@ -46,7 +47,7 @@ class HomeScreen extends React.Component<Props, State> {
             <HomeButton
               text={this.props.t('main:preorder_now')}
               actionText={this.props.t('main:preorder')}
-              onPress={() => Linking.openURL('http://a.co/d/fJLqixe')}
+              onPress={() => Linking.openURL(FIFA_19_AMAZON_LINK)}
             />
           </View>
           <View style={styles.card}>

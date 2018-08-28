@@ -1,11 +1,9 @@
 import React from 'react'
-import { Text, SectionList, StyleSheet, View } from 'react-native'
+import { Text, TextInput, SectionList, StyleSheet, View } from 'react-native'
 import ControlsImage from '../components/ControlsImage'
 import { translate } from 'react-i18next'
 import { NavigationScreenProps } from 'react-navigation'
 import { TranslationProps } from '../Const'
-import { ADMOB_BANNER_ID } from '../Secrets'
-import { AdMobBanner } from 'expo'
 
 interface SkillMove {
   id: string
@@ -23,6 +21,7 @@ interface Props extends NavigationScreenProps, TranslationProps {}
 
 interface State {
   data: Array<any>
+  searchText: string
 }
 
 class ListScreen extends React.Component<Props, State> {
@@ -32,7 +31,8 @@ class ListScreen extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
     this.state = {
-      data: []
+      data: [],
+      searchText: ''
     }
     const { navigation } = this.props
     this.category = navigation.getParam('category', '')
@@ -47,6 +47,12 @@ class ListScreen extends React.Component<Props, State> {
     const sections = this.makeSections()
     return (
       <View style={styles.container}>
+        <TextInput
+          style={styles.search}
+          underlineColorAndroid="#fff"
+          onChangeText={searchText => this.setState({ searchText })}
+          value={this.state.searchText}
+        />
         <SectionList
           style={{ flex: 1 }}
           renderItem={this.renderItem}
@@ -55,7 +61,6 @@ class ListScreen extends React.Component<Props, State> {
           keyExtractor={(item, index) => item + index}
           removeClippedSubviews={true}
         />
-        <AdMobBanner style={{ alignSelf: 'center' }} adUnitID={ADMOB_BANNER_ID} bannerSize="fullBanner" testDeviceID="EMULATOR" />
       </View>
     )
   }
@@ -67,11 +72,15 @@ class ListScreen extends React.Component<Props, State> {
   }
 
   private getJsonFromCategory() {
+    let data
     if (this.category === 'Skills') {
-      return require('../../assets/skills.json')
+      data = require('../../assets/skills.json')
     } else {
-      return require('../../assets/celebrations.json')
+      data = require('../../assets/celebrations.json')
     }
+    return data.map((item: any) => {
+      return { ...item, id: this.props.t(`main:${item.id}`) }
+    })
   }
 
   private makeSections() {
@@ -84,8 +93,10 @@ class ListScreen extends React.Component<Props, State> {
         { title: `4 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
         { title: `5 ${this.props.t('main:star')}`, data: new Array<SkillMove>() }
       ]
-      this.state.data.map((item: SkillMove) => {
-        sections[item.stars - 1].data.push(item)
+      this.state.data.forEach((item: SkillMove) => {
+        if (this.state.searchText === '' || item.id.toLowerCase().includes(this.state.searchText.toLowerCase())) {
+          sections[item.stars - 1].data.push(item)
+        }
       })
       return sections
     } else {
@@ -95,20 +106,22 @@ class ListScreen extends React.Component<Props, State> {
         { title: this.props.t('proUnlockables'), data: new Array<Celebration>() },
         { title: this.props.t('eaFcUnlockables'), data: new Array<Celebration>() }
       ]
-      this.state.data.map((item: Celebration) => {
-        switch (item.type) {
-          case 'runningMoves':
-            sections[0].data.push(item)
-            break
-          case 'finishingMoves':
-            sections[1].data.push(item)
-            break
-          case 'proUnlockables':
-            sections[2].data.push(item)
-            break
-          case 'eaFcUnlockables':
-            sections[3].data.push(item)
-            break
+      this.state.data.forEach((item: Celebration) => {
+        if (this.state.searchText === '' || item.id.toLowerCase().includes(this.state.searchText.toLowerCase())) {
+          switch (item.type) {
+            case 'runningMoves':
+              sections[0].data.push(item)
+              break
+            case 'finishingMoves':
+              sections[1].data.push(item)
+              break
+            case 'proUnlockables':
+              sections[2].data.push(item)
+              break
+            case 'eaFcUnlockables':
+              sections[3].data.push(item)
+              break
+          }
         }
       })
       return sections
@@ -127,7 +140,7 @@ class ListScreen extends React.Component<Props, State> {
     return (
       <View style={styles.item} key={index}>
         <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 5 }}>
-          <Text style={{ fontSize: 18, color: '#fff' }}>{this.props.t(`main:${item.id}`)}</Text>
+          <Text style={{ fontSize: 18, color: '#fff' }}>{item.id}</Text>
           {item.new && <Text style={styles.new}>{this.props.t('main:new')}</Text>}
         </View>
 
@@ -161,5 +174,13 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     paddingLeft: 5,
     paddingRight: 5
+  },
+  search: {
+    height: 40,
+    color: '#fff',
+    margin: 5,
+    textAlign: 'center',
+    padding: 5,
+    fontSize: 18
   }
 })

@@ -4,6 +4,9 @@ import ListScreen from './src/screens/ListScreen'
 import { createStackNavigator } from 'react-navigation'
 import { I18nextProvider, translate } from 'react-i18next'
 import i18n from './src/i18n'
+import { View } from 'react-native'
+import { ADMOB_BANNER_ID } from './src/Secrets'
+import { AdMobBanner } from 'expo'
 
 const StackNav = createStackNavigator(
   {
@@ -41,7 +44,10 @@ export default class App extends React.Component<{}> {
   render() {
     return (
       <I18nextProvider i18n={i18n}>
-        <ReloadAppOnLanguageChange />
+        <View style={{ flex: 1, backgroundColor: '#303030' }}>
+          <ReloadAppOnLanguageChange />
+          <AdMobBanner style={{ alignSelf: 'center' }} adUnitID={ADMOB_BANNER_ID} bannerSize="banner" testDeviceID="EMULATOR" />
+        </View>
       </I18nextProvider>
     )
   }
