@@ -1,6 +1,7 @@
 import * as React from 'react'
 import HomeScreen from './src/screens/HomeScreen'
-import ListScreen from './src/screens/ListScreen'
+import SkillsScreen from './src/screens/SkillsScreen'
+import CelebrationsScreen from './src/screens/CelebrationsScreen'
 import { createStackNavigator } from 'react-navigation'
 import { I18nextProvider, translate } from 'react-i18next'
 import i18n from './src/i18n'
@@ -11,7 +12,8 @@ import { AdMobBanner } from 'expo'
 const StackNav = createStackNavigator(
   {
     Home: HomeScreen,
-    List: ListScreen
+    Skills: SkillsScreen,
+    Celebrations: CelebrationsScreen
   },
   {
     initialRouteName: 'Home',

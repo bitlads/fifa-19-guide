@@ -1,50 +1,33 @@
 import React from 'react'
 import { Text, TextInput, SectionList, StyleSheet, View } from 'react-native'
 import ControlsImage from '../components/ControlsImage'
-import { translate } from 'react-i18next'
 import { NavigationScreenProps } from 'react-navigation'
 import { TranslationProps } from '../Const'
 
-interface SkillMove {
-  id: string
-  stars: number
-  controls: string
+interface Props extends TranslationProps {
+  isXboxSelected: boolean
+  sections: Array<Section>
 }
-
-interface Celebration {
-  id: string
-  type: string
-  controls: string
-}
-
-interface Props extends NavigationScreenProps, TranslationProps {}
 
 interface State {
-  data: Array<any>
   searchText: string
 }
 
-class ListScreen extends React.Component<Props, State> {
-  private category: string
-  private isXboxSelected: boolean
+interface Section {
+  title: string
+  data: Array<any>
+}
 
+export default class ListScreen extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
     this.state = {
-      data: [],
       searchText: ''
     }
-    const { navigation } = this.props
-    this.category = navigation.getParam('category', '')
-    this.isXboxSelected = navigation.getParam('isXboxSelected', true)
-  }
-
-  componentDidMount() {
-    this.setState({ data: this.getJsonFromCategory() })
   }
 
   render() {
-    const sections = this.makeSections()
+    const sections = this.filterList(this.props.sections)
     return (
       <View style={styles.container}>
         <TextInput
@@ -65,66 +48,17 @@ class ListScreen extends React.Component<Props, State> {
     )
   }
 
-  static navigationOptions = ({ navigation }: NavigationScreenProps) => {
-    return {
-      title: navigation.getParam('title', '')
-    }
-  }
-
-  private getJsonFromCategory() {
-    let data
-    if (this.category === 'Skills') {
-      data = require('../../assets/skills.json')
-    } else {
-      data = require('../../assets/celebrations.json')
-    }
-    return data.map((item: any) => {
-      return { ...item, id: this.category === 'Skills' ? this.props.t(`skills:${item.id}`) : this.props.t(`celebrations:${item.id}`) }
+  private filterList(sections: Array<Section>) {
+    if (this.state.searchText === '') return sections
+    return sections.map(section => {
+      const filtered = section.data.filter((item: any) => item.id.toLowerCase().includes(this.state.searchText.toLowerCase()))
+      return { ...section, data: filtered }
     })
   }
 
-  private makeSections() {
-    if (!this.state.data) return []
-    if (this.category === 'Skills') {
-      let sections = [
-        { title: `1 ${this.props.t('list:star')}`, data: new Array<SkillMove>() },
-        { title: `2 ${this.props.t('list:star')}`, data: new Array<SkillMove>() },
-        { title: `3 ${this.props.t('list:star')}`, data: new Array<SkillMove>() },
-        { title: `4 ${this.props.t('list:star')}`, data: new Array<SkillMove>() },
-        { title: `5 ${this.props.t('list:star')}`, data: new Array<SkillMove>() }
-      ]
-      this.state.data.forEach((item: SkillMove) => {
-        if (this.state.searchText === '' || item.id.toLowerCase().includes(this.state.searchText.toLowerCase())) {
-          sections[item.stars - 1].data.push(item)
-        }
-      })
-      return sections
-    } else {
-      let sections = [
-        { title: this.props.t('celebrations:runningMoves'), data: new Array<Celebration>() },
-        { title: this.props.t('celebrations:finishingMoves'), data: new Array<Celebration>() },
-        { title: this.props.t('celebrations:proUnlockables'), data: new Array<Celebration>() },
-        { title: this.props.t('celebrations:eaFcUnlockables'), data: new Array<Celebration>() }
-      ]
-      this.state.data.forEach((item: Celebration) => {
-        if (this.state.searchText === '' || item.id.toLowerCase().includes(this.state.searchText.toLowerCase())) {
-          switch (item.type) {
-            case 'runningMoves':
-              sections[0].data.push(item)
-              break
-            case 'finishingMoves':
-              sections[1].data.push(item)
-              break
-            case 'proUnlockables':
-              sections[2].data.push(item)
-              break
-            case 'eaFcUnlockables':
-              sections[3].data.push(item)
-              break
-          }
-        }
-      })
-      return sections
+  static navigationOptions = ({ navigation }: NavigationScreenProps) => {
+    return {
+      title: navigation.getParam('title', '')
     }
   }
 
@@ -143,14 +77,11 @@ class ListScreen extends React.Component<Props, State> {
           <Text style={{ fontSize: 18, color: '#fff' }}>{item.id}</Text>
           {item.new && <Text style={styles.new}>{this.props.t('list:new')}</Text>}
         </View>
-
-        <ControlsImage controls={item.controls} isXb={this.isXboxSelected} t={this.props.t} />
+        <ControlsImage controls={item.controls} isXb={this.props.isXboxSelected} t={this.props.t} />
       </View>
     )
   }
 }
-
-export default translate(['list', 'skills', 'celebrations', 'common'], { wait: true })(ListScreen)
 
 const styles = StyleSheet.create({
   container: {

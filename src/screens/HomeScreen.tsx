@@ -55,15 +55,11 @@ class HomeScreen extends React.Component<Props, State> {
             <Text style={styles.cardText}>{this.props.t('home:newStuff')}</Text>
           </View>
           <View style={styles.row}>
-            <HomeButton
-              text={this.props.t('common:skills')}
-              actionText={this.props.t('common:skills')}
-              onPress={() => this.navigate('Skills', this.props.t('common:skills'))}
-            />
+            <HomeButton text={this.props.t('common:skills')} actionText={this.props.t('common:skills')} onPress={() => this.navigateSkills()} />
             <HomeButton
               text={this.props.t('common:celebrations')}
               actionText={this.props.t('common:celebrations')}
-              onPress={() => this.navigate('Celebrations', this.props.t('common:celebrations'))}
+              onPress={() => this.navigateCelebrations()}
             />
           </View>
         </ScrollView>
@@ -75,10 +71,16 @@ class HomeScreen extends React.Component<Props, State> {
     title: 'Home'
   }
 
-  private navigate(category: string, title: string) {
-    this.props.navigation.navigate('List', {
-      category,
-      title,
+  private navigateSkills() {
+    this.props.navigation.navigate('Skills', {
+      title: this.props.t('common:skills'),
+      isXboxSelected: this.state.isXboxSelected
+    })
+  }
+
+  private navigateCelebrations() {
+    this.props.navigation.navigate('Celebrations', {
+      title: this.props.t('common:celebrations'),
       isXboxSelected: this.state.isXboxSelected
     })
   }
