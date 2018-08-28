@@ -7,6 +7,7 @@ import { TranslationProps } from '../Const'
 interface Props extends TranslationProps {
   isXboxSelected: boolean
   sections: Array<Section>
+  color: string
 }
 
 interface State {
@@ -64,7 +65,7 @@ export default class ListScreen extends React.Component<Props, State> {
 
   private renderSectionHeader = ({ section: { title } }: any) => {
     return (
-      <View style={styles.header}>
+      <View style={[styles.header, { backgroundColor: this.props.color }]}>
         <Text style={{ fontWeight: 'bold', fontSize: 14, color: '#fff' }}>{title}</Text>
       </View>
     )
@@ -89,8 +90,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#303030'
   },
   header: {
-    padding: 5,
-    backgroundColor: '#FFAB00'
+    padding: 5
   },
   item: {
     padding: 10,
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     height: 40,
     color: '#fff',
     margin: 5,
-    textAlign: 'center',
+    textAlign: 'left',
     padding: 5,
     fontSize: 18
   }

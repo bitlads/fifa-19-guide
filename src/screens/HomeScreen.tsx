@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Linking, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Linking, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import HomeButton from '../components/HomeButton'
 import { translate } from 'react-i18next'
 import { NavigationScreenProps } from 'react-navigation'
@@ -30,14 +30,24 @@ class HomeScreen extends React.Component<Props, State> {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.home}>
+          <Text style={styles.header}>Categories</Text>
+          <View style={styles.row}>
+            <TouchableOpacity style={[styles.section, { backgroundColor: '#00796B' }]} onPress={() => this.navigateSkills()}>
+              <Text style={{ color: '#fff', alignSelf: 'center', fontSize: 18 }}>{this.props.t('common:skills')}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.section, { backgroundColor: '#d32f2f' }]} onPress={() => this.navigateCelebrations()}>
+              <Text style={{ color: '#fff', alignSelf: 'center', fontSize: 18 }}>{this.props.t('common:celebrations')}</Text>
+            </TouchableOpacity>
+          </View>
+          <Text style={styles.header}>Settings</Text>
           <Toggle
             isXbSelected={this.state.isXboxSelected}
             onToggleXb={() => this.setState({ isXboxSelected: true })}
             onTogglePs={() => this.setState({ isXboxSelected: false })}
           />
+          <Text style={styles.header}>{this.props.t('home:newInFifa19')}</Text>
           <View style={styles.card}>
-            <Text style={styles.cardTitle}>{this.props.t('home:dev_message')}</Text>
-            <Text style={styles.cardText}>{this.props.t('home:thank_you')}</Text>
+            <Text style={styles.cardText}>{this.props.t('home:newStuff')}</Text>
           </View>
           <View style={styles.row}>
             <View style={styles.card}>
@@ -50,17 +60,9 @@ class HomeScreen extends React.Component<Props, State> {
               onPress={() => Linking.openURL(FIFA_19_AMAZON_LINK)}
             />
           </View>
+          <Text style={styles.header}>{this.props.t('home:dev_message')}</Text>
           <View style={styles.card}>
-            <Text style={styles.cardTitle}>{this.props.t('home:newInFifa19')}</Text>
-            <Text style={styles.cardText}>{this.props.t('home:newStuff')}</Text>
-          </View>
-          <View style={styles.row}>
-            <HomeButton text={this.props.t('common:skills')} actionText={this.props.t('common:skills')} onPress={() => this.navigateSkills()} />
-            <HomeButton
-              text={this.props.t('common:celebrations')}
-              actionText={this.props.t('common:celebrations')}
-              onPress={() => this.navigateCelebrations()}
-            />
+            <Text style={styles.cardText}>{this.props.t('home:thank_you')}</Text>
           </View>
         </ScrollView>
       </View>
@@ -104,10 +106,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#424242',
     borderRadius: 5
   },
-  cardTitle: {
+  header: {
     color: '#fff',
     fontSize: 20,
-    marginBottom: 5
+    marginLeft: 10,
+    marginTop: 5
   },
   cardText: {
     color: '#fff',
@@ -115,5 +118,13 @@ const styles = StyleSheet.create({
   },
   home: {
     flex: 1
+  },
+  section: {
+    flex: 1,
+    padding: 10,
+    margin: 10,
+    borderRadius: 5,
+    height: 75,
+    justifyContent: 'center'
   }
 })

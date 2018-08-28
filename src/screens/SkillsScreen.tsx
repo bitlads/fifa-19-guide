@@ -45,7 +45,7 @@ class SkillsScreen extends React.Component<Props, State> {
   }
 
   render() {
-    return this.state.sections.length > 0 && <ListScreen t={this.props.t} isXboxSelected={this.isXboxSelected} sections={this.state.sections} />
+    return this.state.sections.length > 0 && <ListScreen t={this.props.t} isXboxSelected={this.isXboxSelected} sections={this.state.sections} color="#00796B" />
   }
 
   static navigationOptions = ({ navigation }: NavigationScreenProps) => {
