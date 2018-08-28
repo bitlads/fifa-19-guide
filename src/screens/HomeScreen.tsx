@@ -36,34 +36,34 @@ class HomeScreen extends React.Component<Props, State> {
             onTogglePs={() => this.setState({ isXboxSelected: false })}
           />
           <View style={styles.card}>
-            <Text style={styles.cardTitle}>{this.props.t('main:dev_message')}</Text>
-            <Text style={styles.cardText}>{this.props.t('main:thank_you')}</Text>
+            <Text style={styles.cardTitle}>{this.props.t('home:dev_message')}</Text>
+            <Text style={styles.cardText}>{this.props.t('home:thank_you')}</Text>
           </View>
           <View style={styles.row}>
             <View style={styles.card}>
               <Text style={{ color: '#fff', fontSize: 36, alignSelf: 'center' }}>{this.daysLeft}</Text>
-              <Text style={{ color: '#fff', alignSelf: 'center' }}>{this.props.t('main:days_until')}</Text>
+              <Text style={{ color: '#fff', alignSelf: 'center' }}>{this.props.t('home:days_until')}</Text>
             </View>
             <HomeButton
-              text={this.props.t('main:preorder_now')}
-              actionText={this.props.t('main:preorder')}
+              text={this.props.t('home:preorder_now')}
+              actionText={this.props.t('home:preorder')}
               onPress={() => Linking.openURL(FIFA_19_AMAZON_LINK)}
             />
           </View>
           <View style={styles.card}>
-            <Text style={styles.cardTitle}>{this.props.t('main:newInFifa19')}</Text>
-            <Text style={styles.cardText}>{this.props.t('main:newStuff')}</Text>
+            <Text style={styles.cardTitle}>{this.props.t('home:newInFifa19')}</Text>
+            <Text style={styles.cardText}>{this.props.t('home:newStuff')}</Text>
           </View>
           <View style={styles.row}>
             <HomeButton
-              text={this.props.t('main:skills')}
-              actionText={this.props.t('main:skills')}
-              onPress={() => this.navigate('Skills', this.props.t('main:skills'))}
+              text={this.props.t('common:skills')}
+              actionText={this.props.t('common:skills')}
+              onPress={() => this.navigate('Skills', this.props.t('common:skills'))}
             />
             <HomeButton
-              text={this.props.t('main:celebrations')}
-              actionText={this.props.t('main:celebrations')}
-              onPress={() => this.navigate('Celebrations', this.props.t('main:celebrations'))}
+              text={this.props.t('common:celebrations')}
+              actionText={this.props.t('common:celebrations')}
+              onPress={() => this.navigate('Celebrations', this.props.t('common:celebrations'))}
             />
           </View>
         </ScrollView>
@@ -84,7 +84,7 @@ class HomeScreen extends React.Component<Props, State> {
   }
 }
 
-export default translate(['main', 'common'], { wait: true })(HomeScreen)
+export default translate(['home', 'common'], { wait: true })(HomeScreen)
 
 const styles = StyleSheet.create({
   container: {

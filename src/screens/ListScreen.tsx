@@ -79,7 +79,7 @@ class ListScreen extends React.Component<Props, State> {
       data = require('../../assets/celebrations.json')
     }
     return data.map((item: any) => {
-      return { ...item, id: this.props.t(`main:${item.id}`) }
+      return { ...item, id: this.category === 'Skills' ? this.props.t(`skills:${item.id}`) : this.props.t(`celebrations:${item.id}`) }
     })
   }
 
@@ -87,11 +87,11 @@ class ListScreen extends React.Component<Props, State> {
     if (!this.state.data) return []
     if (this.category === 'Skills') {
       let sections = [
-        { title: `1 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
-        { title: `2 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
-        { title: `3 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
-        { title: `4 ${this.props.t('main:star')}`, data: new Array<SkillMove>() },
-        { title: `5 ${this.props.t('main:star')}`, data: new Array<SkillMove>() }
+        { title: `1 ${this.props.t('list:star')}`, data: new Array<SkillMove>() },
+        { title: `2 ${this.props.t('list:star')}`, data: new Array<SkillMove>() },
+        { title: `3 ${this.props.t('list:star')}`, data: new Array<SkillMove>() },
+        { title: `4 ${this.props.t('list:star')}`, data: new Array<SkillMove>() },
+        { title: `5 ${this.props.t('list:star')}`, data: new Array<SkillMove>() }
       ]
       this.state.data.forEach((item: SkillMove) => {
         if (this.state.searchText === '' || item.id.toLowerCase().includes(this.state.searchText.toLowerCase())) {
@@ -101,10 +101,10 @@ class ListScreen extends React.Component<Props, State> {
       return sections
     } else {
       let sections = [
-        { title: this.props.t('runningMoves'), data: new Array<Celebration>() },
-        { title: this.props.t('finishingMoves'), data: new Array<Celebration>() },
-        { title: this.props.t('proUnlockables'), data: new Array<Celebration>() },
-        { title: this.props.t('eaFcUnlockables'), data: new Array<Celebration>() }
+        { title: this.props.t('celebrations:runningMoves'), data: new Array<Celebration>() },
+        { title: this.props.t('celebrations:finishingMoves'), data: new Array<Celebration>() },
+        { title: this.props.t('celebrations:proUnlockables'), data: new Array<Celebration>() },
+        { title: this.props.t('celebrations:eaFcUnlockables'), data: new Array<Celebration>() }
       ]
       this.state.data.forEach((item: Celebration) => {
         if (this.state.searchText === '' || item.id.toLowerCase().includes(this.state.searchText.toLowerCase())) {
@@ -141,7 +141,7 @@ class ListScreen extends React.Component<Props, State> {
       <View style={styles.item} key={index}>
         <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 5 }}>
           <Text style={{ fontSize: 18, color: '#fff' }}>{item.id}</Text>
-          {item.new && <Text style={styles.new}>{this.props.t('main:new')}</Text>}
+          {item.new && <Text style={styles.new}>{this.props.t('list:new')}</Text>}
         </View>
 
         <ControlsImage controls={item.controls} isXb={this.isXboxSelected} t={this.props.t} />
@@ -150,7 +150,7 @@ class ListScreen extends React.Component<Props, State> {
   }
 }
 
-export default translate(['main', 'common'], { wait: true })(ListScreen)
+export default translate(['list', 'skills', 'celebrations', 'common'], { wait: true })(ListScreen)
 
 const styles = StyleSheet.create({
   container: {

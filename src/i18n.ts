@@ -24,16 +24,22 @@ i18n
 
     resources: {
       en: {
-        main: {
+        common: {
           app_name: 'Ultimate Guide for FIFA 19',
-          home: 'Home',
           skills: 'Skills',
-          celebrations: 'Celebrations',
+          celebrations: 'Celebrations'
+        },
+        home: {
+          home: 'Home',
           dev_message: 'Message from the developer',
           thank_you: 'Thank you for downloading Ultimate Guide for FIFA 19. The app is constantly updated with new information so check back often!',
           days_until: 'days until FIFA 19',
           preorder: 'Preorder',
           preorder_now: 'Preorder today for exclusive Ultimate Team content',
+          newInFifa19: 'New in FIFA 19',
+          newStuff: '- 20 new skill moves\n- 11 new celebrations\n- Champions League Mode\n- Survival Mode'
+        },
+        list: {
           hold: 'Hold',
           flick: 'Flick',
           roll: 'Roll',
@@ -43,10 +49,9 @@ i18n
           then: 'Then',
           star: 'Star',
           new: 'New',
-          or: 'or',
-          newInFifa19: 'New in FIFA 19',
-          newStuff: '- 20 new skill moves\n- 11 new celebrations\n- Champions League Mode\n- Survival Mode',
-          //SKILLS
+          or: 'or'
+        },
+        skills: {
           stopAndTurnR: 'Stop and Turn Right (while running)',
           heelFlickTurn: 'Heel Flick Turn',
           heelChopL: 'Heel Chop Left (while running)',
@@ -119,8 +124,9 @@ i18n
           simpleRainbow: 'Simple Rainbow',
           FlickUpVolley: 'Flick Up for Volley',
           rouletteR: 'Roulette Right',
-          tornadoSpinR: 'Tornado Spin Right',
-          //CELEBRATIONS
+          tornadoSpinR: 'Tornado Spin Right'
+        },
+        celebrations: {
           runningMoves: 'Running Moves',
           finishingMoves: 'Finishing Moves',
           proUnlockables: 'Pro Unlockables',
@@ -241,17 +247,23 @@ i18n
         }
       },
       es: {
-        main: {
+        common: {
           app_name: 'Guía Máxima de FIFA 19',
-          home: 'Inicio',
           skills: 'Filigranas',
-          celebrations: 'Celebraciones',
+          celebrations: 'Celebraciones'
+        },
+        home: {
+          home: 'Inicio',
           dev_message: 'Mensaje del desarrollador',
           thank_you:
             'Gracias por descargar Guía Máxima de FIFA 19. ¡La app es actualizada constantemente con información nuevo entonces vuelva pronto para ver mas contenido!',
           days_until: 'días hasta FIFA 19',
           preorder: 'Reserva',
           preorder_now: 'Reserva hoy para contenido especial de Ultimate Team',
+          newInFifa19: 'Nuevo en FIFA 19',
+          newStuff: '- 20 filigranas nuevas\n- 11 celebraciones nuevas\n- Modo Liga de Campeones\n- Modo Supervivencia'
+        },
+        list: {
           hold: 'Mantener',
           flick: 'Toque',
           roll: 'Rota',
@@ -261,10 +273,9 @@ i18n
           then: 'Luego',
           star: 'Estrella',
           new: 'Nuevo',
-          or: 'o',
-          newInFifa19: 'Nuevo en FIFA 19',
-          newStuff: '- 20 filigranas nuevas\n- 11 celebraciones nuevas\n- Modo Liga de Campeones\n- Modo Supervivencia',
-          //SKILLS
+          or: 'o'
+        },
+        skills: {
           stopAndTurnR: 'Parar y girar a la derecha(en carrera)',
           heelFlickTurn: 'Heel Flick Turn',
           heelChopL: 'Heel Chop Left (while running)',
@@ -337,8 +348,9 @@ i18n
           simpleRainbow: 'Sombrero de espuela sencillo',
           FlickUpVolley: 'Flick Up for Volley',
           rouletteR: 'Ruleta derecha',
-          tornadoSpinR: 'Tornado Spin Right',
-          //CELEBRATIONS
+          tornadoSpinR: 'Tornado Spin Right'
+        },
+        celebrations: {
           runningMoves: 'Movimietos en Carrera',
           finishingMoves: 'Movimientos de Finalización',
           proUnlockables: 'Desbloqueables Pro',

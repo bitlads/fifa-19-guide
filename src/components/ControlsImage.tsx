@@ -27,7 +27,7 @@ export default class ControlsImage extends React.Component<Props> {
   }
 
   private localize(item: string) {
-    return item === '+' ? item : this.props.t(`main:${item}`)
+    return item === '+' ? item : this.props.t(`list:${item}`)
   }
 }
 
