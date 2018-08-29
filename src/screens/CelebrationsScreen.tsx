@@ -3,6 +3,8 @@ import { translate } from 'react-i18next'
 import { NavigationScreenProps } from 'react-navigation'
 import { TranslationProps } from '../Const'
 import ListScreen from './ListScreen'
+import { Ionicons } from '@expo/vector-icons'
+import { TouchableOpacity } from 'react-native'
 
 interface Celebration {
   id: string
@@ -62,7 +64,17 @@ class CelebrationsScreen extends React.Component<Props, State> {
 
   static navigationOptions = ({ navigation }: NavigationScreenProps) => {
     return {
-      title: navigation.getParam('title', '')
+      title: navigation.getParam('title', ''),
+      headerLeft: (
+        <TouchableOpacity
+          onPress={() => {
+            navigation.goBack()
+          }}
+          style={{ marginLeft: 20 }}
+        >
+          <Ionicons name="md-arrow-back" size={24} color="#fff" style={{ margin: 5 }} />
+        </TouchableOpacity>
+      )
     }
   }
 }

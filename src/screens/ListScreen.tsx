@@ -1,7 +1,6 @@
 import React from 'react'
 import { Text, TextInput, SectionList, StyleSheet, View } from 'react-native'
 import ControlsImage from '../components/ControlsImage'
-import { NavigationScreenProps } from 'react-navigation'
 import { TranslationProps } from '../Const'
 
 interface Props extends TranslationProps {
@@ -36,6 +35,7 @@ export default class ListScreen extends React.Component<Props, State> {
           underlineColorAndroid="#fff"
           onChangeText={searchText => this.setState({ searchText })}
           value={this.state.searchText}
+          placeholder={this.props.t('list:search')}
         />
         <SectionList
           style={{ flex: 1 }}
@@ -55,12 +55,6 @@ export default class ListScreen extends React.Component<Props, State> {
       const filtered = section.data.filter((item: any) => item.id.toLowerCase().includes(this.state.searchText.toLowerCase()))
       return { ...section, data: filtered }
     })
-  }
-
-  static navigationOptions = ({ navigation }: NavigationScreenProps) => {
-    return {
-      title: navigation.getParam('title', '')
-    }
   }
 
   private renderSectionHeader = ({ section: { title } }: any) => {

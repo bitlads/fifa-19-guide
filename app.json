@@ -7,13 +7,14 @@
     },
     "name": "Ultimate Guide for FIFA 19",
     "description": "Pocket companion for FIFA 19",
-    "version": "1.0.2",
+    "version": "1.1.2",
     "githubUrl": "https://github.com/bitlads/fifa-19-guide",
     "icon": "./assets/icon.png",
     "slug": "fifa-19-guide",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
+    "assetBundlePatterns": ["**/*"],
     "splash": {
       "image": "./assets/splash.png",
       "backgroundColor": "#212121",

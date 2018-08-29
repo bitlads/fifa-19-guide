@@ -30,7 +30,7 @@ class HomeScreen extends React.Component<Props, State> {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.home}>
-          <Text style={styles.header}>Categories</Text>
+          <Text style={styles.header}>{this.props.t('home:categories')}</Text>
           <View style={styles.row}>
             <TouchableOpacity style={[styles.section, { backgroundColor: '#00796B' }]} onPress={() => this.navigateSkills()}>
               <Text style={{ color: '#fff', alignSelf: 'center', fontSize: 18 }}>{this.props.t('common:skills')}</Text>
@@ -39,7 +39,7 @@ class HomeScreen extends React.Component<Props, State> {
               <Text style={{ color: '#fff', alignSelf: 'center', fontSize: 18 }}>{this.props.t('common:celebrations')}</Text>
             </TouchableOpacity>
           </View>
-          <Text style={styles.header}>Settings</Text>
+          <Text style={styles.header}>{this.props.t('home:settings')}</Text>
           <Toggle
             isXbSelected={this.state.isXboxSelected}
             onToggleXb={() => this.setState({ isXboxSelected: true })}
@@ -67,10 +67,6 @@ class HomeScreen extends React.Component<Props, State> {
         </ScrollView>
       </View>
     )
-  }
-
-  static navigationOptions = {
-    title: 'Home'
   }
 
   private navigateSkills() {

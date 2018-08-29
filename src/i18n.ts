@@ -37,7 +37,9 @@ i18n
           preorder: 'Preorder',
           preorder_now: 'Preorder today for exclusive Ultimate Team content',
           newInFifa19: 'New in FIFA 19',
-          newStuff: '- 20 new skill moves\n- 11 new celebrations\n- Champions League Mode\n- Survival Mode'
+          newStuff: '- 20 new skill moves\n- 11 new celebrations\n- Champions League Mode\n- Survival Mode',
+          categories: 'Categories',
+          settings: 'Settings'
         },
         list: {
           hold: 'Hold',
@@ -46,10 +48,11 @@ i18n
           click: 'click',
           tap: 'Tap',
           press: 'Press',
-          then: 'Then',
+          then: 'then',
           star: 'Star',
           new: 'New',
-          or: 'or'
+          or: 'or',
+          search: 'Search...'
         },
         skills: {
           stopAndTurnR: 'Stop and Turn Right (while running)',
@@ -261,7 +264,9 @@ i18n
           preorder: 'Reserva',
           preorder_now: 'Reserva hoy para contenido especial de Ultimate Team',
           newInFifa19: 'Nuevo en FIFA 19',
-          newStuff: '- 20 filigranas nuevas\n- 11 celebraciones nuevas\n- Modo Liga de Campeones\n- Modo Supervivencia'
+          newStuff: '- 20 filigranas nuevas\n- 11 celebraciones nuevas\n- Modo Liga de Campeones\n- Modo Supervivencia',
+          categories: 'Categorías',
+          settings: 'Ajustes'
         },
         list: {
           hold: 'Mantener',
@@ -270,10 +275,11 @@ i18n
           click: 'Mantener Pulsado',
           tap: 'Pulsar',
           press: 'Pulsar',
-          then: 'Luego',
+          then: 'luego',
           star: 'Estrella',
           new: 'Nuevo',
-          or: 'o'
+          or: 'o',
+          search: 'Buscar...'
         },
         skills: {
           stopAndTurnR: 'Parar y girar a la derecha(en carrera)',
