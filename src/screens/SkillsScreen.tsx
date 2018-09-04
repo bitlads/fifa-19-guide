@@ -31,7 +31,7 @@ class SkillsScreen extends React.Component<Props, State> {
 
   componentDidMount() {
     const data = require('../../assets/skills.json').map((item: any) => {
-      return { ...item, id: this.props.t(`skills:${item.id}`) }
+      return { ...item, name: this.props.t(`skills:${item.id}`) }
     })
     const sections = [
       { title: `1 ${this.props.t('list:star')}`, data: new Array<SkillMove>() },
