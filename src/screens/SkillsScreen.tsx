@@ -5,6 +5,9 @@ import { TranslationProps } from '../Const'
 import ListScreen from './ListScreen'
 import { Ionicons } from '@expo/vector-icons'
 import { TouchableOpacity } from 'react-native'
+import firebase from 'firebase'
+require('firebase/firestore')
+import { FIREBASE_CONFIG } from '../Secrets'
 
 interface SkillMove {
   id: string
@@ -20,6 +23,7 @@ interface State {
 
 class SkillsScreen extends React.Component<Props, State> {
   private isXboxSelected: boolean
+  private firestore: firebase.firestore.Firestore
 
   constructor(props: Props) {
     super(props)
@@ -27,12 +31,35 @@ class SkillsScreen extends React.Component<Props, State> {
       sections: []
     }
     this.isXboxSelected = this.props.navigation.getParam('isXboxSelected', true)
+    firebase.initializeApp(FIREBASE_CONFIG)
+    this.firestore = firebase.firestore()
+    this.firestore.settings({ timestampsInSnapshots: true })
   }
 
   componentDidMount() {
-    const data = require('../../assets/skills.json').map((item: any) => {
-      return { ...item, name: this.props.t(`skills:${item.id}`) }
-    })
+    /*require('../../assets/skills.json').forEach((item: any) => {
+      this.firestore
+        .collection('skills')
+        .doc(item.id)
+        .set({ ...item, likes: 0 })
+    })*/
+    const data = new Array<any>()
+    this.firestore
+      .collection('skills')
+      .get()
+      .then(skills => {
+        skills.forEach(skill => {
+          data.push({ ...skill.data(), name: this.props.t(`skills:${skill.id}`) })
+        })
+        this.makeSections(data)
+      })
+  }
+
+  render() {
+    return this.state.sections.length > 0 && <ListScreen t={this.props.t} isXboxSelected={this.isXboxSelected} sections={this.state.sections} color="#00796B" />
+  }
+
+  private makeSections(data: any) {
     const sections = [
       { title: `1 ${this.props.t('list:star')}`, data: new Array<SkillMove>() },
       { title: `2 ${this.props.t('list:star')}`, data: new Array<SkillMove>() },
@@ -44,10 +71,6 @@ class SkillsScreen extends React.Component<Props, State> {
       sections[item.stars - 1].data.push(item)
     })
     this.setState({ sections })
-  }
-
-  render() {
-    return this.state.sections.length > 0 && <ListScreen t={this.props.t} isXboxSelected={this.isXboxSelected} sections={this.state.sections} color="#00796B" />
   }
 
   static navigationOptions = ({ navigation }: NavigationScreenProps) => {

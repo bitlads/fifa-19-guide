@@ -31,7 +31,7 @@ class CelebrationsScreen extends React.Component<Props, State> {
 
   componentDidMount() {
     const data = require('../../assets/celebrations.json').map((item: any) => {
-      return { ...item, id: this.props.t(`celebrations:${item.id}`) }
+      return { ...item, name: this.props.t(`celebrations:${item.id}`) }
     })
     const sections = [
       { title: this.props.t('celebrations:runningMoves'), data: new Array<Celebration>() },

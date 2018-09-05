@@ -2,9 +2,6 @@ import React from 'react'
 import { Text, TextInput, TouchableHighlight, SectionList, StyleSheet, View } from 'react-native'
 import ControlsImage from '../components/ControlsImage'
 import { TranslationProps } from '../Const'
-import firebase from 'firebase'
-require('firebase/firestore')
-import { FIREBASE_CONFIG } from '../Secrets'
 
 interface Props extends TranslationProps {
   isXboxSelected: boolean
@@ -22,18 +19,16 @@ interface Section {
 }
 
 export default class ListScreen extends React.Component<Props, State> {
-  private firestore: firebase.firestore.Firestore
+  //private firestore: firebase.firestore.Firestore
   constructor(props: Props) {
     super(props)
     this.state = {
       searchText: ''
     }
-    firebase.initializeApp(FIREBASE_CONFIG)
+    /*firebase.initializeApp(FIREBASE_CONFIG)
     this.firestore = firebase.firestore()
-    this.firestore.settings({ timestampsInSnapshots: true })
+    this.firestore.settings({ timestampsInSnapshots: true })*/
   }
-
-  componentDidMount() {}
 
   render() {
     const sections = this.filterList(this.props.sections)
@@ -77,33 +72,23 @@ export default class ListScreen extends React.Component<Props, State> {
   private renderItem = ({ item, index }: any) => {
     return (
       <TouchableHighlight onPress={() => this.onPress(item)}>
-        <View style={styles.item} key={index}>
-          <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 5 }}>
-            <Text style={{ fontSize: 18, color: '#fff' }}>{item.name}</Text>
-            {item.new && <Text style={styles.new}>{this.props.t('list:new')}</Text>}
+        <View style={styles.item}>
+          <View style={styles.info} key={index}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 5 }}>
+              <Text style={{ fontSize: 18, color: '#fff' }}>{item.name}</Text>
+              {item.new && <Text style={styles.new}>{this.props.t('list:new')}</Text>}
+            </View>
+            <ControlsImage controls={item.controls} isXb={this.props.isXboxSelected} t={this.props.t} />
           </View>
-          <ControlsImage controls={item.controls} isXb={this.props.isXboxSelected} t={this.props.t} />
+          <View style={styles.likes}>
+            <Text style={{ fontSize: 18, color: '#fff' }}>{`+${item.likes}`}</Text>
+          </View>
         </View>
       </TouchableHighlight>
     )
   }
 
-  private onPress(item: any) {
-    this.firestore
-      .collection('skills')
-      .doc(item.id)
-      .get()
-      .then(doc => {
-        if (doc.exists) {
-          console.log(`Up: ${doc.get('up')} Down: ${doc.get('down')}`)
-        } else {
-          console.log('No such document!')
-        }
-      })
-      .catch(function(error) {
-        console.log('Error getting document:', error)
-      })
-  }
+  private onPress(item: any) {}
 }
 
 const styles = StyleSheet.create({
@@ -117,7 +102,18 @@ const styles = StyleSheet.create({
   item: {
     padding: 10,
     borderBottomWidth: 1,
-    borderColor: '#ffffff1f'
+    borderColor: '#ffffff1f',
+    flexDirection: 'row'
+  },
+  info: {
+    flex: 1
+  },
+  likes: {
+    height: 40,
+    width: 40,
+    backgroundColor: '#4CAF50',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   new: {
     fontSize: 12,
