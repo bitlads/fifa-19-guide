@@ -1,12 +1,15 @@
 import React from 'react'
-import { Text, TextInput, TouchableHighlight, SectionList, StyleSheet, View } from 'react-native'
+import { Text, TextInput, TouchableHighlight, SectionList, StyleSheet, View, ActivityIndicator } from 'react-native'
 import ControlsImage from '../components/ControlsImage'
 import { TranslationProps } from '../Const'
+import firebase from 'firebase'
+require('firebase/firestore')
 
 interface Props extends TranslationProps {
   isXboxSelected: boolean
   sections: Array<Section>
   color: string
+  setLiked(item: any): void
 }
 
 interface State {
@@ -19,19 +22,20 @@ interface Section {
 }
 
 export default class ListScreen extends React.Component<Props, State> {
-  //private firestore: firebase.firestore.Firestore
+  private firestore: firebase.firestore.Firestore
   constructor(props: Props) {
     super(props)
     this.state = {
       searchText: ''
     }
-    /*firebase.initializeApp(FIREBASE_CONFIG)
+
     this.firestore = firebase.firestore()
-    this.firestore.settings({ timestampsInSnapshots: true })*/
+    this.firestore.settings({ timestampsInSnapshots: true })
   }
 
   render() {
     const sections = this.filterList(this.props.sections)
+    const isLoading = sections.length === 0
     return (
       <View style={styles.container}>
         <TextInput
@@ -41,14 +45,20 @@ export default class ListScreen extends React.Component<Props, State> {
           value={this.state.searchText}
           placeholder={this.props.t('list:search')}
         />
-        <SectionList
-          style={{ flex: 1 }}
-          renderItem={this.renderItem}
-          renderSectionHeader={this.renderSectionHeader}
-          sections={sections}
-          keyExtractor={(item, index) => item + index}
-          removeClippedSubviews={true}
-        />
+        <View style={{ flex: 1, alignContent: 'center', justifyContent: 'center' }}>
+          {isLoading ? (
+            <ActivityIndicator color="#fff" size="large" />
+          ) : (
+            <SectionList
+              style={{ flex: 1 }}
+              renderItem={this.renderItem}
+              renderSectionHeader={this.renderSectionHeader}
+              sections={sections}
+              keyExtractor={(item, index) => item + index}
+              removeClippedSubviews={true}
+            />
+          )}
+        </View>
       </View>
     )
   }
@@ -88,7 +98,9 @@ export default class ListScreen extends React.Component<Props, State> {
     )
   }
 
-  private onPress(item: any) {}
+  private onPress(item: any) {
+    this.props.setLiked(item)
+  }
 }
 
 const styles = StyleSheet.create({

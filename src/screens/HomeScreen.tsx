@@ -6,6 +6,8 @@ import { NavigationScreenProps } from 'react-navigation'
 import { TranslationProps } from '../Const'
 import { FIFA_19_AMAZON_LINK } from '../Secrets'
 import Toggle from '../components/Toggle'
+import firebase from 'firebase'
+import { FIREBASE_CONFIG } from '../Secrets'
 
 interface Props extends NavigationScreenProps, TranslationProps {}
 
@@ -15,11 +17,14 @@ interface State {
 
 class HomeScreen extends React.Component<Props, State> {
   private daysLeft: number
+
   constructor(props: Props) {
     super(props)
     this.state = {
       isXboxSelected: true
     }
+    firebase.initializeApp(FIREBASE_CONFIG)
+
     const today = new Date()
     const release = new Date('September 28, 2018 00:00:00')
     var timeDiff = Math.abs(release.getTime() - today.getTime())

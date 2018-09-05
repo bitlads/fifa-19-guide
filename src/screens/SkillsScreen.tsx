@@ -7,7 +7,6 @@ import { Ionicons } from '@expo/vector-icons'
 import { TouchableOpacity } from 'react-native'
 import firebase from 'firebase'
 require('firebase/firestore')
-import { FIREBASE_CONFIG } from '../Secrets'
 
 interface SkillMove {
   id: string
@@ -31,18 +30,20 @@ class SkillsScreen extends React.Component<Props, State> {
       sections: []
     }
     this.isXboxSelected = this.props.navigation.getParam('isXboxSelected', true)
-    firebase.initializeApp(FIREBASE_CONFIG)
+
     this.firestore = firebase.firestore()
     this.firestore.settings({ timestampsInSnapshots: true })
   }
 
   componentDidMount() {
-    /*require('../../assets/skills.json').forEach((item: any) => {
-      this.firestore
-        .collection('skills')
-        .doc(item.id)
-        .set({ ...item, likes: 0 })
-    })*/
+    this.fetchFirebase()
+  }
+
+  render() {
+    return <ListScreen t={this.props.t} isXboxSelected={this.isXboxSelected} sections={this.state.sections} color="#00796B" setLiked={this.setLiked} />
+  }
+
+  private fetchFirebase() {
     const data = new Array<any>()
     this.firestore
       .collection('skills')
@@ -55,8 +56,11 @@ class SkillsScreen extends React.Component<Props, State> {
       })
   }
 
-  render() {
-    return this.state.sections.length > 0 && <ListScreen t={this.props.t} isXboxSelected={this.isXboxSelected} sections={this.state.sections} color="#00796B" />
+  private fetchOffline() {
+    const data = require('../../assets/skills.json').map((item: any) => {
+      return { ...item, name: this.props.t(`skills:${item.id}`) }
+    })
+    this.makeSections(data)
   }
 
   private makeSections(data: any) {
@@ -71,6 +75,22 @@ class SkillsScreen extends React.Component<Props, State> {
       sections[item.stars - 1].data.push(item)
     })
     this.setState({ sections })
+  }
+
+  private setLiked = (item: any) => {
+    this.firestore
+      .collection('skills')
+      .doc(item.id)
+      .get()
+      .then(skill => {
+        this.firestore
+          .collection('skills')
+          .doc(skill.id)
+          .set({ ...skill.data(), likes: skill.get('likes') + 1 })
+          .then(() => {
+            this.fetchFirebase()
+          })
+      })
   }
 
   static navigationOptions = ({ navigation }: NavigationScreenProps) => {
