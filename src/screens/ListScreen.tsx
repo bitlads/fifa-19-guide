@@ -1,9 +1,10 @@
 import React from 'react'
-import { Text, TextInput, TouchableHighlight, SectionList, StyleSheet, View, ActivityIndicator } from 'react-native'
+import { Text, TextInput, TouchableOpacity, SectionList, StyleSheet, View, ActivityIndicator } from 'react-native'
 import ControlsImage from '../components/ControlsImage'
 import { TranslationProps } from '../Const'
 import firebase from 'firebase'
 require('firebase/firestore')
+import { Ionicons } from '@expo/vector-icons'
 
 interface Props extends TranslationProps {
   isXboxSelected: boolean
@@ -81,20 +82,19 @@ export default class ListScreen extends React.Component<Props, State> {
 
   private renderItem = ({ item, index }: any) => {
     return (
-      <TouchableHighlight onPress={() => this.onPress(item)}>
-        <View style={styles.item}>
-          <View style={styles.info} key={index}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 5 }}>
-              <Text style={{ fontSize: 18, color: '#fff' }}>{item.name}</Text>
-              {item.new && <Text style={styles.new}>{this.props.t('list:new')}</Text>}
-            </View>
-            <ControlsImage controls={item.controls} isXb={this.props.isXboxSelected} t={this.props.t} />
+      <View style={styles.item}>
+        <View style={styles.info} key={index}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 5 }}>
+            <Text style={{ fontSize: 18, color: '#fff' }}>{item.name}</Text>
+            {item.new && <Text style={styles.new}>{this.props.t('list:new')}</Text>}
           </View>
-          <View style={styles.likes}>
-            <Text style={{ fontSize: 18, color: '#fff' }}>{`+${item.likes}`}</Text>
-          </View>
+          <ControlsImage controls={item.controls} isXb={this.props.isXboxSelected} t={this.props.t} />
         </View>
-      </TouchableHighlight>
+        <TouchableOpacity onPress={() => this.onPress(item)} style={styles.likes}>
+          <Text style={{ fontSize: 18, color: '#fff' }}>{`+${item.likes} `}</Text>
+          <Ionicons name="md-thumbs-up" size={24} color="#fff" style={{ margin: 5 }} />
+        </TouchableOpacity>
+      </View>
     )
   }
 
@@ -115,17 +115,19 @@ const styles = StyleSheet.create({
     padding: 10,
     borderBottomWidth: 1,
     borderColor: '#ffffff1f',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   info: {
     flex: 1
   },
   likes: {
-    height: 40,
-    width: 40,
-    backgroundColor: '#4CAF50',
-    alignItems: 'center',
-    justifyContent: 'center'
+    borderRadius: 5,
+    height: 35,
+    padding: 10,
+    backgroundColor: '#424242',
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   new: {
     fontSize: 12,
