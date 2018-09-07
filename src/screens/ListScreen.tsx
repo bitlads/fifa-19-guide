@@ -4,7 +4,7 @@ import ControlsImage from '../components/ControlsImage'
 import { TranslationProps } from '../Const'
 import firebase from 'firebase'
 require('firebase/firestore')
-import { Ionicons } from '@expo/vector-icons'
+import ListItem from '../components/ListItem'
 
 interface Props extends TranslationProps {
   isXboxSelected: boolean
@@ -15,6 +15,7 @@ interface Props extends TranslationProps {
 
 interface State {
   searchText: string
+  likedItems: Array<any>
 }
 
 interface Section {
@@ -27,7 +28,8 @@ export default class ListScreen extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
     this.state = {
-      searchText: ''
+      searchText: '',
+      likedItems: []
     }
 
     this.firestore = firebase.firestore()
@@ -81,24 +83,12 @@ export default class ListScreen extends React.Component<Props, State> {
   }
 
   private renderItem = ({ item, index }: any) => {
-    return (
-      <View style={styles.item}>
-        <View style={styles.info} key={index}>
-          <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 5 }}>
-            <Text style={{ fontSize: 18, color: '#fff' }}>{item.name}</Text>
-            {item.new && <Text style={styles.new}>{this.props.t('list:new')}</Text>}
-          </View>
-          <ControlsImage controls={item.controls} isXb={this.props.isXboxSelected} t={this.props.t} />
-        </View>
-        <TouchableOpacity onPress={() => this.onPress(item)} style={styles.likes}>
-          <Text style={{ fontSize: 18, color: '#fff' }}>{`+${item.likes} `}</Text>
-          <Ionicons name="md-thumbs-up" size={24} color="#fff" style={{ margin: 5 }} />
-        </TouchableOpacity>
-      </View>
-    )
+    return <ListItem item={item} key={index} isXboxSelected={this.props.isXboxSelected} t={this.props.t} firestore={this.firestore} />
   }
 
   private onPress(item: any) {
+    const likedItems = [...this.state.likedItems, item.id]
+    this.setState({ likedItems })
     this.props.setLiked(item)
   }
 }
@@ -124,6 +114,7 @@ const styles = StyleSheet.create({
   likes: {
     borderRadius: 5,
     height: 35,
+    width: 50,
     padding: 10,
     backgroundColor: '#424242',
     flexDirection: 'row',

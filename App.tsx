@@ -6,7 +6,7 @@ import { createStackNavigator } from 'react-navigation'
 import { I18nextProvider, translate } from 'react-i18next'
 import i18n from './src/i18n'
 import { View } from 'react-native'
-import { ADMOB_BANNER_ID } from './src/Secrets'
+import { ADMOB_BANNER_ID, S8_TEST_ID } from './src/Secrets'
 import { AdMobBanner } from 'expo'
 
 const StackNav = createStackNavigator(
@@ -48,7 +48,7 @@ export default class App extends React.Component<{}> {
       <I18nextProvider i18n={i18n}>
         <View style={{ flex: 1, backgroundColor: '#303030' }}>
           <ReloadAppOnLanguageChange />
-          <AdMobBanner style={{ alignSelf: 'center' }} adUnitID={ADMOB_BANNER_ID} bannerSize="banner" testDeviceID="EMULATOR" />
+          <AdMobBanner style={{ alignSelf: 'center' }} adUnitID={ADMOB_BANNER_ID} bannerSize="banner" testDeviceID={S8_TEST_ID} />
         </View>
       </I18nextProvider>
     )

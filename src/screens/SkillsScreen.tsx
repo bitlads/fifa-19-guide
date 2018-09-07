@@ -36,7 +36,7 @@ class SkillsScreen extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    this.fetchFirebase()
+    this.fetchOffline()
   }
 
   render() {
