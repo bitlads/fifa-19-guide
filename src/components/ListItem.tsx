@@ -37,21 +37,21 @@ export default class ListItem extends React.Component<Props, State> {
       <View style={styles.item}>
         <View style={styles.info}>
           <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 5 }}>
-            <Text style={{ fontSize: 18, color: '#fff' }}>{this.props.item.name}</Text>
+            <Text style={{ fontSize: 20, color: '#fff' }}>{this.props.item.name}</Text>
             {this.props.item.new && <Text style={styles.new}>{this.props.t('list:new')}</Text>}
           </View>
-          <ControlsImage controls={this.props.item.controls} isXb={this.props.isXboxSelected} t={this.props.t} />
+          <TouchableOpacity onPress={() => this.setLiked()} style={[styles.likesButton, { backgroundColor: this.state.likes === -1 ? '#388E3C' : '#424242' }]}>
+            {this.state.loading ? (
+              <ActivityIndicator color="#fff" />
+            ) : (
+              <View style={styles.likesContainer}>
+                <Text style={{ fontSize: 18, color: '#fff' }}>{`+${this.state.likes} `}</Text>
+                <Ionicons name="md-thumbs-up" size={24} color="#fff" style={{ margin: 5 }} />
+              </View>
+            )}
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity onPress={() => this.setLiked()} style={[styles.likesButton, { backgroundColor: this.state.likes === -1 ? '#388E3C' : '#424242' }]}>
-          {this.state.loading ? (
-            <ActivityIndicator color="#fff" />
-          ) : (
-            <View style={styles.likesContainer}>
-              <Text style={{ fontSize: 18, color: '#fff' }}>{`+${this.state.likes} `}</Text>
-              <Ionicons name="md-thumbs-up" size={24} color="#fff" style={{ margin: 5 }} />
-            </View>
-          )}
-        </TouchableOpacity>
+        <ControlsImage controls={this.props.item.controls} isXb={this.props.isXboxSelected} t={this.props.t} />
       </View>
     )
   }
@@ -89,12 +89,12 @@ const styles = StyleSheet.create({
   item: {
     padding: 10,
     borderBottomWidth: 1,
-    borderColor: '#ffffff1f',
-    flexDirection: 'row',
-    alignItems: 'center'
+    borderColor: '#ffffff1f'
   },
   info: {
-    flex: 1
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   likesButton: {
     borderRadius: 5,

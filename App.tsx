@@ -8,6 +8,8 @@ import i18n from './src/i18n'
 import { View } from 'react-native'
 import { ADMOB_BANNER_ID, S8_TEST_ID } from './src/Secrets'
 import { AdMobBanner } from 'expo'
+import { Asset } from 'expo'
+Asset
 
 const StackNav = createStackNavigator(
   {

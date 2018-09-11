@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { Linking, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, Linking, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import HomeButton from '../components/HomeButton'
+import CategoryButton from '../components/CategoryButton'
 import { translate } from 'react-i18next'
 import { NavigationScreenProps } from 'react-navigation'
 import { TranslationProps } from '../Const'
@@ -31,18 +32,30 @@ class HomeScreen extends React.Component<Props, State> {
     this.daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24))
   }
 
+  componentDidMount() {}
+
   render() {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.home}>
           <Text style={styles.header}>{this.props.t('home:categories')}</Text>
           <View style={styles.row}>
-            <TouchableOpacity style={[styles.section, { backgroundColor: '#00796B' }]} onPress={() => this.navigateSkills()}>
-              <Text style={{ color: '#fff', alignSelf: 'center', fontSize: 18 }}>{this.props.t('common:skills')}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={[styles.section, { backgroundColor: '#d32f2f' }]} onPress={() => this.navigateCelebrations()}>
-              <Text style={{ color: '#fff', alignSelf: 'center', fontSize: 18 }}>{this.props.t('common:celebrations')}</Text>
-            </TouchableOpacity>
+            <CategoryButton
+              category={this.props.t('common:skills')}
+              color="#03A9F4"
+              image={require('../../assets/skills.png')}
+              t={this.props.t}
+              onPress={() => this.navigateSkills()}
+            />
+          </View>
+          <View style={styles.row}>
+            <CategoryButton
+              category={this.props.t('common:celebrations')}
+              color="#d32f2f"
+              image={require('../../assets/celebrations.png')}
+              t={this.props.t}
+              onPress={() => this.navigateCelebrations()}
+            />
           </View>
           <Text style={styles.header}>{this.props.t('home:settings')}</Text>
           <Toggle
@@ -86,6 +99,10 @@ class HomeScreen extends React.Component<Props, State> {
       title: this.props.t('common:celebrations'),
       isXboxSelected: this.state.isXboxSelected
     })
+  }
+
+  static navigationOptions = {
+    title: 'FIFA 19'
   }
 }
 

@@ -6,7 +6,7 @@ interface Props {
   id: string
 }
 
-const BACKGROUND = '#424242'
+const BACKGROUND = '#303030'
 const GREEN = '#4CAF50'
 const RED = '#f44336'
 const BLUE = '#2196F3'

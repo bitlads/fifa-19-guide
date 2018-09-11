@@ -36,8 +36,11 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#303030',
-    flexWrap: 'wrap'
+    backgroundColor: '#424242',
+    flexWrap: 'wrap',
+    marginTop: 15,
+    padding: 10,
+    borderRadius: 3
   },
   text: {
     fontSize: 16,
