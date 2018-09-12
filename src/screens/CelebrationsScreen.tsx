@@ -40,7 +40,7 @@ class CelebrationsScreen extends React.Component<Props, State> {
   }
 
   render() {
-    return <ListScreen t={this.props.t} isXboxSelected={this.isXboxSelected} sections={this.state.sections} color="#d32f2f" setLiked={this.setLiked} />
+    return <ListScreen t={this.props.t} isXboxSelected={this.isXboxSelected} sections={this.state.sections} color="#d32f2f" />
   }
 
   private fetchFirebase() {
@@ -87,22 +87,6 @@ class CelebrationsScreen extends React.Component<Props, State> {
       }
     })
     this.setState({ sections })
-  }
-
-  private setLiked = (item: any) => {
-    this.firestore
-      .collection('celebrations')
-      .doc(item.id)
-      .get()
-      .then(celebration => {
-        this.firestore
-          .collection('celebrations')
-          .doc(celebration.id)
-          .set({ ...celebration.data(), likes: celebration.get('likes') + 1 })
-          .then(() => {
-            this.fetchFirebase()
-          })
-      })
   }
 
   static navigationOptions = ({ navigation }: NavigationScreenProps) => {

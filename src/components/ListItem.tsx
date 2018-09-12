@@ -14,6 +14,7 @@ interface Props extends TranslationProps {
 interface State {
   likes: number
   loading: boolean
+  liked: boolean
 }
 
 export default class ListItem extends React.Component<Props, State> {
@@ -21,15 +22,18 @@ export default class ListItem extends React.Component<Props, State> {
     super(props)
     this.state = {
       likes: -1,
-      loading: false
+      loading: false,
+      liked: false
     }
   }
 
   componentDidMount() {
-    this.setState({ loading: true })
-    this.getLikes().then(item => {
-      this.setState({ loading: false, likes: item.get('likes') })
-    })
+    if (this.state.likes === -1) {
+      this.setState({ loading: true })
+      this.getLikes().then(item => {
+        this.setState({ loading: false, likes: item.get('likes') })
+      })
+    }
   }
 
   render() {
@@ -40,7 +44,11 @@ export default class ListItem extends React.Component<Props, State> {
             <Text style={{ fontSize: 20, color: '#fff' }}>{this.props.item.name}</Text>
             {this.props.item.new && <Text style={styles.new}>{this.props.t('list:new')}</Text>}
           </View>
-          <TouchableOpacity onPress={() => this.setLiked()} style={[styles.likesButton, { backgroundColor: this.state.likes === -1 ? '#388E3C' : '#424242' }]}>
+          <TouchableOpacity
+            onPress={() => this.toggleLiked()}
+            style={[styles.likesButton, { backgroundColor: this.state.liked ? '#388E3C' : '#424242' }]}
+            disabled={this.state.loading}
+          >
             {this.state.loading ? (
               <ActivityIndicator color="#fff" />
             ) : (
@@ -63,7 +71,29 @@ export default class ListItem extends React.Component<Props, State> {
       .get()
   }
 
-  private setLiked() {
+  private toggleLiked() {
+    if (this.state.liked) {
+      this.unlike()
+    } else {
+      this.like()
+    }
+  }
+
+  private unlike() {
+    this.setState({ loading: true })
+    this.getLikes().then(item => {
+      const likes = item.get('likes') - 1
+      this.props.firestore
+        .collection('skills')
+        .doc(item.id)
+        .set({ ...item.data(), likes })
+        .then(() => {
+          this.setState({ loading: false, likes, liked: false })
+        })
+    })
+  }
+
+  private like() {
     this.setState({ loading: true })
     this.getLikes().then(item => {
       const likes = item.get('likes') + 1
@@ -72,7 +102,7 @@ export default class ListItem extends React.Component<Props, State> {
         .doc(item.id)
         .set({ ...item.data(), likes })
         .then(() => {
-          this.setState({ loading: false, likes })
+          this.setState({ loading: false, likes, liked: true })
         })
     })
   }

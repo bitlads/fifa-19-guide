@@ -40,7 +40,7 @@ class SkillsScreen extends React.Component<Props, State> {
   }
 
   render() {
-    return <ListScreen t={this.props.t} isXboxSelected={this.isXboxSelected} sections={this.state.sections} color="#00796B" setLiked={this.setLiked} />
+    return <ListScreen t={this.props.t} isXboxSelected={this.isXboxSelected} sections={this.state.sections} color="#00796B" />
   }
 
   private fetchFirebase() {
@@ -75,22 +75,6 @@ class SkillsScreen extends React.Component<Props, State> {
       sections[item.stars - 1].data.push(item)
     })
     this.setState({ sections })
-  }
-
-  private setLiked = (item: any) => {
-    this.firestore
-      .collection('skills')
-      .doc(item.id)
-      .get()
-      .then(skill => {
-        this.firestore
-          .collection('skills')
-          .doc(skill.id)
-          .set({ ...skill.data(), likes: skill.get('likes') + 1 })
-          .then(() => {
-            this.fetchFirebase()
-          })
-      })
   }
 
   static navigationOptions = ({ navigation }: NavigationScreenProps) => {

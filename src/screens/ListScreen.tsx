@@ -10,12 +10,10 @@ interface Props extends TranslationProps {
   isXboxSelected: boolean
   sections: Array<Section>
   color: string
-  setLiked(item: any): void
 }
 
 interface State {
   searchText: string
-  likedItems: Array<any>
 }
 
 interface Section {
@@ -28,8 +26,7 @@ export default class ListScreen extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
     this.state = {
-      searchText: '',
-      likedItems: []
+      searchText: ''
     }
 
     this.firestore = firebase.firestore()
@@ -84,12 +81,6 @@ export default class ListScreen extends React.Component<Props, State> {
 
   private renderItem = ({ item, index }: any) => {
     return <ListItem item={item} key={index} isXboxSelected={this.props.isXboxSelected} t={this.props.t} firestore={this.firestore} />
-  }
-
-  private onPress(item: any) {
-    const likedItems = [...this.state.likedItems, item.id]
-    this.setState({ likedItems })
-    this.props.setLiked(item)
   }
 }
 
