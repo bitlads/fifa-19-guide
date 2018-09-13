@@ -14,7 +14,7 @@ interface Celebration {
   controls: string
 }
 
-interface Props extends NavigationScreenProps, TranslationProps {}
+interface Props extends NavigationScreenProps, TranslationProps { }
 
 interface State {
   sections: Array<any>
@@ -92,16 +92,6 @@ class CelebrationsScreen extends React.Component<Props, State> {
   static navigationOptions = ({ navigation }: NavigationScreenProps) => {
     return {
       title: navigation.getParam('title', ''),
-      headerLeft: (
-        <TouchableOpacity
-          onPress={() => {
-            navigation.goBack()
-          }}
-          style={{ marginLeft: 20 }}
-        >
-          <Ionicons name="md-arrow-back" size={24} color="#fff" style={{ margin: 5 }} />
-        </TouchableOpacity>
-      )
     }
   }
 }

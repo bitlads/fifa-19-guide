@@ -1,8 +1,11 @@
 {
   "expo": {
-    "sdkVersion": "29.0.0",
+    "sdkVersion": "30.0.0",
     "packagerOpts": {
-      "sourceExts": ["ts", "tsx"],
+      "sourceExts": [
+        "ts",
+        "tsx"
+      ],
       "transformer": "node_modules/react-native-typescript-transformer/index.js"
     },
     "name": "FIFA 19 Guide",
@@ -14,13 +17,18 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["assets/*"],
+    "assetBundlePatterns": [
+      "assets/*"
+    ],
     "splash": {
       "image": "./assets/splash.png",
       "backgroundColor": "#212121",
       "resizeMode": "contain"
     },
-    "platforms": ["ios", "android"],
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "ios": {
       "bundleIdentifier": "io.bitlads.fifa19",
       "supportsTablet": true,
