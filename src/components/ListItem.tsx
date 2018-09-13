@@ -30,7 +30,7 @@ export default class ListItem extends React.Component<Props, State> {
   componentDidMount() {
     if (this.state.likes === -1) {
       this.setState({ loading: true })
-      this.getLikes().then(item => {
+      this.getLikes().promise.then((item: any) => {
         this.setState({ loading: false, likes: item.get('likes') })
       })
     }
@@ -65,46 +65,47 @@ export default class ListItem extends React.Component<Props, State> {
   }
 
   private getLikes() {
-    return this.props.firestore
-      .collection('skills')
-      .doc(this.props.item.id)
-      .get()
+    return this.makeCancelable(
+      this.props.firestore
+        .collection('skills')
+        .doc(this.props.item.id)
+        .get()
+    )
+  }
+
+  private setLikes(item: any, likes: number) {
+    return this.makeCancelable(
+      this.props.firestore
+        .collection('skills')
+        .doc(item.id)
+        .set({ ...item.data(), likes })
+    )
   }
 
   private toggleLiked() {
-    if (this.state.liked) {
-      this.unlike()
-    } else {
-      this.like()
+    this.setState({ loading: true })
+    this.getLikes().promise.then((item: any) => {
+      const added = this.state.liked ? -1 : 1
+      const likes = item.get('likes') + added
+      this.setLikes(item, likes).promise.then(() => {
+        this.setState({ loading: false, likes, liked: !this.state.liked })
+      })
+    })
+  }
+
+  private makeCancelable = (promise: Promise<any>) => {
+    let hasCanceled_ = false
+
+    const wrappedPromise = new Promise((resolve, reject) => {
+      promise.then(val => (hasCanceled_ ? reject({ isCanceled: true }) : resolve(val)), error => (hasCanceled_ ? reject({ isCanceled: true }) : reject(error)))
+    })
+
+    return {
+      promise: wrappedPromise,
+      cancel() {
+        hasCanceled_ = true
+      }
     }
-  }
-
-  private unlike() {
-    this.setState({ loading: true })
-    this.getLikes().then(item => {
-      const likes = item.get('likes') - 1
-      this.props.firestore
-        .collection('skills')
-        .doc(item.id)
-        .set({ ...item.data(), likes })
-        .then(() => {
-          this.setState({ loading: false, likes, liked: false })
-        })
-    })
-  }
-
-  private like() {
-    this.setState({ loading: true })
-    this.getLikes().then(item => {
-      const likes = item.get('likes') + 1
-      this.props.firestore
-        .collection('skills')
-        .doc(item.id)
-        .set({ ...item.data(), likes })
-        .then(() => {
-          this.setState({ loading: false, likes, liked: true })
-        })
-    })
   }
 }
 
