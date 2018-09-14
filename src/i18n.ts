@@ -12,8 +12,8 @@ const languageDetector = {
       callback(lng.replace('_', '-'))
     })
   },
-  init: () => {},
-  cacheUserLanguage: () => {}
+  init: () => { },
+  cacheUserLanguage: () => { }
 }
 
 i18n
@@ -130,6 +130,7 @@ i18n
           tornadoSpinR: 'Tornado Spin Right'
         },
         celebrations: {
+          basicMoves: 'Basic',
           runningMoves: 'Running Moves',
           finishingMoves: 'Finishing Moves',
           proUnlockables: 'Pro Unlockables',
@@ -357,6 +358,7 @@ i18n
           tornadoSpinR: 'Tornado Spin Right'
         },
         celebrations: {
+          basicMoves: 'Info',
           runningMoves: 'Movimietos en Carrera',
           finishingMoves: 'Movimientos de Finalización',
           proUnlockables: 'Desbloqueables Pro',

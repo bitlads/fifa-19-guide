@@ -1,7 +1,7 @@
 import React from 'react'
 import { translate } from 'react-i18next'
 import { NavigationScreenProps } from 'react-navigation'
-import { TranslationProps } from '../Const'
+import { SKILLS_COLOR, TranslationProps } from '../Const'
 import ListScreen from './ListScreen'
 import firebase from 'firebase'
 require('firebase/firestore')
@@ -38,7 +38,7 @@ class SkillsScreen extends React.Component<Props, State> {
   }
 
   render() {
-    return <ListScreen t={this.props.t} isXboxSelected={this.isXboxSelected} sections={this.state.sections} color="#00796B" />
+    return <ListScreen t={this.props.t} isXboxSelected={this.isXboxSelected} sections={this.state.sections} color={SKILLS_COLOR} />
   }
 
   private fetchFirebase() {

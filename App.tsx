@@ -5,7 +5,7 @@ import CelebrationsScreen from './src/screens/CelebrationsScreen'
 import { createStackNavigator } from 'react-navigation'
 import { I18nextProvider, translate } from 'react-i18next'
 import i18n from './src/i18n'
-import { View } from 'react-native'
+import { StatusBar, View } from 'react-native'
 import { ADMOB_BANNER_ID, S8_TEST_ID } from './src/Secrets'
 import { AdMobBanner } from 'expo'
 import { Asset } from 'expo'
@@ -49,6 +49,7 @@ export default class App extends React.Component<{}> {
     return (
       <I18nextProvider i18n={i18n}>
         <View style={{ flex: 1, backgroundColor: '#303030' }}>
+          <StatusBar barStyle="light-content" />
           <ReloadAppOnLanguageChange />
           <AdMobBanner style={{ alignSelf: 'center' }} adUnitID={ADMOB_BANNER_ID} bannerSize="banner" testDeviceID={S8_TEST_ID} />
         </View>

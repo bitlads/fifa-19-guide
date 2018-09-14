@@ -4,13 +4,13 @@ import HomeButton from '../components/HomeButton'
 import CategoryButton from '../components/CategoryButton'
 import { translate } from 'react-i18next'
 import { NavigationScreenProps } from 'react-navigation'
-import { TranslationProps } from '../Const'
+import { SKILLS_COLOR, CELEBRATIONS_COLOR, TranslationProps } from '../Const'
 import { FIFA_19_AMAZON_LINK } from '../Secrets'
 import Toggle from '../components/Toggle'
 import firebase from 'firebase'
 import { FIREBASE_CONFIG } from '../Secrets'
 
-interface Props extends NavigationScreenProps, TranslationProps {}
+interface Props extends NavigationScreenProps, TranslationProps { }
 
 interface State {
   isXboxSelected: boolean
@@ -32,7 +32,7 @@ class HomeScreen extends React.Component<Props, State> {
     this.daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24))
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
 
   render() {
     return (
@@ -42,7 +42,7 @@ class HomeScreen extends React.Component<Props, State> {
           <View style={styles.row}>
             <CategoryButton
               category={this.props.t('common:skills')}
-              color="#03A9F4"
+              color={SKILLS_COLOR}
               image={require('../../assets/skills.png')}
               t={this.props.t}
               onPress={() => this.navigateSkills()}
@@ -51,7 +51,7 @@ class HomeScreen extends React.Component<Props, State> {
           <View style={styles.row}>
             <CategoryButton
               category={this.props.t('common:celebrations')}
-              color="#d32f2f"
+              color={CELEBRATIONS_COLOR}
               image={require('../../assets/celebrations.png')}
               t={this.props.t}
               onPress={() => this.navigateCelebrations()}

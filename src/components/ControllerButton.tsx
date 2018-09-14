@@ -41,13 +41,21 @@ export default class ControllerButton extends React.Component<Props> {
       case '@rt':
         return this.props.isXbox ? this.renderBumperButton('RT') : this.renderBumperButton('R2')
       case '@l':
-        return this.renderArrowButton(180)
-      case '@r':
-        return this.renderArrowButton(0)
-      case '@u':
         return this.renderArrowButton(270)
-      case '@d':
+      case '@r':
         return this.renderArrowButton(90)
+      case '@u':
+        return this.renderArrowButton(0)
+      case '@d':
+        return this.renderArrowButton(180)
+      case '@ul':
+        return this.renderArrowButton(315)
+      case '@ur':
+        return this.renderArrowButton(45)
+      case '@dl':
+        return this.renderArrowButton(225)
+      case '@dr':
+        return this.renderArrowButton(135)
       default:
         return this.renderUnknown()
     }
@@ -55,9 +63,14 @@ export default class ControllerButton extends React.Component<Props> {
 
   private renderArrowButton(rotation: number) {
     return (
-      <View style={[styles.arrowButton, { transform: [{ rotate: `${rotation} deg` }] }]}>
-        <View style={styles.arrowHead} />
-        <View style={styles.arrowBase} />
+      <View style={styles.arrowButton}>
+        <View style={{
+          justifyContent: 'center',
+          alignItems: 'center', transform: [{ rotate: `${rotation} deg` }]
+        }}>
+          <View style={styles.arrowHead} />
+          <View style={styles.arrowBase} />
+        </View>
       </View>
     )
   }

@@ -1,440 +1,440 @@
 [
   {
-    "new": false,
-    "controls": "hold @lt + @rb",
     "id": "ballJuggle",
-    "stars": 1
+    "stars": 1,
+    "controls": "@lt + @rb tap",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "hold @rb",
     "id": "footFake",
-    "stars": 1
+    "stars": 1,
+    "controls": "hold @rb",
+    "new": false
   },
   {
-    "new": true,
-    "controls": "hold @lb + @x or @b then @a + @rs @u @l",
     "id": "openUpR",
-    "stars": 1
+    "stars": 1,
+    "controls": "hold @lb + @x or @b then @a + @ls @ul",
+    "new": true
   },
   {
-    "new": true,
-    "controls": "hold @lb + @x or @b then @a + @rs @u @r",
     "id": "openUpL",
-    "stars": 1
+    "stars": 1,
+    "controls": "hold @lb + @x or @b then @a + @rs @ur",
+    "new": true
   },
   {
-    "new": true,
-    "controls": "@r3",
     "id": "FlickUpVolley",
-    "stars": 1
+    "stars": 1,
+    "controls": "@r3",
+    "new": true
   },
   {
-    "new": false,
-    "controls": "@rs flick @r",
     "id": "bodyFeintR",
-    "stars": 2
+    "stars": 2,
+    "controls": "@rs flick @r",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs flick @l",
     "id": "bodyFeintL",
-    "stars": 2
+    "stars": 2,
+    "controls": "@rs flick @l",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs roll @u @r",
     "id": "stepoverR",
-    "stars": 2
+    "stars": 2,
+    "controls": "@rs roll @u @r",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs roll @u @l",
     "id": "stepoverL",
-    "stars": 2
+    "stars": 2,
+    "controls": "@rs roll @u @l",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs roll @r @u",
     "id": "reverseStepoverR",
-    "stars": 2
+    "stars": 2,
+    "controls": "@rs roll @r @u",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs roll @l @u",
     "id": "reverseStepoverL",
-    "stars": 2
+    "stars": 2,
+    "controls": "@rs roll @l @u",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs hold @l",
     "id": "ballRollL",
-    "stars": 2
+    "stars": 2,
+    "controls": "@rs hold @l",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs hold @r",
     "id": "ballRollR",
-    "stars": 2
+    "stars": 2,
+    "controls": "@rs hold @r",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rb + @ls flick @d",
     "id": "dragBack",
-    "stars": 2
+    "stars": 2,
+    "controls": "@rb + @ls flick @d",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs flick @u @d",
     "id": "heelFlick",
-    "stars": 3
-  },
-  {
-    "new": false,
-    "controls": "@rs roll @d @l @u @r",
-    "id": "rouletteR",
-    "stars": 3
-  },
-  {
-    "new": false,
-    "controls": "@rs roll @d @r @u @l",
-    "id": "rouletteL",
-    "stars": 3
-  },
-  {
-    "new": false,
-    "controls": "@rs roll @l @d @r",
-    "id": "fakeLeftGoRight",
-    "stars": 3
-  },
-  {
-    "new": false,
-    "controls": "@rs roll @r @d @l",
-    "id": "fakeRightGoLeft",
-    "stars": 3
-  },
-  {
-    "new": false,
-    "controls": "hold @lb + @r3",
-    "id": "ballHop",
-    "stars": 4
-  },
-  {
-    "new": false,
+    "stars": 3,
     "controls": "@rs flick @u @d",
+    "new": false
+  },
+  {
+    "id": "rouletteR",
+    "stars": 3,
+    "controls": "@rs roll @d @l @u @r",
+    "new": false
+  },
+  {
+    "id": "rouletteL",
+    "stars": 3,
+    "controls": "@rs roll @d @r @u @l",
+    "new": false
+  },
+  {
+    "id": "fakeLeftGoRight",
+    "stars": 3,
+    "controls": "@rs roll @l @d @r",
+    "new": false
+  },
+  {
+    "id": "fakeRightGoLeft",
+    "stars": 3,
+    "controls": "@rs roll @r @d @l",
+    "new": false
+  },
+  {
+    "id": "ballHop",
+    "stars": 4,
+    "controls": "hold @lb + @r3",
+    "new": false
+  },
+  {
     "id": "heelToHeelFlick",
-    "stars": 4
+    "stars": 4,
+    "controls": "@rs flick @u @d",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs flick @d @u @u",
     "id": "simpleRainbow",
-    "stars": 4
+    "stars": 4,
+    "controls": "@rs flick @d @u @u",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs flick @d hold @u flick @u",
     "id": "advRainbow",
-    "stars": 4
+    "stars": 4,
+    "controls": "@rs flick @d hold @u flick @u",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs roll @l @d @r",
     "id": "feintLeftExitRight",
-    "stars": 4
-  },
-  {
-    "new": false,
-    "controls": "@rs roll @r @d @l",
-    "id": "feintRightExitLeft",
-    "stars": 4
-  },
-  {
-    "new": false,
-    "controls": "@rs @dl @dl",
-    "id": "spinLeft",
-    "stars": 4
-  },
-  {
-    "new": false,
-    "controls": "@rs @dr @dr",
-    "id": "spinRight",
-    "stars": 4
-  },
-  {
-    "new": false,
-    "controls": "@rs flick @u flick @l",
-    "id": "stopAndTurnL",
-    "stars": 4
-  },
-  {
-    "new": false,
-    "controls": "@rs flick @u flick @r",
-    "id": "stopAndTurnR",
-    "stars": 4
-  },
-  {
-    "new": false,
-    "controls": "@rs hold @l @ls hold @r",
-    "id": "ballRollCutR",
-    "stars": 4
-  },
-  {
-    "new": false,
-    "controls": "@rs hold @r @ls hold @l",
-    "id": "ballRollCutL",
-    "stars": 4
-  },
-  {
-    "new": true,
-    "controls": "hold @rt + @x or @b then @a",
-    "id": "fakePass",
-    "stars": 4
-  },
-  {
-    "new": true,
-    "controls": "hold @rt + @x or @b then @a + @ls @u @l",
-    "id": "fakePassExitL",
-    "stars": 4
-  },
-  {
-    "new": true,
-    "controls": "hold @rt + @x or @b then @a + @ls @u @r",
-    "id": "fakePassExitR",
-    "stars": 4
-  },
-  {
-    "new": true,
-    "controls": "hold @rt + @rs flick @u flick @d",
-    "id": "heelFlickTurn",
-    "stars": 4
-  },
-  {
-    "new": true,
-    "controls": "hold @lt + @x or @b then @a + @ls hold @l",
-    "id": "heelChopL",
-    "stars": 4
-  },
-  {
-    "new": true,
-    "controls": "hold @lt + @x or @b then @a + @ls hold @r",
-    "id": "heelChopR",
-    "stars": 4
-  },
-  {
-    "new": true,
-    "controls": "hold @lb + @rs hold @l",
-    "id": "laneChangeL",
-    "stars": 4
-  },
-  {
-    "new": true,
-    "controls": "hold @lb + @rs hold @r",
-    "id": "laneChangeR",
-    "stars": 4
-  },
-  {
-    "new": true,
-    "controls": "hold @lt + @rs flick @d flick @l",
-    "id": "threeTouchL",
-    "stars": 4
-  },
-  {
-    "new": true,
-    "controls": "hold @lt + @rs flick @d flick @r",
-    "id": "threeTouchR",
-    "stars": 4
-  },
-  {
-    "new": true,
-    "controls": "@rs flick @d flick @l",
-    "id": "dragBackSpinL",
-    "stars": 4
-  },
-  {
-    "new": true,
-    "controls": "@rs flick @d flick @r",
-    "id": "dragBackSpinR",
-    "stars": 4
-  },
-  {
-    "new": false,
-    "controls": "@rs roll @r @d @l",
-    "id": "elastico",
-    "stars": 5
-  },
-  {
-    "new": false,
+    "stars": 4,
     "controls": "@rs roll @l @d @r",
-    "id": "reverseElastico",
-    "stars": 5
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs hold @d",
-    "id": "quickBallRolls",
-    "stars": 5
+    "id": "feintRightExitLeft",
+    "stars": 4,
+    "controls": "@rs roll @r @d @l",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs roll @d @l @rs roll @l @d @r",
-    "id": "hocusPocus",
-    "stars": 5
+    "id": "spinLeft",
+    "stars": 4,
+    "controls": "@rs @dl @dl",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs roll @d @r @rs roll @r @d @l",
-    "id": "tripleElastico",
-    "stars": 5
+    "id": "spinRight",
+    "stars": 4,
+    "controls": "@rs @dr @dr",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs hold @r flick @u",
-    "id": "ballRollFlickL",
-    "stars": 5
-  },
-  {
-    "new": false,
-    "controls": "@rs hold @l flick @u",
-    "id": "ballRollFlickR",
-    "stars": 5
-  },
-  {
-    "new": false,
-    "controls": "@rs flick @u @u @d",
-    "id": "sombreroFlick",
-    "stars": 5
-  },
-  {
-    "new": false,
+    "id": "stopAndTurnL",
+    "stars": 4,
     "controls": "@rs flick @u flick @l",
-    "id": "turnAndSpinL",
-    "stars": 5
+    "new": false
   },
   {
-    "new": false,
+    "id": "stopAndTurnR",
+    "stars": 4,
     "controls": "@rs flick @u flick @r",
-    "id": "turnAndSpinR",
-    "stars": 5
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs hold @l then @rs flick @r",
-    "id": "ballRollFakeL",
-    "stars": 5
+    "id": "ballRollCutR",
+    "stars": 4,
+    "controls": "@rs hold @l @ls hold @r",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs hold @r then @rs flick @l",
-    "id": "ballRollFakeR",
-    "stars": 5
+    "id": "ballRollCutL",
+    "stars": 4,
+    "controls": "@rs hold @r @ls hold @l",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "hold @lt + @x or @b then @a + @ls @d",
-    "id": "rabonaFake",
-    "stars": 5
+    "id": "fakePass",
+    "stars": 4,
+    "controls": "hold @rt + @x or @b then @a",
+    "new": true
   },
   {
-    "new": false,
+    "id": "fakePassExitL",
+    "stars": 4,
+    "controls": "hold @rt + @x or @b then @a + @ls @ul",
+    "new": true
+  },
+  {
+    "id": "fakePassExitR",
+    "stars": 4,
+    "controls": "hold @rt + @x or @b then @a + @ls @ur",
+    "new": true
+  },
+  {
+    "id": "heelFlickTurn",
+    "stars": 4,
+    "controls": "hold @rb + @rs flick @u flick @d",
+    "new": true
+  },
+  {
+    "id": "heelChopL",
+    "stars": 4,
+    "controls": "hold @lt + @x or @b then @a + @ls hold @l",
+    "new": true
+  },
+  {
+    "id": "heelChopR",
+    "stars": 4,
+    "controls": "hold @lt + @x or @b then @a + @ls hold @r",
+    "new": true
+  },
+  {
+    "id": "laneChangeL",
+    "stars": 4,
+    "controls": "hold @lb + @rs hold @l",
+    "new": true
+  },
+  {
+    "id": "laneChangeR",
+    "stars": 4,
+    "controls": "hold @lb + @rs hold @r",
+    "new": true
+  },
+  {
+    "id": "threeTouchL",
+    "stars": 4,
+    "controls": "hold @lt + @rs flick @d flick @l",
+    "new": true
+  },
+  {
+    "id": "threeTouchR",
+    "stars": 4,
+    "controls": "hold @lt + @rs flick @d flick @r",
+    "new": true
+  },
+  {
+    "id": "dragBackSpinL",
+    "stars": 4,
     "controls": "@rs flick @d flick @l",
-    "id": "elasticoChopL",
-    "stars": 5
+    "new": true
   },
   {
-    "new": false,
+    "id": "dragBackSpinR",
+    "stars": 4,
     "controls": "@rs flick @d flick @r",
+    "new": true
+  },
+  {
+    "id": "elastico",
+    "stars": 5,
+    "controls": "@rs roll @r @d @l",
+    "new": false
+  },
+  {
+    "id": "reverseElastico",
+    "stars": 5,
+    "controls": "@rs roll @l @d @r",
+    "new": false
+  },
+  {
+    "id": "quickBallRolls",
+    "stars": 5,
+    "controls": "@rs hold @d",
+    "new": false
+  },
+  {
+    "id": "hocusPocus",
+    "stars": 5,
+    "controls": "@rs roll @d @l @rs roll @l @d @r",
+    "new": false
+  },
+  {
+    "id": "tripleElastico",
+    "stars": 5,
+    "controls": "@rs roll @d @r @rs roll @r @d @l",
+    "new": false
+  },
+  {
+    "id": "ballRollFlickL",
+    "stars": 5,
+    "controls": "@rs hold @r flick @u",
+    "new": false
+  },
+  {
+    "id": "ballRollFlickR",
+    "stars": 5,
+    "controls": "@rs hold @l flick @u",
+    "new": false
+  },
+  {
+    "id": "sombreroFlick",
+    "stars": 5,
+    "controls": "@rs flick @u @u @d",
+    "new": false
+  },
+  {
+    "id": "turnAndSpinL",
+    "stars": 5,
+    "controls": "@rs flick @u flick @l",
+    "new": false
+  },
+  {
+    "id": "turnAndSpinR",
+    "stars": 5,
+    "controls": "@rs flick @u flick @r",
+    "new": false
+  },
+  {
+    "id": "ballRollFakeL",
+    "stars": 5,
+    "controls": "@rs hold @l then @rs flick @r",
+    "new": false
+  },
+  {
+    "id": "ballRollFakeR",
+    "stars": 5,
+    "controls": "@rs hold @r then @rs flick @l",
+    "new": false
+  },
+  {
+    "id": "rabonaFake",
+    "stars": 5,
+    "controls": "hold @lt + @x or @b then @a + @ls @d",
+    "new": false
+  },
+  {
+    "id": "elasticoChopL",
+    "stars": 5,
+    "controls": "hold @rb + @rs roll @r @d @l",
+    "new": false
+  },
+  {
     "id": "elasticoChopR",
-    "stars": 5
+    "stars": 5,
+    "controls": "hold @rb + @rs roll @l @d @r",
+    "new": false
   },
   {
-    "new": true,
-    "controls": "hold @rb + @rs flick @u flick @l",
     "id": "spinFlickL",
-    "stars": 5
+    "stars": 5,
+    "controls": "hold @rb + @rs flick @u flick @l",
+    "new": true
   },
   {
-    "new": true,
-    "controls": "hold @rb + @rs flick @u flick @r",
     "id": "spinFlickR",
-    "stars": 5
+    "stars": 5,
+    "controls": "hold @rb + @rs flick @u flick @r",
+    "new": true
   },
   {
-    "new": true,
-    "controls": "@rs hold @u",
     "id": "flickOver",
-    "stars": 5
+    "stars": 5,
+    "controls": "@rs hold @u",
+    "new": true
   },
   {
-    "new": true,
-    "controls": "@hold @lb + @rs flick @u flick @l",
     "id": "tornadoSpinL",
-    "stars": 5
+    "stars": 5,
+    "controls": "hold @lb + @rs flick @u flick @l",
+    "new": true
   },
   {
-    "new": true,
-    "controls": "@hold @lb + @rs flick @u flick @r",
     "id": "tornadoSpinR",
-    "stars": 5
+    "stars": 5,
+    "controls": "hold @lb + @rs flick @u flick @r",
+    "new": true
   },
   {
-    "new": false,
-    "controls": "@lt + hold @rb",
     "id": "lacesFlickUp",
-    "stars": 5
+    "stars": 5,
+    "controls": "@lt + hold @rb",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "hold @ls @d",
     "id": "sombreroFlickB",
-    "stars": 5
+    "stars": 5,
+    "controls": "hold @ls @d",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "hold @ls @l",
     "id": "sombreroFlickL",
-    "stars": 5
+    "stars": 5,
+    "controls": "hold @ls @l",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "hold @ls @r",
     "id": "sombreroFlickR",
-    "stars": 5
+    "stars": 5,
+    "controls": "hold @ls @r",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs @u @r @d @l",
     "id": "aroundTheWorld",
-    "stars": 5
+    "stars": 5,
+    "controls": "@rs roll @u @r @d @l",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs flick @r flick @l",
     "id": "inAirElastico",
-    "stars": 5
+    "stars": 5,
+    "controls": "@rs flick @r flick @l",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs flick @l flick @r",
     "id": "inAirElasticoReverse",
-    "stars": 5
+    "stars": 5,
+    "controls": "@rs flick @l flick @r",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "hold @ls @u",
     "id": "flickUpForVolley5",
-    "stars": 5
+    "stars": 5,
+    "controls": "hold @ls @u",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@ls @u hold @l3 tap @r3 x3",
     "id": "chestFlick",
-    "stars": 5
+    "stars": 5,
+    "controls": "@ls @u hold @l3 tap @r3 x3",
+    "new": false
   },
   {
-    "new": false,
-    "controls": "@rs @u @r @d @l then @rs flick @u",
     "id": "tAroundTheWorld",
-    "stars": 5
+    "stars": 5,
+    "controls": "@rs roll @u @r @d @l then @rs flick @u",
+    "new": false
   }
 ]

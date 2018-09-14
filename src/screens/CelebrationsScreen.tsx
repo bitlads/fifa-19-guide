@@ -1,10 +1,8 @@
 import React from 'react'
 import { translate } from 'react-i18next'
 import { NavigationScreenProps } from 'react-navigation'
-import { TranslationProps } from '../Const'
+import { CELEBRATIONS_COLOR, TranslationProps } from '../Const'
 import ListScreen from './ListScreen'
-import { Ionicons } from '@expo/vector-icons'
-import { TouchableOpacity } from 'react-native'
 import firebase from 'firebase'
 require('firebase/firestore')
 
@@ -36,11 +34,11 @@ class CelebrationsScreen extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    this.fetchFirebase()
+    this.fetchOffline()
   }
 
   render() {
-    return <ListScreen t={this.props.t} isXboxSelected={this.isXboxSelected} sections={this.state.sections} color="#d32f2f" />
+    return <ListScreen t={this.props.t} isXboxSelected={this.isXboxSelected} sections={this.state.sections} color={CELEBRATIONS_COLOR} />
   }
 
   private fetchFirebase() {
@@ -65,6 +63,7 @@ class CelebrationsScreen extends React.Component<Props, State> {
 
   private makeSections(data: any) {
     const sections = [
+      { title: this.props.t('celebrations:basicMoves'), data: new Array<Celebration>() },
       { title: this.props.t('celebrations:runningMoves'), data: new Array<Celebration>() },
       { title: this.props.t('celebrations:finishingMoves'), data: new Array<Celebration>() },
       { title: this.props.t('celebrations:proUnlockables'), data: new Array<Celebration>() },
@@ -72,17 +71,20 @@ class CelebrationsScreen extends React.Component<Props, State> {
     ]
     data.forEach((item: Celebration) => {
       switch (item.type) {
-        case 'runningMoves':
+        case 'basicMoves':
           sections[0].data.push(item)
           break
-        case 'finishingMoves':
+        case 'runningMoves':
           sections[1].data.push(item)
           break
-        case 'proUnlockables':
+        case 'finishingMoves':
           sections[2].data.push(item)
           break
-        case 'eaFcUnlockables':
+        case 'proUnlockables':
           sections[3].data.push(item)
+          break
+        case 'eaFcUnlockables':
+          sections[4].data.push(item)
           break
       }
     })
