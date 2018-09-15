@@ -2,9 +2,9 @@ import * as React from 'react'
 import HomeScreen from './src/screens/HomeScreen'
 import SkillsScreen from './src/screens/SkillsScreen'
 import CelebrationsScreen from './src/screens/CelebrationsScreen'
+import Store from './src/redux/Store';
+import { Provider } from 'react-redux';
 import { createStackNavigator } from 'react-navigation'
-import { I18nextProvider, translate } from 'react-i18next'
-import i18n from './src/i18n'
 import { StatusBar, View } from 'react-native'
 import { ADMOB_BANNER_ID, S8_TEST_ID } from './src/Secrets'
 import { AdMobBanner } from 'expo'
@@ -33,27 +33,16 @@ const StackNav = createStackNavigator(
   }
 )
 
-const LocalizedStack = ({ t }: any) => {
-  return <StackNav screenProps={{ t }} />
-}
-
-const options: any = {
-  bindI18n: 'languageChanged',
-  bindStore: false
-}
-
-const ReloadAppOnLanguageChange = translate('common', options)(LocalizedStack)
-
 export default class App extends React.Component<{}> {
   render() {
     return (
-      <I18nextProvider i18n={i18n}>
+      <Provider store={Store}>
         <View style={{ flex: 1, backgroundColor: '#303030' }}>
           <StatusBar barStyle="light-content" />
-          <ReloadAppOnLanguageChange />
+          <StackNav />
           <AdMobBanner style={{ alignSelf: 'center' }} adUnitID={ADMOB_BANNER_ID} bannerSize="banner" testDeviceID={S8_TEST_ID} />
         </View>
-      </I18nextProvider>
+      </Provider>
     )
   }
 }
