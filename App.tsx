@@ -1,7 +1,7 @@
 import * as React from 'react'
 import HomeScreen from './src/screens/HomeScreen'
-import SkillsScreen from './src/screens/SkillsScreen'
-import CelebrationsScreen from './src/screens/CelebrationsScreen'
+//import SkillsScreen from './src/screens/SkillsScreen'
+//import CelebrationsScreen from './src/screens/CelebrationsScreen'
 import Store from './src/redux/Store';
 import { Provider } from 'react-redux';
 import { createStackNavigator } from 'react-navigation'
@@ -14,8 +14,8 @@ Asset
 const StackNav = createStackNavigator(
   {
     Home: HomeScreen,
-    Skills: SkillsScreen,
-    Celebrations: CelebrationsScreen
+    //Skills: SkillsScreen,
+    //Celebrations: CelebrationsScreen
   },
   {
     initialRouteName: 'Home',
