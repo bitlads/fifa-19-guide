@@ -28,12 +28,12 @@ export default class ListItem extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    if (this.state.likes === -1) {
+    /*if (this.state.likes === -1) {
       this.setState({ loading: true })
       this.getLikes().promise.then((item: any) => {
         this.setState({ loading: false, likes: item.get('likes') })
       })
-    }
+    }*/
   }
 
   render() {
@@ -44,23 +44,28 @@ export default class ListItem extends React.Component<Props, State> {
             <Text style={{ fontSize: 20, color: '#fff' }}>{this.props.item.name}</Text>
             {this.props.item.new && <Text style={styles.new}>{this.props.t('list:new')}</Text>}
           </View>
-          <TouchableOpacity
-            onPress={() => this.toggleLiked()}
-            style={[styles.likesButton, { backgroundColor: this.state.liked ? '#388E3C' : '#424242' }]}
-            disabled={this.state.loading}
-          >
-            {this.state.loading ? (
-              <ActivityIndicator color="#fff" />
-            ) : (
-              <View style={styles.likesContainer}>
-                <Text style={{ fontSize: 18, color: '#fff' }}>{`+${this.state.likes} `}</Text>
-                <Ionicons name="md-thumbs-up" size={24} color="#fff" style={{ margin: 5 }} />
-              </View>
-            )}
-          </TouchableOpacity>
         </View>
         <ControlsImage controls={this.props.item.controls} isXb={this.props.isXboxSelected} t={this.props.t} />
       </View>
+    )
+  }
+
+  private renderLikes() {
+    return (
+      <TouchableOpacity
+        onPress={() => this.toggleLiked()}
+        style={[styles.likesButton, { backgroundColor: this.state.liked ? '#388E3C' : '#424242' }]}
+        disabled={this.state.loading}
+      >
+        {this.state.loading ? (
+          <ActivityIndicator color="#fff" />
+        ) : (
+            <View style={styles.likesContainer}>
+              <Text style={{ fontSize: 18, color: '#fff' }}>{`+${this.state.likes} `}</Text>
+              <Ionicons name="md-thumbs-up" size={24} color="#fff" style={{ margin: 5 }} />
+            </View>
+          )}
+      </TouchableOpacity>
     )
   }
 

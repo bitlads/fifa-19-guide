@@ -10,14 +10,14 @@ interface Props {
 export default class HomeButton extends React.Component<Props> {
   render() {
     return (
-      <View style={styles.card}>
+      <TouchableOpacity onPress={this.props.onPress} style={styles.card}>
         <View style={styles.container}>
           <Text style={styles.text}>{this.props.text}</Text>
         </View>
-        <TouchableOpacity onPress={this.props.onPress} style={styles.button}>
+        <View style={styles.button}>
           <Text style={{ color: '#fff', alignSelf: 'center' }}>{this.props.actionText}</Text>
-        </TouchableOpacity>
-      </View>
+        </View>
+      </TouchableOpacity>
     )
   }
 }

@@ -82,6 +82,13 @@ class HomeScreen extends React.Component<Props, State> {
           <View style={styles.card}>
             <Text style={styles.cardText}>{this.props.t('home:thank_you')}</Text>
           </View>
+          <View style={styles.row}>
+            <HomeButton
+              text={this.props.t('home:likeTheApp')}
+              actionText={this.props.t('home:playStore')}
+              onPress={() => Linking.openURL('https://play.google.com/store/apps/details?id=io.bitlads.fifa19')}
+            />
+          </View>
         </ScrollView>
       </View>
     )

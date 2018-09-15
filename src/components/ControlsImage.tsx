@@ -27,7 +27,11 @@ export default class ControlsImage extends React.Component<Props> {
   }
 
   private localize(item: string) {
-    return item === '+' ? item : this.props.t(`list:${item}`)
+    if (item === '+' || item === 'x3' || item === 'x2') {
+      return item
+    } else {
+      return this.props.t(`list:${item}`)
+    }
   }
 }
 
@@ -38,7 +42,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#424242',
     flexWrap: 'wrap',
-    marginTop: 15,
+    marginTop: 5,
     padding: 10,
     borderRadius: 3
   },

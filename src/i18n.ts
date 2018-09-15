@@ -39,7 +39,9 @@ i18n
           newInFifa19: 'New in FIFA 19',
           newStuff: '- 20 new skill moves\n- 11 new celebrations\n- Champions League Mode\n- Survival Mode',
           categories: 'Categories',
-          settings: 'Settings'
+          settings: 'Settings',
+          likeTheApp: 'Like the app? Please consider rating it in the store.',
+          playStore: 'Play Store'
         },
         list: {
           hold: 'Hold',
@@ -247,7 +249,11 @@ i18n
           seatedRowing: 'Seated Rowing',
           mask: 'Mask',
           pipe: 'Pipe',
-          kissTheWrist: 'Kiss the Wrist'
+          kissTheWrist: 'Kiss the Wrist',
+          signature: 'Signature Celebration',
+          random: 'Random Celebration',
+          cancel: 'Cancel Celebration',
+          signatureFinishing: 'Signature Finishing Move'
         }
       },
       es: {
@@ -475,7 +481,11 @@ i18n
           seatedRowing: 'Remar sentado',
           mask: 'Máscara',
           pipe: 'Pipa',
-          kissTheWrist: 'Besarse la muñeca'
+          kissTheWrist: 'Besarse la muñeca',
+          signature: 'Celebración personal',
+          random: 'Celebración aleatoria',
+          cancel: 'Cancelar celebración',
+          signatureFinishing: 'Movimiento de definición personal'
         }
       }
     },
