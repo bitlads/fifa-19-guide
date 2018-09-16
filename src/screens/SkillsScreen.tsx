@@ -4,8 +4,7 @@ import { SKILLS_COLOR } from '../Const'
 import ListScreen from './ListScreen'
 import firebase from 'firebase'
 require('firebase/firestore')
-import { t } from '../Localizer'
-import { connect } from 'react-redux';
+import Localizer from '../Localizer';
 
 interface SkillMove {
   id: string
@@ -19,7 +18,7 @@ interface State {
   sections: Array<any>
 }
 
-class SkillsScreen extends React.Component<Props, State> {
+export default class SkillsScreen extends React.Component<Props, State> {
   private isXboxSelected: boolean
   private firestore: firebase.firestore.Firestore
 
@@ -49,7 +48,7 @@ class SkillsScreen extends React.Component<Props, State> {
       .get()
       .then(skills => {
         skills.forEach(skill => {
-          data.push({ ...skill.data(), name: this.t(`skills:${skill.id}`) })
+          data.push({ ...skill.data(), name: Localizer.t(`skills:${skill.id}`) })
         })
         this.makeSections(data)
       })
@@ -61,20 +60,16 @@ class SkillsScreen extends React.Component<Props, State> {
 
   private makeSections(data: any) {
     const sections = [
-      { title: `1 ${this.t('list:star')}`, data: new Array<SkillMove>() },
-      { title: `2 ${this.t('list:star')}`, data: new Array<SkillMove>() },
-      { title: `3 ${this.t('list:star')}`, data: new Array<SkillMove>() },
-      { title: `4 ${this.t('list:star')}`, data: new Array<SkillMove>() },
-      { title: `5 ${this.t('list:star')}`, data: new Array<SkillMove>() }
+      { title: `1 ${Localizer.t('list:star')}`, data: new Array<SkillMove>() },
+      { title: `2 ${Localizer.t('list:star')}`, data: new Array<SkillMove>() },
+      { title: `3 ${Localizer.t('list:star')}`, data: new Array<SkillMove>() },
+      { title: `4 ${Localizer.t('list:star')}`, data: new Array<SkillMove>() },
+      { title: `5 ${Localizer.t('list:star')}`, data: new Array<SkillMove>() }
     ]
     data.forEach((item: SkillMove) => {
       sections[item.stars - 1].data.push(item)
     })
     this.setState({ sections })
-  }
-
-  private t(key: string) {
-    return t(key, this.props.locale)
   }
 
   static navigationOptions = ({ navigation }: NavigationScreenProps) => {
@@ -83,11 +78,3 @@ class SkillsScreen extends React.Component<Props, State> {
     }
   }
 }
-
-function mapStateToProps(state: any, props: any) {
-  return {
-    locale: state.dataReducer.locale
-  }
-}
-
-export default connect(mapStateToProps)(SkillsScreen);

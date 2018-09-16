@@ -12,14 +12,13 @@ import { connect } from 'react-redux';
 import Localizer from '../Localizer';
 
 interface Props extends NavigationScreenProps {
-  localizer: Localizer
 }
 
 interface State {
   isXboxSelected: boolean
 }
 
-class HomeScreen extends React.Component<Props, State> {
+export default class HomeScreen extends React.Component<Props, State> {
   private daysLeft: number
 
   constructor(props: Props) {
@@ -39,10 +38,10 @@ class HomeScreen extends React.Component<Props, State> {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.home}>
-          <Text style={styles.header}>{this.props.localizer.t('categories')}</Text>
+          <Text style={styles.header}>{Localizer.t('categories')}</Text>
           <View style={styles.row}>
             <CategoryButton
-              category={this.props.localizer.t('skills')}
+              category={Localizer.t('skills')}
               color={SKILLS_COLOR}
               image={require('../../assets/skills.png')}
               onPress={() => this.navigateSkills()}
@@ -50,41 +49,41 @@ class HomeScreen extends React.Component<Props, State> {
           </View>
           <View style={styles.row}>
             <CategoryButton
-              category={this.props.localizer.t('celebrations')}
+              category={Localizer.t('celebrations')}
               color={CELEBRATIONS_COLOR}
               image={require('../../assets/celebrations.png')}
               onPress={() => this.navigateCelebrations()}
             />
           </View>
-          <Text style={styles.header}>{this.props.localizer.t('settings')}</Text>
+          <Text style={styles.header}>{Localizer.t('settings')}</Text>
           <Toggle
             isXbSelected={this.state.isXboxSelected}
             onToggleXb={() => this.setState({ isXboxSelected: true })}
             onTogglePs={() => this.setState({ isXboxSelected: false })}
           />
-          <Text style={styles.header}>{this.props.localizer.t('newInFifa19')}</Text>
+          <Text style={styles.header}>{Localizer.t('newInFifa19')}</Text>
           <View style={styles.card}>
-            <Text style={styles.cardText}>{this.props.localizer.t('newStuff')}</Text>
+            <Text style={styles.cardText}>{Localizer.t('newStuff')}</Text>
           </View>
           <View style={styles.row}>
             <View style={styles.card}>
               <Text style={{ color: '#fff', fontSize: 36, alignSelf: 'center' }}>{this.daysLeft}</Text>
-              <Text style={{ color: '#fff', alignSelf: 'center' }}>{this.props.localizer.t('days_until')}</Text>
+              <Text style={{ color: '#fff', alignSelf: 'center' }}>{Localizer.t('days_until')}</Text>
             </View>
             <HomeButton
-              text={this.props.localizer.t('preorder_now')}
-              actionText={this.props.localizer.t('preorder')}
+              text={Localizer.t('preorder_now')}
+              actionText={Localizer.t('preorder')}
               onPress={() => Linking.openURL(FIFA_19_AMAZON_LINK)}
             />
           </View>
-          <Text style={styles.header}>{this.props.localizer.t('dev_message')}</Text>
+          <Text style={styles.header}>{Localizer.t('dev_message')}</Text>
           <View style={styles.card}>
-            <Text style={styles.cardText}>{this.props.localizer.t('thank_you')}</Text>
+            <Text style={styles.cardText}>{Localizer.t('thank_you')}</Text>
           </View>
           <View style={styles.row}>
             <HomeButton
-              text={this.props.localizer.t('likeTheApp')}
-              actionText={this.props.localizer.t('playStore')}
+              text={Localizer.t('likeTheApp')}
+              actionText={Localizer.t('playStore')}
               onPress={() => Linking.openURL('https://play.google.com/store/apps/details?id=io.bitlads.fifa19')}
             />
           </View>
@@ -95,14 +94,14 @@ class HomeScreen extends React.Component<Props, State> {
 
   private navigateSkills() {
     this.props.navigation.navigate('Skills', {
-      title: this.props.localizer.t('skills'),
+      title: Localizer.t('skills'),
       isXboxSelected: this.state.isXboxSelected
     })
   }
 
   private navigateCelebrations() {
     this.props.navigation.navigate('Celebrations', {
-      title: this.props.localizer.t('celebrations'),
+      title: Localizer.t('celebrations'),
       isXboxSelected: this.state.isXboxSelected
     })
   }
@@ -118,7 +117,7 @@ function mapStateToProps(state: any, props: any) {
   }
 }
 
-export default connect(mapStateToProps)(HomeScreen);
+//export default connect(mapStateToProps)(HomeScreen);
 
 const styles = StyleSheet.create({
   container: {
