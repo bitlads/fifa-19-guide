@@ -8,24 +8,22 @@ import { FIFA_19_AMAZON_LINK } from '../Secrets'
 import Toggle from '../components/Toggle'
 import firebase from 'firebase'
 import { FIREBASE_CONFIG } from '../Secrets'
-import { connect } from 'react-redux';
 import Localizer from '../Localizer';
+import { CONSOLE_XBOX, CONSOLE_PS } from '../Const'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as Actions from '../redux/Actions';
 
 interface Props extends NavigationScreenProps {
+  console: string
+  setConsole(console: string): void
 }
 
-interface State {
-  isXboxSelected: boolean
-}
-
-export default class HomeScreen extends React.Component<Props, State> {
+class HomeScreen extends React.Component<Props> {
   private daysLeft: number
 
   constructor(props: Props) {
     super(props)
-    this.state = {
-      isXboxSelected: true
-    }
     firebase.initializeApp(FIREBASE_CONFIG)
 
     const today = new Date()
@@ -57,9 +55,9 @@ export default class HomeScreen extends React.Component<Props, State> {
           </View>
           <Text style={styles.header}>{Localizer.t('settings')}</Text>
           <Toggle
-            isXbSelected={this.state.isXboxSelected}
-            onToggleXb={() => this.setState({ isXboxSelected: true })}
-            onTogglePs={() => this.setState({ isXboxSelected: false })}
+            isXbSelected={this.props.console === CONSOLE_XBOX}
+            onToggleXb={() => this.props.setConsole(CONSOLE_XBOX)}
+            onTogglePs={() => this.props.setConsole(CONSOLE_PS)}
           />
           <Text style={styles.header}>{Localizer.t('newInFifa19')}</Text>
           <View style={styles.card}>
@@ -95,14 +93,14 @@ export default class HomeScreen extends React.Component<Props, State> {
   private navigateSkills() {
     this.props.navigation.navigate('Skills', {
       title: Localizer.t('skills'),
-      isXboxSelected: this.state.isXboxSelected
+      isXboxSelected: this.props.console === CONSOLE_XBOX
     })
   }
 
   private navigateCelebrations() {
     this.props.navigation.navigate('Celebrations', {
       title: Localizer.t('celebrations'),
-      isXboxSelected: this.state.isXboxSelected
+      isXboxSelected: this.props.console === CONSOLE_XBOX
     })
   }
 
@@ -113,11 +111,15 @@ export default class HomeScreen extends React.Component<Props, State> {
 
 function mapStateToProps(state: any, props: any) {
   return {
-    localizer: state.dataReducer.localizer
+    console: state.dataReducer.console
   }
 }
 
-//export default connect(mapStateToProps)(HomeScreen);
+function mapDispatchToProps(dispatch: any) {
+  return bindActionCreators(Actions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
 
 const styles = StyleSheet.create({
   container: {

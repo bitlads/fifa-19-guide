@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
+import { SET_CONSOLE } from "./Actions"
+import { CONSOLE_XBOX } from '../Const'
 
-import { GET_LOCALE } from "./Actions"
-
-let dataState = { localizer: {}, loading: true };
+let dataState = { console: CONSOLE_XBOX };
 
 const dataReducer = (state = dataState, action: any) => {
     switch (action.type) {
-        case GET_LOCALE:
-            state = Object.assign({}, state, { localizer: action.localizer, loading: false });
+        case SET_CONSOLE:
+            state = Object.assign({}, state, { console: action.console });
             return state;
         default:
             return state;
