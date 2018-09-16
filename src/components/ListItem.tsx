@@ -1,11 +1,12 @@
 import React from 'react'
 import { Text, TextInput, TouchableOpacity, SectionList, StyleSheet, View, ActivityIndicator } from 'react-native'
 import ControlsImage from '../components/ControlsImage'
-import { TranslationProps } from '../Const'
 import { Ionicons } from '@expo/vector-icons'
 import { firestore } from 'firebase'
+import { t } from '../Localizer'
+import { connect } from 'react-redux';
 
-interface Props extends TranslationProps {
+interface Props {
   isXboxSelected: boolean
   item: any
   firestore: firebase.firestore.Firestore
@@ -42,10 +43,10 @@ export default class ListItem extends React.Component<Props, State> {
         <View style={styles.info}>
           <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 5 }}>
             <Text style={{ fontSize: 20, color: '#fff' }}>{this.props.item.name}</Text>
-            {this.props.item.new && <Text style={styles.new}>{this.props.t('list:new')}</Text>}
+            {this.props.item.new && <Text style={styles.new}>list:new</Text>}
           </View>
         </View>
-        <ControlsImage controls={this.props.item.controls} isXb={this.props.isXboxSelected} t={this.props.t} />
+        <ControlsImage controls={this.props.item.controls} isXb={this.props.isXboxSelected} />
       </View>
     )
   }

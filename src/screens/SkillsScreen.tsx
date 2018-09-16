@@ -1,10 +1,11 @@
 import React from 'react'
-import { translate } from 'react-i18next'
 import { NavigationScreenProps } from 'react-navigation'
-import { SKILLS_COLOR, TranslationProps } from '../Const'
+import { SKILLS_COLOR } from '../Const'
 import ListScreen from './ListScreen'
 import firebase from 'firebase'
 require('firebase/firestore')
+import { t } from '../Localizer'
+import { connect } from 'react-redux';
 
 interface SkillMove {
   id: string
@@ -12,7 +13,7 @@ interface SkillMove {
   controls: string
 }
 
-interface Props extends NavigationScreenProps, TranslationProps { }
+interface Props extends NavigationScreenProps { }
 
 interface State {
   sections: Array<any>
@@ -38,7 +39,7 @@ class SkillsScreen extends React.Component<Props, State> {
   }
 
   render() {
-    return <ListScreen t={this.props.t} isXboxSelected={this.isXboxSelected} sections={this.state.sections} color={SKILLS_COLOR} />
+    return <ListScreen isXboxSelected={this.isXboxSelected} sections={this.state.sections} color={SKILLS_COLOR} />
   }
 
   private fetchFirebase() {
@@ -48,31 +49,32 @@ class SkillsScreen extends React.Component<Props, State> {
       .get()
       .then(skills => {
         skills.forEach(skill => {
-          data.push({ ...skill.data(), name: this.props.t(`skills:${skill.id}`) })
+          data.push({ ...skill.data(), name: this.t(`skills:${skill.id}`) })
         })
         this.makeSections(data)
       })
   }
 
   private fetchOffline() {
-    const data = require('../../assets/skills.json').map((item: any) => {
-      return { ...item, name: this.props.t(`skills:${item.id}`) }
-    })
-    this.makeSections(data)
+    this.makeSections(require('../../assets/skills.json'))
   }
 
   private makeSections(data: any) {
     const sections = [
-      { title: `1 ${this.props.t('list:star')}`, data: new Array<SkillMove>() },
-      { title: `2 ${this.props.t('list:star')}`, data: new Array<SkillMove>() },
-      { title: `3 ${this.props.t('list:star')}`, data: new Array<SkillMove>() },
-      { title: `4 ${this.props.t('list:star')}`, data: new Array<SkillMove>() },
-      { title: `5 ${this.props.t('list:star')}`, data: new Array<SkillMove>() }
+      { title: `1 ${this.t('list:star')}`, data: new Array<SkillMove>() },
+      { title: `2 ${this.t('list:star')}`, data: new Array<SkillMove>() },
+      { title: `3 ${this.t('list:star')}`, data: new Array<SkillMove>() },
+      { title: `4 ${this.t('list:star')}`, data: new Array<SkillMove>() },
+      { title: `5 ${this.t('list:star')}`, data: new Array<SkillMove>() }
     ]
     data.forEach((item: SkillMove) => {
       sections[item.stars - 1].data.push(item)
     })
     this.setState({ sections })
+  }
+
+  private t(key: string) {
+    return t(key, this.props.locale)
   }
 
   static navigationOptions = ({ navigation }: NavigationScreenProps) => {
@@ -82,4 +84,10 @@ class SkillsScreen extends React.Component<Props, State> {
   }
 }
 
-export default translate(['list', 'skills', 'common'], { wait: true })(SkillsScreen)
+function mapStateToProps(state: any, props: any) {
+  return {
+    locale: state.dataReducer.locale
+  }
+}
+
+export default connect(mapStateToProps)(SkillsScreen);

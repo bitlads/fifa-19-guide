@@ -8,14 +8,11 @@ import { FIFA_19_AMAZON_LINK } from '../Secrets'
 import Toggle from '../components/Toggle'
 import firebase from 'firebase'
 import { FIREBASE_CONFIG } from '../Secrets'
-import { t } from '../Localizer'
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as Actions from '../redux/Actions';
-
+import Localizer from '../Localizer';
 
 interface Props extends NavigationScreenProps {
-  locale: string
+  localizer: Localizer
 }
 
 interface State {
@@ -36,17 +33,16 @@ class HomeScreen extends React.Component<Props, State> {
     const release = new Date('September 28, 2018 00:00:00')
     var timeDiff = Math.abs(release.getTime() - today.getTime())
     this.daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24))
-    this.props.getLocale()
   }
 
   render() {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.home}>
-          <Text style={styles.header}>{this.t('home:categories')}</Text>
+          <Text style={styles.header}>{this.props.localizer.t('categories')}</Text>
           <View style={styles.row}>
             <CategoryButton
-              category={this.t('common:skills')}
+              category={this.props.localizer.t('skills')}
               color={SKILLS_COLOR}
               image={require('../../assets/skills.png')}
               onPress={() => this.navigateSkills()}
@@ -54,41 +50,41 @@ class HomeScreen extends React.Component<Props, State> {
           </View>
           <View style={styles.row}>
             <CategoryButton
-              category={this.t('common:celebrations')}
+              category={this.props.localizer.t('celebrations')}
               color={CELEBRATIONS_COLOR}
               image={require('../../assets/celebrations.png')}
               onPress={() => this.navigateCelebrations()}
             />
           </View>
-          <Text style={styles.header}>{this.t('home:settings')}</Text>
+          <Text style={styles.header}>{this.props.localizer.t('settings')}</Text>
           <Toggle
             isXbSelected={this.state.isXboxSelected}
             onToggleXb={() => this.setState({ isXboxSelected: true })}
             onTogglePs={() => this.setState({ isXboxSelected: false })}
           />
-          <Text style={styles.header}>{this.t('home:newInFifa19')}</Text>
+          <Text style={styles.header}>{this.props.localizer.t('newInFifa19')}</Text>
           <View style={styles.card}>
-            <Text style={styles.cardText}>{this.t('home:newStuff')}</Text>
+            <Text style={styles.cardText}>{this.props.localizer.t('newStuff')}</Text>
           </View>
           <View style={styles.row}>
             <View style={styles.card}>
               <Text style={{ color: '#fff', fontSize: 36, alignSelf: 'center' }}>{this.daysLeft}</Text>
-              <Text style={{ color: '#fff', alignSelf: 'center' }}>{this.t('home:days_until')}</Text>
+              <Text style={{ color: '#fff', alignSelf: 'center' }}>{this.props.localizer.t('days_until')}</Text>
             </View>
             <HomeButton
-              text={this.t('home:preorder_now')}
-              actionText={this.t('home:preorder')}
+              text={this.props.localizer.t('preorder_now')}
+              actionText={this.props.localizer.t('preorder')}
               onPress={() => Linking.openURL(FIFA_19_AMAZON_LINK)}
             />
           </View>
-          <Text style={styles.header}>{this.t('home:dev_message')}</Text>
+          <Text style={styles.header}>{this.props.localizer.t('dev_message')}</Text>
           <View style={styles.card}>
-            <Text style={styles.cardText}>{this.t('home:thank_you')}</Text>
+            <Text style={styles.cardText}>{this.props.localizer.t('thank_you')}</Text>
           </View>
           <View style={styles.row}>
             <HomeButton
-              text={this.t('home:likeTheApp')}
-              actionText={this.t('home:playStore')}
+              text={this.props.localizer.t('likeTheApp')}
+              actionText={this.props.localizer.t('playStore')}
               onPress={() => Linking.openURL('https://play.google.com/store/apps/details?id=io.bitlads.fifa19')}
             />
           </View>
@@ -97,20 +93,16 @@ class HomeScreen extends React.Component<Props, State> {
     )
   }
 
-  private t(key: string) {
-    return t(key, this.props.locale)
-  }
-
   private navigateSkills() {
     this.props.navigation.navigate('Skills', {
-      title: this.t('common:skills'),
+      title: this.props.localizer.t('skills'),
       isXboxSelected: this.state.isXboxSelected
     })
   }
 
   private navigateCelebrations() {
     this.props.navigation.navigate('Celebrations', {
-      title: this.t('common:celebrations'),
+      title: this.props.localizer.t('celebrations'),
       isXboxSelected: this.state.isXboxSelected
     })
   }
@@ -122,16 +114,11 @@ class HomeScreen extends React.Component<Props, State> {
 
 function mapStateToProps(state: any, props: any) {
   return {
-    loading: state.dataReducer.loading,
-    locale: state.dataReducer.locale
+    localizer: state.dataReducer.localizer
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(Actions, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
+export default connect(mapStateToProps)(HomeScreen);
 
 const styles = StyleSheet.create({
   container: {

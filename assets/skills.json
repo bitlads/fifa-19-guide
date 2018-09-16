@@ -1,438 +1,584 @@
 [
   {
     "id": "ballJuggle",
+    "name_en": "Ball Juggle (while standing)",
+    "name_es": "Malabarismo con balón (estático)",
     "stars": 1,
     "controls": "@lt + @rb tap",
     "new": false
   },
   {
     "id": "footFake",
+    "name_en": "Foot Fake (while standing)",
+    "name_es": "Amagar de pie (estático)",
     "stars": 1,
     "controls": "hold @rb",
     "new": false
   },
   {
     "id": "openUpR",
+    "name_en": "Open Up Fake Shot Left",
+    "name_es": "Amagar tiro a la izquierda",
     "stars": 1,
     "controls": "hold @lb + @x or @b then @a + @ls @ul",
     "new": true
   },
   {
     "id": "openUpL",
+    "name_en": "Open Up Fake Shot Right",
+    "name_es": "Amagar tiro a la derecha",
     "stars": 1,
     "controls": "hold @lb + @x or @b then @a + @rs @ur",
     "new": true
   },
   {
     "id": "FlickUpVolley",
+    "name_en": "Flick Up for Volley",
+    "name_es": "Elevarte el balón",
     "stars": 1,
     "controls": "@r3",
     "new": true
   },
   {
     "id": "bodyFeintR",
+    "name_en": "Body Feint Right",
+    "name_es": "Finta del cuerpo derecha",
     "stars": 2,
     "controls": "@rs flick @r",
     "new": false
   },
   {
     "id": "bodyFeintL",
+    "name_en": "Body Feint Left",
+    "name_es": "Finta del cuerpo izquierda",
     "stars": 2,
     "controls": "@rs flick @l",
     "new": false
   },
   {
     "id": "stepoverR",
+    "name_en": "Stepover Right",
+    "name_es": "Bicicleta derecha",
     "stars": 2,
     "controls": "@rs roll @u @r",
     "new": false
   },
   {
     "id": "stepoverL",
+    "name_en": "Stepover Left",
+    "name_es": "Bicicleta izquierda",
     "stars": 2,
     "controls": "@rs roll @u @l",
     "new": false
   },
   {
     "id": "reverseStepoverR",
+    "name_en": "Reverse Stepover Right",
+    "name_es": "Bicicleta inversa derecha",
     "stars": 2,
     "controls": "@rs roll @r @u",
     "new": false
   },
   {
     "id": "reverseStepoverL",
+    "name_en": "Reverse Stepover Left",
+    "name_es": "Bicicleta inversa izquierda",
     "stars": 2,
     "controls": "@rs roll @l @u",
     "new": false
   },
   {
     "id": "ballRollL",
+    "name_en": "Ball Roll Left",
+    "name_es": "Arrastre de balón a la izquierda",
     "stars": 2,
     "controls": "@rs hold @l",
     "new": false
   },
   {
     "id": "ballRollR",
+    "name_en": "Ball Roll Right",
+    "name_es": "Arrastre de balón a la derecha",
     "stars": 2,
     "controls": "@rs hold @r",
     "new": false
   },
   {
     "id": "dragBack",
+    "name_en": "Drag Back",
+    "name_es": "Arrastrar atrás",
     "stars": 2,
     "controls": "@rb + @ls flick @d",
     "new": false
   },
   {
     "id": "heelFlick",
+    "name_en": "Heel Flick",
+    "name_es": "Toque de tacón",
     "stars": 3,
     "controls": "@rs flick @u @d",
     "new": false
   },
   {
     "id": "rouletteR",
+    "name_en": "Roulette Right",
+    "name_es": "Ruleta derecha",
     "stars": 3,
     "controls": "@rs roll @d @l @u @r",
     "new": false
   },
   {
     "id": "rouletteL",
+    "name_en": "Roulette Left",
+    "name_es": "Ruleta izquierda",
     "stars": 3,
     "controls": "@rs roll @d @r @u @l",
     "new": false
   },
   {
     "id": "fakeLeftGoRight",
+    "name_en": "Fake Left & Go Right",
+    "name_es": "Amagar a la izquierda y salir por la derecha",
     "stars": 3,
     "controls": "@rs roll @l @d @r",
     "new": false
   },
   {
     "id": "fakeRightGoLeft",
+    "name_en": "Fake Right & Go Left",
+    "name_es": "Amagar a la derecha y salir por la izquierda",
     "stars": 3,
     "controls": "@rs roll @r @d @l",
     "new": false
   },
   {
     "id": "ballHop",
+    "name_en": "Ball Hop (while standing)",
+    "name_es": "Salto con balón (estático)",
     "stars": 4,
     "controls": "hold @lb + @r3",
     "new": false
   },
   {
     "id": "heelToHeelFlick",
+    "name_en": "Heel to Heel Flick",
+    "name_es": "Toque de tacón a tacón",
     "stars": 4,
     "controls": "@rs flick @u @d",
     "new": false
   },
   {
     "id": "simpleRainbow",
+    "name_en": "Simple Rainbow",
+    "name_es": "Sombrero de espuela sencillo",
     "stars": 4,
     "controls": "@rs flick @d @u @u",
     "new": false
   },
   {
     "id": "advRainbow",
+    "name_en": "Advanced Rainbow",
+    "name_es": "Sombrero de espuela avanzado",
     "stars": 4,
     "controls": "@rs flick @d hold @u flick @u",
     "new": false
   },
   {
     "id": "feintLeftExitRight",
+    "name_en": "Feint Left & Exit Right",
+    "name_es": "Finta por la izquierda y salir por la derecha",
     "stars": 4,
     "controls": "@rs roll @l @d @r",
     "new": false
   },
   {
     "id": "feintRightExitLeft",
+    "name_en": "Feint Right & Exit Left",
+    "name_es": "Finta por la derecha y salir por la izquierda",
     "stars": 4,
     "controls": "@rs roll @r @d @l",
     "new": false
   },
   {
     "id": "spinLeft",
+    "name_en": "Spin Left",
+    "name_es": "Giro a la izquierda",
     "stars": 4,
     "controls": "@rs @dl @dl",
     "new": false
   },
   {
     "id": "spinRight",
+    "name_en": "Spin Right",
+    "name_es": "Giro a la derecha",
     "stars": 4,
     "controls": "@rs @dr @dr",
     "new": false
   },
   {
     "id": "stopAndTurnL",
+    "name_en": "Stop and Turn Left (while running)",
+    "name_es": "Parar y girar a la izquierda (en carrera)",
     "stars": 4,
     "controls": "@rs flick @u flick @l",
     "new": false
   },
   {
     "id": "stopAndTurnR",
+    "name_en": "Stop and Turn Right (while running)",
+    "name_es": "Parar y girar a la derecha(en carrera)",
     "stars": 4,
     "controls": "@rs flick @u flick @r",
     "new": false
   },
   {
     "id": "ballRollCutR",
+    "name_en": "Ball Roll Cut Right",
+    "name_es": "Arrastre de balón con recorte a la derecha",
     "stars": 4,
     "controls": "@rs hold @l @ls hold @r",
     "new": false
   },
   {
     "id": "ballRollCutL",
+    "name_en": "Ball Roll Cut Left",
+    "name_es": "Arrastre de balón con recorte a la izquierda",
     "stars": 4,
     "controls": "@rs hold @r @ls hold @l",
     "new": false
   },
   {
     "id": "fakePass",
+    "name_en": "Fake Pass (while standing)",
+    "name_es": "Amagar pase (estático)",
     "stars": 4,
     "controls": "hold @rt + @x or @b then @a",
     "new": true
   },
   {
     "id": "fakePassExitL",
+    "name_en": "Fake Pass Exit Left (while standing)",
+    "name_es": "Amagar pase y salir por la izquierda (estático)",
     "stars": 4,
     "controls": "hold @rt + @x or @b then @a + @ls @ul",
     "new": true
   },
   {
     "id": "fakePassExitR",
+    "name_en": "Fake Pass Exit Right (while standing)",
+    "name_es": "Amagar pase y salir por la derecha (estático)",
     "stars": 4,
     "controls": "hold @rt + @x or @b then @a + @ls @ur",
     "new": true
   },
   {
     "id": "heelFlickTurn",
+    "name_en": "Heel Flick Turn",
+    "name_es": "Toque de tacón y giro",
     "stars": 4,
     "controls": "hold @rb + @rs flick @u flick @d",
     "new": true
   },
   {
     "id": "heelChopL",
+    "name_en": "Heel Chop Left (while running)",
+    "name_es": "Toque de tacón izquierda (en carrera)",
     "stars": 4,
     "controls": "hold @lt + @x or @b then @a + @ls hold @l",
     "new": true
   },
   {
     "id": "heelChopR",
+    "name_en": "Heel Chop Right (while running)",
+    "name_es": "Toque de tacón derecha (en carrera)",
     "stars": 4,
     "controls": "hold @lt + @x or @b then @a + @ls hold @r",
     "new": true
   },
   {
     "id": "laneChangeL",
+    "name_en": "Lane Change Left",
+    "name_es": "Trasladarse a la izquierda",
     "stars": 4,
     "controls": "hold @lb + @rs hold @l",
     "new": true
   },
   {
     "id": "laneChangeR",
+    "name_en": "Lane Change Right",
+    "name_es": "Trasladarse a la derecha",
     "stars": 4,
     "controls": "hold @lb + @rs hold @r",
     "new": true
   },
   {
     "id": "threeTouchL",
+    "name_en": "Three Touch Roulette Left",
+    "name_es": "Ruleta de tres toques a la izquierda",
     "stars": 4,
     "controls": "hold @lt + @rs flick @d flick @l",
     "new": true
   },
   {
     "id": "threeTouchR",
+    "name_en": "Three Touch Roulette Right",
+    "name_es": "Ruleta de tres toques a la derecha",
     "stars": 4,
     "controls": "hold @lt + @rs flick @d flick @r",
     "new": true
   },
   {
     "id": "dragBackSpinL",
+    "name_en": "Drag Back Spin Left",
+    "name_es": "Arrastrar atrás y giro a la izquierda",
     "stars": 4,
     "controls": "@rs flick @d flick @l",
     "new": true
   },
   {
     "id": "dragBackSpinR",
+    "name_en": "Drag Back Spin Right",
+    "name_es": "Arrastrar atrás y giro a la derecha",
     "stars": 4,
     "controls": "@rs flick @d flick @r",
     "new": true
   },
   {
     "id": "elastico",
+    "name_en": "Elastico",
+    "name_es": "Elástica",
     "stars": 5,
     "controls": "@rs roll @r @d @l",
     "new": false
   },
   {
     "id": "reverseElastico",
+    "name_en": "Reverse Elastico",
+    "name_es": "Elástica inversa",
     "stars": 5,
     "controls": "@rs roll @l @d @r",
     "new": false
   },
   {
     "id": "quickBallRolls",
+    "name_en": "Quick Ball Rolls",
+    "name_es": "Arrastres de balón rápidos",
     "stars": 5,
     "controls": "@rs hold @d",
     "new": false
   },
   {
     "id": "hocusPocus",
+    "name_en": "Hocus Pocus",
+    "name_es": "Abracadabra",
     "stars": 5,
     "controls": "@rs roll @d @l @rs roll @l @d @r",
     "new": false
   },
   {
     "id": "tripleElastico",
+    "name_en": "Triple Elastico",
+    "name_es": "Triple elástica",
     "stars": 5,
     "controls": "@rs roll @d @r @rs roll @r @d @l",
     "new": false
   },
   {
     "id": "ballRollFlickL",
+    "name_en": "Ball Roll & Flick Left (while running)",
+    "name_es": "Arrastre de balón y toque izquierdo (en carrera)",
     "stars": 5,
     "controls": "@rs hold @r flick @u",
     "new": false
   },
   {
     "id": "ballRollFlickR",
+    "name_en": "Ball Roll & Flick Right (while running)",
+    "name_es": "Arrastre de balón y toque derecho (en carrera)",
     "stars": 5,
     "controls": "@rs hold @l flick @u",
     "new": false
   },
   {
     "id": "sombreroFlick",
+    "name_en": "Sombrero Flick (while standing)",
+    "name_es": "Toque de sombrero (estático)",
     "stars": 5,
     "controls": "@rs flick @u @u @d",
     "new": false
   },
   {
     "id": "turnAndSpinL",
+    "name_en": "Turn & Spin Left",
+    "name_es": "Torcer y giro izquierda",
     "stars": 5,
     "controls": "@rs flick @u flick @l",
     "new": false
   },
   {
     "id": "turnAndSpinR",
+    "name_en": "Turn & Spin Right",
+    "name_es": "Torcer y giro derecha",
     "stars": 5,
     "controls": "@rs flick @u flick @r",
     "new": false
   },
   {
     "id": "ballRollFakeL",
+    "name_en": "Ball Roll Fake Left (while standing)",
+    "name_es": "Amago de envío izquierda (en estático)",
     "stars": 5,
     "controls": "@rs hold @l then @rs flick @r",
     "new": false
   },
   {
     "id": "ballRollFakeR",
+    "name_en": "Ball Roll Fake Right (while standing)",
+    "name_es": "Amago de envío derecha (en estático)",
     "stars": 5,
     "controls": "@rs hold @r then @rs flick @l",
     "new": false
   },
   {
     "id": "rabonaFake",
+    "name_en": "Rabona Fake (while jogging)",
+    "name_es": "Amago de rabona (mientras se pulsa)",
     "stars": 5,
     "controls": "hold @lt + @x or @b then @a + @ls @d",
     "new": false
   },
   {
     "id": "elasticoChopL",
+    "name_en": "Elastico Chop Left",
+    "name_es": "Arrastrar atrás y giro a la izquierda",
     "stars": 5,
     "controls": "hold @rb + @rs roll @r @d @l",
     "new": false
   },
   {
     "id": "elasticoChopR",
+    "name_en": "Elastico Chop Right",
+    "name_es": "Arrastrar atrás y giro a la derecha",
     "stars": 5,
     "controls": "hold @rb + @rs roll @l @d @r",
     "new": false
   },
   {
     "id": "spinFlickL",
+    "name_en": "Spin Flick Left",
+    "name_es": "Giro y toque a la izquierda",
     "stars": 5,
     "controls": "hold @rb + @rs flick @u flick @l",
     "new": true
   },
   {
     "id": "spinFlickR",
+    "name_en": "Spin Flick Right",
+    "name_es": "Giro y toque a la derecha",
     "stars": 5,
     "controls": "hold @rb + @rs flick @u flick @r",
     "new": true
   },
   {
     "id": "flickOver",
+    "name_en": "Flick Over",
+    "name_es": "Toque por encima",
     "stars": 5,
     "controls": "@rs hold @u",
     "new": true
   },
   {
     "id": "tornadoSpinL",
+    "name_en": "Tornado Spin Left",
+    "name_es": "Tornado a la izquierda",
     "stars": 5,
     "controls": "hold @lb + @rs flick @u flick @l",
     "new": true
   },
   {
     "id": "tornadoSpinR",
+    "name_en": "Tornado Spin Right",
+    "name_es": "Tornado a la derecha",
     "stars": 5,
     "controls": "hold @lb + @rs flick @u flick @r",
     "new": true
   },
   {
     "id": "lacesFlickUp",
+    "name_en": "Laces Flick Up",
+    "name_es": "Toque con empeine",
     "stars": 5,
     "controls": "@lt + hold @rb",
     "new": false
   },
   {
     "id": "sombreroFlickB",
+    "name_en": "Sombrero Flick Backwards",
+    "name_es": "Toque de sombrero atrás",
     "stars": 5,
     "controls": "hold @ls @d",
     "new": false
   },
   {
     "id": "sombreroFlickL",
+    "name_en": "Sombrero Flick Left",
+    "name_es": "Toque de sombrero izquierda",
     "stars": 5,
     "controls": "hold @ls @l",
     "new": false
   },
   {
     "id": "sombreroFlickR",
+    "name_en": "Sombrero Flick Right",
+    "name_es": "Toque de sombrero derecha",
     "stars": 5,
     "controls": "hold @ls @r",
     "new": false
   },
   {
     "id": "aroundTheWorld",
+    "name_en": "Around the World",
+    "name_es": "Vuelta al mundo",
     "stars": 5,
     "controls": "@rs roll @u @r @d @l",
     "new": false
   },
   {
     "id": "inAirElastico",
+    "name_en": "In Air Elastico",
+    "name_es": "Elástica aérea",
     "stars": 5,
     "controls": "@rs flick @r flick @l",
     "new": false
   },
   {
     "id": "inAirElasticoReverse",
+    "name_en": "Reverse In Air Elastico",
+    "name_es": "Elástica aérea inversa",
     "stars": 5,
     "controls": "@rs flick @l flick @r",
     "new": false
   },
   {
     "id": "flickUpForVolley5",
+    "name_en": "Flick Up for Volley",
+    "name_es": "Elevarte el balón",
     "stars": 5,
     "controls": "hold @ls @u",
     "new": false
   },
   {
     "id": "chestFlick",
+    "name_en": "Chest Flick",
+    "name_es": "Toque de pecho",
     "stars": 5,
     "controls": "@ls @u hold @l3 tap @r3 x3",
     "new": false
   },
   {
     "id": "tAroundTheWorld",
+    "name_en": "T. Around the World",
+    "name_es": "Doble vuelta al mundo",
     "stars": 5,
     "controls": "@rs roll @u @r @d @l then @rs flick @u",
     "new": false

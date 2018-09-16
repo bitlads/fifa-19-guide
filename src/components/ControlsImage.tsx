@@ -3,7 +3,6 @@ import { Text, StyleSheet, View } from 'react-native'
 import ControllerButton from './ControllerButton'
 
 interface Props {
-  t(key: string): string
   controls: string
   isXb: boolean
 }
@@ -30,7 +29,7 @@ export default class ControlsImage extends React.Component<Props> {
     if (item === '+' || item === 'x3' || item === 'x2') {
       return item
     } else {
-      return this.props.t(`list:${item}`)
+      return `list:${item}`
     }
   }
 }

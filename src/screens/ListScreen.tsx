@@ -1,12 +1,10 @@
 import React from 'react'
-import { Text, TextInput, TouchableOpacity, SectionList, StyleSheet, View, ActivityIndicator } from 'react-native'
-import ControlsImage from '../components/ControlsImage'
-import { TranslationProps } from '../Const'
+import { Text, TextInput, SectionList, StyleSheet, View, ActivityIndicator } from 'react-native'
 import firebase from 'firebase'
 require('firebase/firestore')
 import ListItem from '../components/ListItem'
 
-interface Props extends TranslationProps {
+interface Props {
   isXboxSelected: boolean
   sections: Array<Section>
   color: string
@@ -43,21 +41,21 @@ export default class ListScreen extends React.Component<Props, State> {
           underlineColorAndroid="#fff"
           onChangeText={searchText => this.setState({ searchText })}
           value={this.state.searchText}
-          placeholder={this.props.t('list:search')}
+          placeholder="list:search"
         />
         <View style={{ flex: 1, alignContent: 'center', justifyContent: 'center' }}>
           {isLoading ? (
             <ActivityIndicator color="#fff" size="large" />
           ) : (
-            <SectionList
-              style={{ flex: 1 }}
-              renderItem={this.renderItem}
-              renderSectionHeader={this.renderSectionHeader}
-              sections={sections}
-              keyExtractor={(item, index) => item + index}
-              removeClippedSubviews={true}
-            />
-          )}
+              <SectionList
+                style={{ flex: 1 }}
+                renderItem={this.renderItem}
+                renderSectionHeader={this.renderSectionHeader}
+                sections={sections}
+                keyExtractor={(item, index) => item + index}
+                removeClippedSubviews={true}
+              />
+            )}
         </View>
       </View>
     )
@@ -80,7 +78,7 @@ export default class ListScreen extends React.Component<Props, State> {
   }
 
   private renderItem = ({ item, index }: any) => {
-    return <ListItem item={item} key={index} isXboxSelected={this.props.isXboxSelected} t={this.props.t} firestore={this.firestore} />
+    return <ListItem item={item} key={index} isXboxSelected={this.props.isXboxSelected} firestore={this.firestore} />
   }
 }
 
