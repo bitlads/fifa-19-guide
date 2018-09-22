@@ -4,7 +4,7 @@ import { SKILLS_COLOR } from '../Const'
 import ListScreen from './ListScreen'
 import firebase from 'firebase'
 require('firebase/firestore')
-import Localizer from '../Localizer';
+import Localizer from '../Localizer'
 
 interface SkillMove {
   id: string
@@ -12,7 +12,7 @@ interface SkillMove {
   controls: string
 }
 
-interface Props extends NavigationScreenProps { }
+interface Props extends NavigationScreenProps {}
 
 interface State {
   sections: Array<any>
@@ -74,7 +74,7 @@ export default class SkillsScreen extends React.Component<Props, State> {
 
   static navigationOptions = ({ navigation }: NavigationScreenProps) => {
     return {
-      title: navigation.getParam('title', ''),
+      title: navigation.getParam('title', '')
     }
   }
 }

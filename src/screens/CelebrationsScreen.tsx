@@ -4,7 +4,7 @@ import { CELEBRATIONS_COLOR } from '../Const'
 import ListScreen from './ListScreen'
 import firebase from 'firebase'
 require('firebase/firestore')
-import Localizer from '../Localizer';
+import Localizer from '../Localizer'
 
 interface Celebration {
   id: string
@@ -12,7 +12,7 @@ interface Celebration {
   controls: string
 }
 
-interface Props extends NavigationScreenProps { }
+interface Props extends NavigationScreenProps {}
 
 interface State {
   sections: Array<any>
@@ -90,7 +90,7 @@ export default class CelebrationsScreen extends React.Component<Props, State> {
 
   static navigationOptions = ({ navigation }: NavigationScreenProps) => {
     return {
-      title: navigation.getParam('title', ''),
+      title: navigation.getParam('title', '')
     }
   }
 }

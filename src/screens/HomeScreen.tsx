@@ -8,11 +8,11 @@ import { FIFA_19_AMAZON_LINK } from '../Secrets'
 import Toggle from '../components/Toggle'
 import firebase from 'firebase'
 import { FIREBASE_CONFIG } from '../Secrets'
-import Localizer from '../Localizer';
+import Localizer from '../Localizer'
 import { CONSOLE_XBOX, CONSOLE_PS } from '../Const'
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as Actions from '../redux/Actions';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as Actions from '../redux/Actions'
 
 interface Props extends NavigationScreenProps {
   console: string
@@ -68,11 +68,7 @@ class HomeScreen extends React.Component<Props> {
               <Text style={{ color: '#fff', fontSize: 36, alignSelf: 'center' }}>{this.daysLeft}</Text>
               <Text style={{ color: '#fff', alignSelf: 'center' }}>{Localizer.t('days_until')}</Text>
             </View>
-            <HomeButton
-              text={Localizer.t('preorder_now')}
-              actionText={Localizer.t('preorder')}
-              onPress={() => Linking.openURL(FIFA_19_AMAZON_LINK)}
-            />
+            <HomeButton text={Localizer.t('preorder_now')} actionText={Localizer.t('preorder')} onPress={() => Linking.openURL(FIFA_19_AMAZON_LINK)} />
           </View>
           <Text style={styles.header}>{Localizer.t('dev_message')}</Text>
           <View style={styles.card}>
@@ -116,10 +112,13 @@ function mapStateToProps(state: any, props: any) {
 }
 
 function mapDispatchToProps(dispatch: any) {
-  return bindActionCreators(Actions, dispatch);
+  return bindActionCreators(Actions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomeScreen)
 
 const styles = StyleSheet.create({
   container: {

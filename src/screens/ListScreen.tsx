@@ -47,15 +47,15 @@ export default class ListScreen extends React.Component<Props, State> {
           {isLoading ? (
             <ActivityIndicator color="#fff" size="large" />
           ) : (
-              <SectionList
-                style={{ flex: 1 }}
-                renderItem={this.renderItem}
-                renderSectionHeader={this.renderSectionHeader}
-                sections={sections}
-                keyExtractor={(item, index) => item + index}
-                removeClippedSubviews={true}
-              />
-            )}
+            <SectionList
+              style={{ flex: 1 }}
+              renderItem={this.renderItem}
+              renderSectionHeader={this.renderSectionHeader}
+              sections={sections}
+              keyExtractor={(item, index) => item + index}
+              removeClippedSubviews={true}
+            />
+          )}
         </View>
       </View>
     )

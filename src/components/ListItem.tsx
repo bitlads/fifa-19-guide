@@ -59,11 +59,11 @@ export default class ListItem extends React.Component<Props, State> {
         {this.state.loading ? (
           <ActivityIndicator color="#fff" />
         ) : (
-            <View style={styles.likesContainer}>
-              <Text style={{ fontSize: 18, color: '#fff' }}>{`+${this.state.likes} `}</Text>
-              <Ionicons name="md-thumbs-up" size={24} color="#fff" style={{ margin: 5 }} />
-            </View>
-          )}
+          <View style={styles.likesContainer}>
+            <Text style={{ fontSize: 18, color: '#fff' }}>{`+${this.state.likes} `}</Text>
+            <Ionicons name="md-thumbs-up" size={24} color="#fff" style={{ margin: 5 }} />
+          </View>
+        )}
       </TouchableOpacity>
     )
   }

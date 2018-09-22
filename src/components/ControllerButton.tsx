@@ -64,10 +64,13 @@ export default class ControllerButton extends React.Component<Props> {
   private renderArrowButton(rotation: number) {
     return (
       <View style={styles.arrowButton}>
-        <View style={{
-          justifyContent: 'center',
-          alignItems: 'center', transform: [{ rotate: `${rotation} deg` }]
-        }}>
+        <View
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            transform: [{ rotate: `${rotation} deg` }]
+          }}
+        >
           <View style={styles.arrowHead} />
           <View style={styles.arrowBase} />
         </View>
