@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { TranslationProps } from '../Const'
 
-interface Props extends TranslationProps {
+interface Props {
   category: string
   color: string
   image: any

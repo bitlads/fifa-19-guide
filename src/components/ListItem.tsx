@@ -1,11 +1,10 @@
 import React from 'react'
-import { Text, TextInput, TouchableOpacity, SectionList, StyleSheet, View, ActivityIndicator } from 'react-native'
+import { Text, TouchableOpacity, StyleSheet, View, ActivityIndicator } from 'react-native'
 import ControlsImage from '../components/ControlsImage'
-import { TranslationProps } from '../Const'
 import { Ionicons } from '@expo/vector-icons'
-import { firestore } from 'firebase'
+import Localizer from '../Localizer'
 
-interface Props extends TranslationProps {
+interface Props {
   isXboxSelected: boolean
   item: any
   firestore: firebase.firestore.Firestore
@@ -41,11 +40,11 @@ export default class ListItem extends React.Component<Props, State> {
       <View style={styles.item}>
         <View style={styles.info}>
           <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 5 }}>
-            <Text style={{ fontSize: 20, color: '#fff' }}>{this.props.item.name}</Text>
-            {this.props.item.new && <Text style={styles.new}>{this.props.t('list:new')}</Text>}
+            <Text style={{ fontSize: 20, color: '#fff' }}>{Localizer.locale === 'es' ? this.props.item.name_es : this.props.item.name_en}</Text>
+            {this.props.item.new && <Text style={styles.new}>{Localizer.t('new')}</Text>}
           </View>
         </View>
-        <ControlsImage controls={this.props.item.controls} isXb={this.props.isXboxSelected} t={this.props.t} />
+        <ControlsImage controls={this.props.item.controls} isXb={this.props.isXboxSelected} />
       </View>
     )
   }
@@ -60,11 +59,11 @@ export default class ListItem extends React.Component<Props, State> {
         {this.state.loading ? (
           <ActivityIndicator color="#fff" />
         ) : (
-            <View style={styles.likesContainer}>
-              <Text style={{ fontSize: 18, color: '#fff' }}>{`+${this.state.likes} `}</Text>
-              <Ionicons name="md-thumbs-up" size={24} color="#fff" style={{ margin: 5 }} />
-            </View>
-          )}
+          <View style={styles.likesContainer}>
+            <Text style={{ fontSize: 18, color: '#fff' }}>{`+${this.state.likes} `}</Text>
+            <Ionicons name="md-thumbs-up" size={24} color="#fff" style={{ margin: 5 }} />
+          </View>
+        )}
       </TouchableOpacity>
     )
   }

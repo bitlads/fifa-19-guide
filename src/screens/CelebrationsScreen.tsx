@@ -1,10 +1,10 @@
 import React from 'react'
-import { translate } from 'react-i18next'
 import { NavigationScreenProps } from 'react-navigation'
-import { CELEBRATIONS_COLOR, TranslationProps } from '../Const'
+import { CELEBRATIONS_COLOR } from '../Const'
 import ListScreen from './ListScreen'
 import firebase from 'firebase'
 require('firebase/firestore')
+import Localizer from '../Localizer'
 
 interface Celebration {
   id: string
@@ -12,13 +12,13 @@ interface Celebration {
   controls: string
 }
 
-interface Props extends NavigationScreenProps, TranslationProps { }
+interface Props extends NavigationScreenProps {}
 
 interface State {
   sections: Array<any>
 }
 
-class CelebrationsScreen extends React.Component<Props, State> {
+export default class CelebrationsScreen extends React.Component<Props, State> {
   private isXboxSelected: boolean
   private firestore: firebase.firestore.Firestore
 
@@ -38,7 +38,7 @@ class CelebrationsScreen extends React.Component<Props, State> {
   }
 
   render() {
-    return <ListScreen t={this.props.t} isXboxSelected={this.isXboxSelected} sections={this.state.sections} color={CELEBRATIONS_COLOR} />
+    return <ListScreen isXboxSelected={this.isXboxSelected} sections={this.state.sections} color={CELEBRATIONS_COLOR} />
   }
 
   private fetchFirebase() {
@@ -48,26 +48,23 @@ class CelebrationsScreen extends React.Component<Props, State> {
       .get()
       .then(celebrations => {
         celebrations.forEach(celebration => {
-          data.push({ ...celebration.data(), name: this.props.t(`celebrations:${celebration.id}`) })
+          data.push({ ...celebration.data(), name: Localizer.t(`celebrations:${celebration.id}`) })
         })
         this.makeSections(data)
       })
   }
 
   private fetchOffline() {
-    const data = require('../../assets/celebrations.json').map((item: any) => {
-      return { ...item, name: this.props.t(`celebrations:${item.id}`) }
-    })
-    this.makeSections(data)
+    this.makeSections(require('../../assets/celebrations.json'))
   }
 
   private makeSections(data: any) {
     const sections = [
-      { title: this.props.t('celebrations:basicMoves'), data: new Array<Celebration>() },
-      { title: this.props.t('celebrations:runningMoves'), data: new Array<Celebration>() },
-      { title: this.props.t('celebrations:finishingMoves'), data: new Array<Celebration>() },
-      { title: this.props.t('celebrations:proUnlockables'), data: new Array<Celebration>() },
-      { title: this.props.t('celebrations:eaFcUnlockables'), data: new Array<Celebration>() }
+      { title: Localizer.t('celebrations:basicMoves'), data: new Array<Celebration>() },
+      { title: Localizer.t('celebrations:runningMoves'), data: new Array<Celebration>() },
+      { title: Localizer.t('celebrations:finishingMoves'), data: new Array<Celebration>() },
+      { title: Localizer.t('celebrations:proUnlockables'), data: new Array<Celebration>() },
+      { title: Localizer.t('celebrations:eaFcUnlockables'), data: new Array<Celebration>() }
     ]
     data.forEach((item: Celebration) => {
       switch (item.type) {
@@ -93,9 +90,7 @@ class CelebrationsScreen extends React.Component<Props, State> {
 
   static navigationOptions = ({ navigation }: NavigationScreenProps) => {
     return {
-      title: navigation.getParam('title', ''),
+      title: navigation.getParam('title', '')
     }
   }
 }
-
-export default translate(['list', 'celebrations', 'common'], { wait: true })(CelebrationsScreen)

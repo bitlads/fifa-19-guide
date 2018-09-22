@@ -1,29 +1,29 @@
 import * as React from 'react'
-import { Image, Linking, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Linking, ScrollView, StyleSheet, Text, View } from 'react-native'
 import HomeButton from '../components/HomeButton'
 import CategoryButton from '../components/CategoryButton'
-import { translate } from 'react-i18next'
 import { NavigationScreenProps } from 'react-navigation'
-import { SKILLS_COLOR, CELEBRATIONS_COLOR, TranslationProps } from '../Const'
+import { SKILLS_COLOR, CELEBRATIONS_COLOR } from '../Const'
 import { FIFA_19_AMAZON_LINK } from '../Secrets'
 import Toggle from '../components/Toggle'
 import firebase from 'firebase'
 import { FIREBASE_CONFIG } from '../Secrets'
+import Localizer from '../Localizer'
+import { CONSOLE_XBOX, CONSOLE_PS } from '../Const'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as Actions from '../redux/Actions'
 
-interface Props extends NavigationScreenProps, TranslationProps { }
-
-interface State {
-  isXboxSelected: boolean
+interface Props extends NavigationScreenProps {
+  console: string
+  setConsole(console: string): void
 }
 
-class HomeScreen extends React.Component<Props, State> {
+class HomeScreen extends React.Component<Props> {
   private daysLeft: number
 
   constructor(props: Props) {
     super(props)
-    this.state = {
-      isXboxSelected: true
-    }
     firebase.initializeApp(FIREBASE_CONFIG)
 
     const today = new Date()
@@ -32,60 +32,52 @@ class HomeScreen extends React.Component<Props, State> {
     this.daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24))
   }
 
-  componentDidMount() { }
-
   render() {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.home}>
-          <Text style={styles.header}>{this.props.t('home:categories')}</Text>
+          <Text style={styles.header}>{Localizer.t('categories')}</Text>
           <View style={styles.row}>
             <CategoryButton
-              category={this.props.t('common:skills')}
+              category={Localizer.t('skills')}
               color={SKILLS_COLOR}
               image={require('../../assets/skills.png')}
-              t={this.props.t}
               onPress={() => this.navigateSkills()}
             />
           </View>
           <View style={styles.row}>
             <CategoryButton
-              category={this.props.t('common:celebrations')}
+              category={Localizer.t('celebrations')}
               color={CELEBRATIONS_COLOR}
               image={require('../../assets/celebrations.png')}
-              t={this.props.t}
               onPress={() => this.navigateCelebrations()}
             />
           </View>
-          <Text style={styles.header}>{this.props.t('home:settings')}</Text>
+          <Text style={styles.header}>{Localizer.t('settings')}</Text>
           <Toggle
-            isXbSelected={this.state.isXboxSelected}
-            onToggleXb={() => this.setState({ isXboxSelected: true })}
-            onTogglePs={() => this.setState({ isXboxSelected: false })}
+            isXbSelected={this.props.console === CONSOLE_XBOX}
+            onToggleXb={() => this.props.setConsole(CONSOLE_XBOX)}
+            onTogglePs={() => this.props.setConsole(CONSOLE_PS)}
           />
-          <Text style={styles.header}>{this.props.t('home:newInFifa19')}</Text>
+          <Text style={styles.header}>{Localizer.t('newInFifa19')}</Text>
           <View style={styles.card}>
-            <Text style={styles.cardText}>{this.props.t('home:newStuff')}</Text>
+            <Text style={styles.cardText}>{Localizer.t('newStuff')}</Text>
           </View>
           <View style={styles.row}>
             <View style={styles.card}>
               <Text style={{ color: '#fff', fontSize: 36, alignSelf: 'center' }}>{this.daysLeft}</Text>
-              <Text style={{ color: '#fff', alignSelf: 'center' }}>{this.props.t('home:days_until')}</Text>
+              <Text style={{ color: '#fff', alignSelf: 'center' }}>{Localizer.t('days_until')}</Text>
             </View>
-            <HomeButton
-              text={this.props.t('home:preorder_now')}
-              actionText={this.props.t('home:preorder')}
-              onPress={() => Linking.openURL(FIFA_19_AMAZON_LINK)}
-            />
+            <HomeButton text={Localizer.t('preorder_now')} actionText={Localizer.t('preorder')} onPress={() => Linking.openURL(FIFA_19_AMAZON_LINK)} />
           </View>
-          <Text style={styles.header}>{this.props.t('home:dev_message')}</Text>
+          <Text style={styles.header}>{Localizer.t('dev_message')}</Text>
           <View style={styles.card}>
-            <Text style={styles.cardText}>{this.props.t('home:thank_you')}</Text>
+            <Text style={styles.cardText}>{Localizer.t('thank_you')}</Text>
           </View>
           <View style={styles.row}>
             <HomeButton
-              text={this.props.t('home:likeTheApp')}
-              actionText={this.props.t('home:playStore')}
+              text={Localizer.t('likeTheApp')}
+              actionText={Localizer.t('playStore')}
               onPress={() => Linking.openURL('https://play.google.com/store/apps/details?id=io.bitlads.fifa19')}
             />
           </View>
@@ -96,15 +88,15 @@ class HomeScreen extends React.Component<Props, State> {
 
   private navigateSkills() {
     this.props.navigation.navigate('Skills', {
-      title: this.props.t('common:skills'),
-      isXboxSelected: this.state.isXboxSelected
+      title: Localizer.t('skills'),
+      isXboxSelected: this.props.console === CONSOLE_XBOX
     })
   }
 
   private navigateCelebrations() {
     this.props.navigation.navigate('Celebrations', {
-      title: this.props.t('common:celebrations'),
-      isXboxSelected: this.state.isXboxSelected
+      title: Localizer.t('celebrations'),
+      isXboxSelected: this.props.console === CONSOLE_XBOX
     })
   }
 
@@ -113,7 +105,20 @@ class HomeScreen extends React.Component<Props, State> {
   }
 }
 
-export default translate(['home', 'common'], { wait: true })(HomeScreen)
+function mapStateToProps(state: any, props: any) {
+  return {
+    console: state.dataReducer.console
+  }
+}
+
+function mapDispatchToProps(dispatch: any) {
+  return bindActionCreators(Actions, dispatch)
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomeScreen)
 
 const styles = StyleSheet.create({
   container: {

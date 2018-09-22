@@ -1,4 +1,4 @@
-import i18n from 'i18next'
+/*import i18n from 'i18next'
 import Expo from 'expo'
 import { reactI18nextModule } from 'react-i18next'
 
@@ -6,9 +6,9 @@ const expo: any = Expo
 
 const languageDetector = {
   type: 'languageDetector',
-  async: true, // flags below detection to be async
+  async: true,
   detect: (callback: any) => {
-    return /*'en'; */ expo.DangerZone.Localization.getCurrentLocaleAsync().then((lng: any) => {
+    return expo.DangerZone.Localization.getCurrentLocaleAsync().then((lng: any) => {
       callback(lng.replace('_', '-'))
     })
   },
@@ -506,4 +506,4 @@ i18n
       escapeValue: false // not needed for react as it does escape per default to prevent xss!
     }
   })
-export default i18n
+export default i18n*/
