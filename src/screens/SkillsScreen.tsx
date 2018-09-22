@@ -60,11 +60,11 @@ export default class SkillsScreen extends React.Component<Props, State> {
 
   private makeSections(data: any) {
     const sections = [
-      { title: `1 ${Localizer.t('list:star')}`, data: new Array<SkillMove>() },
-      { title: `2 ${Localizer.t('list:star')}`, data: new Array<SkillMove>() },
-      { title: `3 ${Localizer.t('list:star')}`, data: new Array<SkillMove>() },
-      { title: `4 ${Localizer.t('list:star')}`, data: new Array<SkillMove>() },
-      { title: `5 ${Localizer.t('list:star')}`, data: new Array<SkillMove>() }
+      { title: `1 ${Localizer.t('star')}`, data: new Array<SkillMove>() },
+      { title: `2 ${Localizer.t('star')}`, data: new Array<SkillMove>() },
+      { title: `3 ${Localizer.t('star')}`, data: new Array<SkillMove>() },
+      { title: `4 ${Localizer.t('star')}`, data: new Array<SkillMove>() },
+      { title: `5 ${Localizer.t('star')}`, data: new Array<SkillMove>() }
     ]
     data.forEach((item: SkillMove) => {
       sections[item.stars - 1].data.push(item)

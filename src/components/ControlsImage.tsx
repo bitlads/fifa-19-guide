@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text, StyleSheet, View } from 'react-native'
 import ControllerButton from './ControllerButton'
+import Localizer from '../Localizer'
 
 interface Props {
   controls: string
@@ -29,7 +30,7 @@ export default class ControlsImage extends React.Component<Props> {
     if (item === '+' || item === 'x3' || item === 'x2') {
       return item
     } else {
-      return `list:${item}`
+      return Localizer.t(item)
     }
   }
 }

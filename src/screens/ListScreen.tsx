@@ -3,6 +3,7 @@ import { Text, TextInput, SectionList, StyleSheet, View, ActivityIndicator } fro
 import firebase from 'firebase'
 require('firebase/firestore')
 import ListItem from '../components/ListItem'
+import Localizer from '../Localizer'
 
 interface Props {
   isXboxSelected: boolean
@@ -41,7 +42,8 @@ export default class ListScreen extends React.Component<Props, State> {
           underlineColorAndroid="#fff"
           onChangeText={searchText => this.setState({ searchText })}
           value={this.state.searchText}
-          placeholder="list:search"
+          placeholder={Localizer.t('search')}
+          placeholderTextColor="#BDBDBD"
         />
         <View style={{ flex: 1, alignContent: 'center', justifyContent: 'center' }}>
           {isLoading ? (
@@ -64,7 +66,10 @@ export default class ListScreen extends React.Component<Props, State> {
   private filterList(sections: Array<Section>) {
     if (this.state.searchText === '') return sections
     return sections.map(section => {
-      const filtered = section.data.filter((item: any) => item.name.toLowerCase().includes(this.state.searchText.toLowerCase()))
+      const filtered = section.data.filter((item: any) => {
+        const name = Localizer.locale === 'es' ? item.name_es : item.name_en
+        return name.toLowerCase().includes(this.state.searchText.toLowerCase())
+      })
       return { ...section, data: filtered }
     })
   }

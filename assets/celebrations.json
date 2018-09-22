@@ -1,600 +1,800 @@
 [
   {
     "id": "signature",
+    "name_en": "Signature Celebration",
+    "name_es": "Celebración personal",
     "type": "basicMoves",
     "controls": "@a",
     "new": false
   },
   {
     "id": "random",
+    "name_en": "Random Celebration",
+    "name_es": "Celebración aleatoria",
     "type": "basicMoves",
     "controls": "@b",
     "new": true
   },
   {
     "id": "cancel",
+    "name_en": "Cancel Celebration",
+    "name_es": "Cancelar celebración",
     "type": "basicMoves",
     "controls": "@lb + @rb + @lt + @rt",
     "new": false
   },
   {
     "id": "thumbSuck",
+    "name_en": "Thumb Suck",
+    "name_es": "Chuparse el pulgar",
     "type": "runningMoves",
     "controls": "hold @x",
     "new": false
   },
   {
     "id": "armsOut",
+    "name_en": "Arms Out",
+    "name_es": "Con los brazos abiertos",
     "type": "runningMoves",
     "controls": "tap @x then hold @x",
     "new": false
   },
   {
     "id": "wristFlick",
+    "name_en": "Wrist Flick",
+    "name_es": "Giro de muñeca",
     "type": "runningMoves",
     "controls": "tap @y then hold @y",
     "new": false
   },
   {
     "id": "aeroplane",
+    "name_en": "Aeroplane",
+    "name_es": "Avión",
     "type": "runningMoves",
     "controls": "hold @r3",
     "new": false
   },
   {
     "id": "pointToSky",
+    "name_en": "Points to Sky",
+    "name_es": "Apuntando al cielo",
     "type": "runningMoves",
     "controls": "hold @rs @u",
     "new": false
   },
   {
     "id": "shhhh",
+    "name_en": "Shhhhh!",
+    "name_es": "Apuntando al cielo",
     "type": "runningMoves",
     "controls": "hold @rs @r",
     "new": false
   },
   {
     "id": "telephone",
+    "name_en": "Telephone",
+    "name_es": "Teléfono",
     "type": "runningMoves",
     "controls": "hold @rs @d",
     "new": false
   },
   {
     "id": "canYouHearMe",
+    "name_en": "Can You Hear Me?",
+    "name_es": "¿Me oyes?",
     "type": "runningMoves",
     "controls": "hold @rs @l",
     "new": false
   },
   {
     "id": "handsOut",
+    "name_en": "Hand Out",
+    "name_es": "Manos abiertas",
     "type": "runningMoves",
     "controls": "flick @rs @r then hold @rs @l",
     "new": false
   },
   {
     "id": "comeOn",
+    "name_en": "Come On!",
+    "name_es": "¡Vamos!",
     "type": "runningMoves",
     "controls": "flick @rs @l then hold @rs @r",
     "new": false
   },
   {
     "id": "blowKisses",
+    "name_en": "Blow Kisses",
+    "name_es": "Enviar besos",
     "type": "runningMoves",
     "controls": "flick @rs @d then hold @rs @u",
     "new": false
   },
   {
     "id": "doubleArmSwing",
+    "name_en": "Double Arm Swing",
+    "name_es": "Doble giro de brazo",
     "type": "runningMoves",
     "controls": "flick @rs @u then hold @rs @d",
     "new": false
   },
   {
     "id": "flyingBird",
+    "name_en": "Flying Bird",
+    "name_es": "El pájaro",
     "type": "runningMoves",
     "controls": "flick @rs @r then hold @rs @r",
     "new": false
   },
   {
     "id": "handOnHead",
+    "name_en": "Hand on Head",
+    "name_es": "Mano sobre la cabeza",
     "type": "runningMoves",
     "controls": "flick @rs @l then hold @rs @l",
     "new": false
   },
   {
     "id": "heartSymbol",
+    "name_en": "Heart Symbol",
+    "name_es": "Símbolo del corazón",
     "type": "runningMoves",
     "controls": "flick @rs @d then hold @rs @d",
     "new": false
   },
   {
     "id": "armsPointingUp",
+    "name_en": "Arms Pointing Up",
+    "name_es": "Brazos hacia arriba",
     "type": "runningMoves",
     "controls": "flick @rs @u then hold @rs @u",
     "new": false
   },
   {
     "id": "windmill",
+    "name_en": "Windmill",
+    "name_es": "Hacer el molinillo",
     "type": "runningMoves",
     "controls": "roll @rs @u @r @d @l",
     "new": false
   },
   {
     "id": "pointToSkyFinish",
+    "name_en": "Point to the Sky",
+    "name_es": "Señalando al cielo",
     "type": "finishingMoves",
     "controls": "hold @lb press @b",
     "new": false
   },
   {
     "id": "showRespect",
+    "name_en": "Show Respect",
+    "name_es": "Un poco de respeto",
     "type": "finishingMoves",
     "controls": "hold @lb tap @b x2",
     "new": false
   },
   {
     "id": "spanishDance",
+    "name_en": "Spanish Dance",
+    "name_es": "Bailecito",
     "type": "finishingMoves",
     "controls": "hold @lt flick @rs @u @u",
     "new": false
   },
   {
     "id": "bellyFlop",
+    "name_en": "Belly Flop",
+    "name_es": "Planchazo",
     "type": "finishingMoves",
     "controls": "hold @lb press @x",
     "new": false
   },
   {
     "id": "ridingWave",
+    "name_en": "Riding the Wave",
+    "name_es": "Montando la ola",
     "type": "finishingMoves",
     "controls": "hold @lb press @y",
     "new": false
   },
   {
     "id": "x",
+    "name_en": "X",
+    "name_es": "X",
     "type": "finishingMoves",
     "controls": "hold @lb flick @rs @d @d",
     "new": false
   },
   {
     "id": "signatureFinishing",
+    "name_en": "Signature Finishing Move",
+    "name_es": "Movimiento de definición personal",
     "type": "finishingMoves",
     "controls": "press @a",
     "new": false
   },
   {
     "id": "bigMan",
+    "name_en": "Big Man",
+    "name_es": "Tío grande",
     "type": "finishingMoves",
     "controls": "hold @lb hold @rs @r",
     "new": false
   },
   {
     "id": "babyGirl",
+    "name_en": "Baby Girl",
+    "name_es": "La niña",
     "type": "finishingMoves",
     "controls": "hold @lb hold @rs @l",
     "new": false
   },
   {
     "id": "chestSlide",
+    "name_en": "Chest Slide",
+    "name_es": "Deslizarse sobre el pecho",
     "type": "finishingMoves",
     "controls": "hold @lb flick @rs @d @u",
     "new": false
   },
   {
     "id": "walkLikeMe",
+    "name_en": "Walk Like Me",
+    "name_es": "Imítame",
     "type": "finishingMoves",
     "controls": "hold @lb flick @rs @l @r",
     "new": false
   },
   {
     "id": "mask",
+    "name_en": "Mask",
+    "name_es": "Máscara",
     "type": "finishingMoves",
     "controls": "hold @lb flick @rs @u @u",
     "new": false
   },
   {
     "id": "handSpring",
+    "name_en": "Hand spring (agile players) or Roll & Punch",
+    "name_es": "Voltereta frontal",
     "type": "finishingMoves",
     "controls": "hold @lb roll @rs @u @r @d @l",
     "new": false
   },
   {
     "id": "floorSpin",
+    "name_en": "Floor Spin",
+    "name_es": "Giro en el suelo",
     "type": "finishingMoves",
     "controls": "hold @lb roll @rs @u @l @d @r",
     "new": false
   },
   {
     "id": "timber",
+    "name_en": "Timber",
+    "name_es": "¡Tronco va!",
     "type": "finishingMoves",
     "controls": "hold @lt press @b",
     "new": false
   },
   {
     "id": "cellPhone",
+    "name_en": "Cell Phone",
+    "name_es": "Teléfono móvil",
     "type": "finishingMoves",
     "controls": "hold @lt press @x",
     "new": false
   },
   {
     "id": "hypnosis",
+    "name_en": "Hypnosis",
+    "name_es": "Hipnosis",
     "type": "finishingMoves",
     "controls": "hold @lt press @y",
     "new": false
   },
   {
     "id": "workout",
+    "name_en": "Workout",
+    "name_es": "Entrenamiento",
     "type": "finishingMoves",
     "controls": "hold @lt tap @x x2",
     "new": false
   },
   {
     "id": "stirThePot",
+    "name_en": "Stir the Pot",
+    "name_es": "Flexión con pelota",
     "type": "finishingMoves",
     "controls": "hold @lt tap @y x2",
     "new": false
   },
   {
     "id": "mannequin",
+    "name_en": "Mannequin",
+    "name_es": "Mannequin",
     "type": "finishingMoves",
     "controls": "hold @lt hold @rs @u",
     "new": false
   },
   {
     "id": "iCantHearYou",
+    "name_en": "I Can’t Hear You",
+    "name_es": "No te oigo",
     "type": "finishingMoves",
     "controls": "hold @lt hold @rs @r",
     "new": false
   },
   {
     "id": "heart",
+    "name_en": "Heart",
+    "name_es": "Corazón",
     "type": "finishingMoves",
     "controls": "hold @lt hold @rs @d",
     "new": false
   },
   {
     "id": "brickFall",
+    "name_en": "Brick Fall",
+    "name_es": "Desplomarse",
     "type": "finishingMoves",
     "controls": "hold @lt hold @rs @l",
     "new": false
   },
   {
     "id": "waddle",
+    "name_en": "Waddle",
+    "name_es": "Andar como un pato",
     "type": "finishingMoves",
     "controls": "hold @lt roll @rs @u @r @d @l",
     "new": false
   },
   {
     "id": "twistFlip",
+    "name_en": "Twist Flip (agile players) or Cartwheel Roll",
+    "name_es": "Voltereta en el aire (jugador ágil) o rodar",
     "type": "finishingMoves",
     "controls": "hold @lt roll @rs @u @l @d @r",
     "new": false
   },
   {
     "id": "pipe",
+    "name_en": "Pipe",
+    "name_es": "Pipa",
     "type": "finishingMoves",
     "controls": "hold @lt flick @rs @u @d",
     "new": false
   },
   {
     "id": "scorpion",
+    "name_en": "Scorpion",
+    "name_es": "Escorpión",
     "type": "finishingMoves",
     "controls": "hold @lt flick @rs @l @r",
     "new": false
   },
   {
     "id": "whoAmI",
+    "name_en": "Who Am I",
+    "name_es": "¿Quién soy?",
     "type": "finishingMoves",
     "controls": "hold @lt flick @rs @r @l",
     "new": false
   },
   {
     "id": "neighbourhood",
+    "name_en": "Neighbourhood",
+    "name_es": "Pandilla",
     "type": "finishingMoves",
     "controls": "hold @lt flick @rs @d @d",
     "new": true
   },
   {
     "id": "kneeSlideFail",
+    "name_en": "Knee Slide Fail",
+    "name_es": "Barrida Fallida",
     "type": "finishingMoves",
     "controls": "hold @lt flick @rs @l @l",
     "new": false
   },
   {
     "id": "rugby",
+    "name_en": "Rugby",
+    "name_es": "Rugby",
     "type": "finishingMoves",
     "controls": "hold @rt press @r3",
     "new": false
   },
   {
     "id": "elbow",
+    "name_en": "Elbow",
+    "name_es": "Codo / El Dab",
     "type": "finishingMoves",
     "controls": "hold @rb tap @y x2",
     "new": false
   },
   {
     "id": "kissTheRing",
+    "name_en": "Kiss the Ring",
+    "name_es": "Besar el anillo",
     "type": "finishingMoves",
     "controls": "hold @rt tap @b x2",
     "new": false
   },
   {
     "id": "theSalute",
+    "name_en": "The Salute",
+    "name_es": "A la orden",
     "type": "finishingMoves",
     "controls": "hold @rb press @y",
     "new": false
   },
   {
     "id": "chestThump",
+    "name_en": "Chest Thump",
+    "name_es": "Golpes al pecho",
     "type": "finishingMoves",
     "controls": "hold @rt @rs flick @d flick @d",
     "new": false
   },
   {
     "id": "pushItDown",
+    "name_en": "Push It Down",
+    "name_es": "Presiónalo",
     "type": "finishingMoves",
     "controls": "hold @rb tap @b x2",
     "new": false
   },
   {
     "id": "glamourSlide",
+    "name_en": "Glamour Slide",
+    "name_es": "Deslizamiento elegante",
     "type": "finishingMoves",
     "controls": "hold @rb @rs flick @l flick @l",
     "new": false
   },
   {
     "id": "manyBows",
+    "name_en": "Many Bows",
+    "name_es": "Muchas reverencias",
     "type": "proUnlockables",
     "controls": "hold @rt hold @rs @u",
     "new": false
   },
   {
     "id": "kissTheGround",
+    "name_en": "Kiss The Ground",
+    "name_es": "Besar el suelo",
     "type": "proUnlockables",
     "controls": "hold @lt hold @rs @r",
     "new": true
   },
   {
     "id": "fallToKneesBeg",
+    "name_en": "Fall To Knees & Beg",
+    "name_es": "Caer de rodillas y suplicar",
     "type": "proUnlockables",
     "controls": "hold @rt hold @rs @d",
     "new": false
   },
   {
     "id": "backflips",
+    "name_en": "Backflips",
+    "name_es": "Saltos hacia atrás",
     "type": "proUnlockables",
     "controls": "hold @rt tap @x x2",
     "new": false
   },
   {
     "id": "slideOnBack",
+    "name_en": "Slide on Back",
+    "name_es": "Deslizarse de espaldas",
     "type": "proUnlockables",
     "controls": "hold @rb tap @x x2",
     "new": false
   },
   {
     "id": "cockroach",
+    "name_en": "Cockroach",
+    "name_es": "La cucaracha",
     "type": "proUnlockables",
     "controls": "hold @rb press @r3",
     "new": false
   },
   {
     "id": "riverDance",
+    "name_en": "River Dance",
+    "name_es": "Danza irlandesa",
     "type": "proUnlockables",
     "controls": "hold @rb flick @rs @u @u",
     "new": false
   },
   {
     "id": "breakDance",
+    "name_en": "Break Dance",
+    "name_es": "Break Dance",
     "type": "proUnlockables",
     "controls": "hold @rb flick @rs @r @r",
     "new": false
   },
   {
     "id": "praiseOnKnees",
+    "name_en": "Praise on Knees",
+    "name_es": "Rezar de rodillas",
     "type": "proUnlockables",
     "controls": "hold @rt hold @rs @l",
     "new": false
   },
   {
     "id": "backwardsWorm",
+    "name_en": "Backwards Worm",
+    "name_es": "Gusano hacia atrás",
     "type": "proUnlockables",
     "controls": "hold @rb roll @rs @u @l @d @r",
     "new": false
   },
   {
     "id": "uncontrolledBackflip",
+    "name_en": "Uncontrolled Backflip",
+    "name_es": "Salto hacia atrás descontrolado",
     "type": "proUnlockables",
     "controls": "hold @rt roll @rs @r @l @d @l",
     "new": false
   },
   {
     "id": "handstand",
+    "name_en": "Handstand",
+    "name_es": "Hacer el pino",
     "type": "proUnlockables",
     "controls": "hold @rt roll @rs @u @l @d @r",
     "new": false
   },
   {
     "id": "spinAndFall",
+    "name_en": "Spin & Fall",
+    "name_es": "Giro y caída",
     "type": "proUnlockables",
     "controls": "hold @rt flick @rs @u @u",
     "new": false
   },
   {
     "id": "rowingOnKnees",
+    "name_en": "Rowing on Knees",
+    "name_es": "Remar de rodillas",
     "type": "proUnlockables",
     "controls": "hold @rt flick @rs @l @l",
     "new": false
   },
   {
     "id": "seatedRowing",
+    "name_en": "Seated Rowing",
+    "name_es": "Remar sentado",
     "type": "proUnlockables",
     "controls": "hold @rt flick @rs @r @r",
     "new": false
   },
   {
     "id": "kneeWalk",
+    "name_en": "Knee Walk",
+    "name_es": "Andar de rodillas",
     "type": "proUnlockables",
     "controls": "hold @rt press @x",
     "new": false
   },
   {
     "id": "cradleSwing",
+    "name_en": "Cradle Swing",
+    "name_es": "Acunar al bebé",
     "type": "proUnlockables",
     "controls": "hold @rt press @y",
     "new": false
   },
   {
     "id": "baby",
+    "name_en": "Baby",
+    "name_es": "El bebé",
     "type": "proUnlockables",
     "controls": "hold @rt tap @y x2",
     "new": false
   },
   {
     "id": "flyingDive",
+    "name_en": "Flying Dive",
+    "name_es": "Zambullida",
     "type": "proUnlockables",
     "controls": "hold @rb hold @rs @u",
     "new": false
   },
   {
     "id": "karateKicks",
+    "name_en": "Karate Kicks",
+    "name_es": "Patadas de kárate",
     "type": "proUnlockables",
     "controls": "hold @rb hold @rs @r",
     "new": false
   },
   {
     "id": "jumpKicks",
+    "name_en": "Jump Kicks",
+    "name_es": "Patada voladora",
     "type": "proUnlockables",
     "controls": "hold @rb hold @rs @d",
     "new": false
   },
   {
     "id": "iceSkating",
+    "name_en": "Ice Skating",
+    "name_es": "Patinaje sobre hielo",
     "type": "proUnlockables",
     "controls": "hold @rb flick @rs @d @u",
     "new": false
   },
   {
     "id": "golfSwing",
+    "name_en": "Golf Swing",
+    "name_es": "Palo de golf",
     "type": "proUnlockables",
     "controls": "hold @rb flick @rs @l @r",
     "new": false
   },
   {
     "id": "matador",
+    "name_en": "Matador",
+    "name_es": "Matador",
     "type": "proUnlockables",
     "controls": "hold @rt hold @rs @d @u",
     "new": true
   },
   {
     "id": "dance1",
+    "name_en": "Dance 1",
+    "name_es": "Baile 1",
     "type": "proUnlockables",
     "controls": "hold @rt flick @rs @d @u",
     "new": false
   },
   {
     "id": "dance2",
+    "name_en": "Dance 2",
+    "name_es": "Baile 2",
     "type": "proUnlockables",
     "controls": "hold @rt flick @rs @u @d",
     "new": false
   },
   {
     "id": "dance3",
+    "name_en": "Dance 3",
+    "name_es": "Baile 3",
     "type": "proUnlockables",
     "controls": "hold @rt flick @rs @l @r",
     "new": false
   },
   {
     "id": "ko",
+    "name_en": "KO",
+    "name_es": "K.O.",
     "type": "eaFcUnlockables",
     "controls": "hold @lb tap @x x2",
     "new": false
   },
   {
     "id": "rightHereRightNow",
+    "name_en": "Right Here Right Now",
+    "name_es": "Aquí y ahora",
     "type": "eaFcUnlockables",
     "controls": "hold @rb press @b",
     "new": false
   },
   {
     "id": "handBite",
+    "name_en": "Hand Bite",
+    "name_es": "Morderse la mano",
     "type": "eaFcUnlockables",
     "controls": "hold @lt flick @rs @d @u",
     "new": false
   },
   {
     "id": "standTall",
+    "name_en": "Stand Tall",
+    "name_es": "Mirando al cielo",
     "type": "eaFcUnlockables",
     "controls": "hold @rb @rs hold @l",
     "new": false
   },
   {
     "id": "littleBrother",
+    "name_en": "Little Brother",
+    "name_es": "Hermano pequeño",
     "type": "eaFcUnlockables",
     "controls": "hold @lt tap @b x2",
     "new": true
   },
   {
     "id": "oldMan",
+    "name_en": "Old Man",
+    "name_es": "El viejo",
     "type": "eaFcUnlockables",
     "controls": "hold @lt press @r3",
     "new": false
   },
   {
     "id": "calmDown",
+    "name_en": "Calm Down",
+    "name_es": "Tranquilo todo el mundo",
     "type": "eaFcUnlockables",
     "controls": "hold @lb tap @y x2",
     "new": false
   },
   {
     "id": "phoneItIn",
+    "name_en": "Phone It In",
+    "name_es": "Llamada",
     "type": "eaFcUnlockables",
     "controls": "hold @lb hold @rs @u",
     "new": true
   },
   {
     "id": "motorbike",
+    "name_en": "Motorbike",
+    "name_es": "La moto",
     "type": "eaFcUnlockables",
     "controls": "hold @lb hold @rs @d",
     "new": false
   },
   {
     "id": "hangLoose",
+    "name_en": "Hang Loose",
+    "name_es": "Relájate",
     "type": "eaFcUnlockables",
     "controls": "hold @lb hold @rs @u @d",
     "new": true
   },
   {
     "id": "muevelo",
+    "name_en": "Muevelo",
+    "name_es": "Muévelo",
     "type": "eaFcUnlockables",
     "controls": "hold @lb flick @rs @r @l",
     "new": false
   },
   {
     "id": "pattyCake",
+    "name_en": "Patty Cake",
+    "name_es": "Palmas palmitas",
     "type": "eaFcUnlockables",
     "controls": "hold @lb flick @rs @r @r",
     "new": false
   },
   {
     "id": "pushUps",
+    "name_en": "Push Ups",
+    "name_es": "Hacer flexiones",
     "type": "eaFcUnlockables",
     "controls": "hold @rb flick @rs @r @l",
     "new": false
   },
   {
     "id": "theWorm",
+    "name_en": "The Worm",
+    "name_es": "El gusano",
     "type": "eaFcUnlockables",
     "controls": "hold @rb + roll @rs @u @r @d @l",
     "new": false
   },
   {
     "id": "dance",
+    "name_en": "Dance",
+    "name_es": "Baile",
     "type": "eaFcUnlockables",
     "controls": "hold @rb flick @rs @d @d",
     "new": false
   },
   {
     "id": "giddyUp",
+    "name_en": "Giddy Up",
+    "name_es": "Arre",
     "type": "eaFcUnlockables",
     "controls": "hold @lb press @r3",
     "new": true

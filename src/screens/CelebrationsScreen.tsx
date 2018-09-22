@@ -60,11 +60,11 @@ export default class CelebrationsScreen extends React.Component<Props, State> {
 
   private makeSections(data: any) {
     const sections = [
-      { title: Localizer.t('celebrations:basicMoves'), data: new Array<Celebration>() },
-      { title: Localizer.t('celebrations:runningMoves'), data: new Array<Celebration>() },
-      { title: Localizer.t('celebrations:finishingMoves'), data: new Array<Celebration>() },
-      { title: Localizer.t('celebrations:proUnlockables'), data: new Array<Celebration>() },
-      { title: Localizer.t('celebrations:eaFcUnlockables'), data: new Array<Celebration>() }
+      { title: Localizer.t('basicMoves'), data: new Array<Celebration>() },
+      { title: Localizer.t('runningMoves'), data: new Array<Celebration>() },
+      { title: Localizer.t('finishingMoves'), data: new Array<Celebration>() },
+      { title: Localizer.t('proUnlockables'), data: new Array<Celebration>() },
+      { title: Localizer.t('eaFcUnlockables'), data: new Array<Celebration>() }
     ]
     data.forEach((item: Celebration) => {
       switch (item.type) {

@@ -3,7 +3,7 @@ import HomeScreen from './screens/HomeScreen'
 import SkillsScreen from './screens/SkillsScreen'
 import CelebrationsScreen from './screens/CelebrationsScreen'
 import { createStackNavigator } from 'react-navigation'
-import { StatusBar, View, ActivityIndicator } from 'react-native'
+import { StatusBar, SafeAreaView, ActivityIndicator } from 'react-native'
 import { ADMOB_BANNER_ID, S8_TEST_ID } from './Secrets'
 import { AdMobBanner } from 'expo'
 import Expo from 'expo'
@@ -51,11 +51,11 @@ export default class Navigator extends React.Component<{}, State> {
 
   private renderApp() {
     return (
-      <View style={{ flex: 1, backgroundColor: '#303030' }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#303030' }}>
         <StatusBar barStyle="light-content" />
         <StackNav />
         <AdMobBanner style={{ alignSelf: 'center' }} adUnitID={ADMOB_BANNER_ID} bannerSize="banner" testDeviceID={S8_TEST_ID} />
-      </View>
+      </SafeAreaView>
     )
   }
 

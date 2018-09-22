@@ -101,7 +101,7 @@ class HomeScreen extends React.Component<Props> {
   }
 
   static navigationOptions = {
-    title: 'FIFA 19'
+    title: 'Home'
   }
 }
 
