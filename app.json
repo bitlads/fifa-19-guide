@@ -2,33 +2,25 @@
   "expo": {
     "sdkVersion": "30.0.0",
     "packagerOpts": {
-      "sourceExts": [
-        "ts",
-        "tsx"
-      ],
+      "sourceExts": ["ts", "tsx"],
       "transformer": "node_modules/react-native-typescript-transformer/index.js"
     },
     "name": "FIFA 19 Guide",
     "description": "Pocket companion for FIFA 19",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "githubUrl": "https://github.com/bitlads/fifa-19-guide",
     "icon": "./assets/icon.png",
     "slug": "fifa-19-guide",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "assets/*"
-    ],
+    "assetBundlePatterns": ["assets/*"],
     "splash": {
       "image": "./assets/splash.png",
       "backgroundColor": "#212121",
       "resizeMode": "contain"
     },
-    "platforms": [
-      "ios",
-      "android"
-    ],
+    "platforms": ["ios", "android"],
     "ios": {
       "bundleIdentifier": "io.bitlads.fifa19",
       "supportsTablet": true,

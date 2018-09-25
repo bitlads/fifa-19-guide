@@ -15,7 +15,7 @@ export default class HomeButton extends React.Component<Props> {
           <Text style={styles.text}>{this.props.text}</Text>
         </View>
         <View style={styles.button}>
-          <Text style={{ color: '#fff', alignSelf: 'center' }}>{this.props.actionText}</Text>
+          <Text style={{ color: '#fff', alignSelf: 'center', fontSize: 18 }}>{this.props.actionText}</Text>
         </View>
       </TouchableOpacity>
     )
@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#fff',
-    textAlign: 'center'
+    textAlign: 'center',
+    fontSize: 16
   },
   button: {
     backgroundColor: '#616161',

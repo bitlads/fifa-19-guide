@@ -2,9 +2,9 @@ import * as React from 'react'
 import HomeScreen from './screens/HomeScreen'
 import SkillsScreen from './screens/SkillsScreen'
 import CelebrationsScreen from './screens/CelebrationsScreen'
-import { createStackNavigator } from 'react-navigation'
-import { StatusBar, SafeAreaView, ActivityIndicator } from 'react-native'
-import { ADMOB_BANNER_ID, S8_TEST_ID } from './Secrets'
+import { createStackNavigator, SafeAreaView } from 'react-navigation'
+import { Platform, StatusBar, ActivityIndicator } from 'react-native'
+import { ADMOB_BANNER_ANDROID, ADMOB_BANNER_IOS, S8_TEST_ID } from './Secrets'
 import { AdMobBanner } from 'expo'
 import Expo from 'expo'
 import Localizer from './Localizer'
@@ -51,10 +51,15 @@ export default class Navigator extends React.Component<{}, State> {
 
   private renderApp() {
     return (
-      <SafeAreaView style={{ flex: 1, backgroundColor: '#303030' }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#212121' }} forceInset={{ top: 'never' }}>
         <StatusBar barStyle="light-content" />
         <StackNav />
-        <AdMobBanner style={{ alignSelf: 'center' }} adUnitID={ADMOB_BANNER_ID} bannerSize="banner" testDeviceID={S8_TEST_ID} />
+        <AdMobBanner
+          style={{ alignSelf: 'center' }}
+          adUnitID={Platform.OS === 'ios' ? ADMOB_BANNER_IOS : ADMOB_BANNER_ANDROID}
+          bannerSize="banner"
+          testDeviceID={S8_TEST_ID}
+        />
       </SafeAreaView>
     )
   }

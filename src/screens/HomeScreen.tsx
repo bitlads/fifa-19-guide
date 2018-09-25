@@ -1,13 +1,11 @@
 import * as React from 'react'
-import { Linking, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Platform, Linking, ScrollView, StyleSheet, Text, View } from 'react-native'
 import HomeButton from '../components/HomeButton'
 import CategoryButton from '../components/CategoryButton'
 import { NavigationScreenProps } from 'react-navigation'
 import { SKILLS_COLOR, CELEBRATIONS_COLOR } from '../Const'
 import { FIFA_19_AMAZON_LINK } from '../Secrets'
 import Toggle from '../components/Toggle'
-import firebase from 'firebase'
-import { FIREBASE_CONFIG } from '../Secrets'
 import Localizer from '../Localizer'
 import { CONSOLE_XBOX, CONSOLE_PS } from '../Const'
 import { bindActionCreators } from 'redux'
@@ -20,16 +18,9 @@ interface Props extends NavigationScreenProps {
 }
 
 class HomeScreen extends React.Component<Props> {
-  private daysLeft: number
-
   constructor(props: Props) {
     super(props)
-    firebase.initializeApp(FIREBASE_CONFIG)
-
-    const today = new Date()
-    const release = new Date('September 28, 2018 00:00:00')
-    var timeDiff = Math.abs(release.getTime() - today.getTime())
-    this.daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24))
+    //firebase.initializeApp(FIREBASE_CONFIG)
   }
 
   render() {
@@ -41,7 +32,7 @@ class HomeScreen extends React.Component<Props> {
             <CategoryButton
               category={Localizer.t('skills')}
               color={SKILLS_COLOR}
-              image={require('../../assets/skills.png')}
+              image={require('../../assets/skills_white.png')}
               onPress={() => this.navigateSkills()}
             />
           </View>
@@ -49,7 +40,7 @@ class HomeScreen extends React.Component<Props> {
             <CategoryButton
               category={Localizer.t('celebrations')}
               color={CELEBRATIONS_COLOR}
-              image={require('../../assets/celebrations.png')}
+              image={require('../../assets/celebrations_white.png')}
               onPress={() => this.navigateCelebrations()}
             />
           </View>
@@ -60,27 +51,30 @@ class HomeScreen extends React.Component<Props> {
             onTogglePs={() => this.props.setConsole(CONSOLE_PS)}
           />
           <Text style={styles.header}>{Localizer.t('newInFifa19')}</Text>
-          <View style={styles.card}>
-            <Text style={styles.cardText}>{Localizer.t('newStuff')}</Text>
-          </View>
           <View style={styles.row}>
-            <View style={styles.card}>
-              <Text style={{ color: '#fff', fontSize: 36, alignSelf: 'center' }}>{this.daysLeft}</Text>
-              <Text style={{ color: '#fff', alignSelf: 'center' }}>{Localizer.t('days_until')}</Text>
-            </View>
-            <HomeButton text={Localizer.t('preorder_now')} actionText={Localizer.t('preorder')} onPress={() => Linking.openURL(FIFA_19_AMAZON_LINK)} />
+            <HomeButton
+              text={Localizer.t('newStuff')}
+              actionText={Localizer.t('preorder')}
+              onPress={() =>
+                Linking.openURL(
+                  'https://www.amazon.com/gp/product/B07DL2SY2B/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B07DL2SY2B&linkCode=as2&tag=fifa19-ios-20&linkId=ce9f5ee97422550ec4741d5996f5961a'
+                )
+              }
+            />
           </View>
           <Text style={styles.header}>{Localizer.t('dev_message')}</Text>
           <View style={styles.card}>
             <Text style={styles.cardText}>{Localizer.t('thank_you')}</Text>
           </View>
-          <View style={styles.row}>
-            <HomeButton
-              text={Localizer.t('likeTheApp')}
-              actionText={Localizer.t('playStore')}
-              onPress={() => Linking.openURL('https://play.google.com/store/apps/details?id=io.bitlads.fifa19')}
-            />
-          </View>
+          {Platform.OS !== 'ios' && (
+            <View style={styles.row}>
+              <HomeButton
+                text={Localizer.t('likeTheApp')}
+                actionText={'Play Store'}
+                onPress={() => Linking.openURL('https://play.google.com/store/apps/details?id=io.bitlads.fifa19')}
+              />
+            </View>
+          )}
         </ScrollView>
       </View>
     )
@@ -88,15 +82,13 @@ class HomeScreen extends React.Component<Props> {
 
   private navigateSkills() {
     this.props.navigation.navigate('Skills', {
-      title: Localizer.t('skills'),
-      isXboxSelected: this.props.console === CONSOLE_XBOX
+      title: Localizer.t('skills')
     })
   }
 
   private navigateCelebrations() {
     this.props.navigation.navigate('Celebrations', {
-      title: Localizer.t('celebrations'),
-      isXboxSelected: this.props.console === CONSOLE_XBOX
+      title: Localizer.t('celebrations')
     })
   }
 

@@ -7,7 +7,7 @@ import Localizer from '../Localizer'
 interface Props {
   isXboxSelected: boolean
   item: any
-  firestore: firebase.firestore.Firestore
+  //firestore: firebase.firestore.Firestore
 }
 
 interface State {
@@ -49,7 +49,7 @@ export default class ListItem extends React.Component<Props, State> {
     )
   }
 
-  private renderLikes() {
+  /*private renderLikes() {
     return (
       <TouchableOpacity
         onPress={() => this.toggleLiked()}
@@ -66,27 +66,27 @@ export default class ListItem extends React.Component<Props, State> {
         )}
       </TouchableOpacity>
     )
-  }
+  }*/
 
-  private getLikes() {
+  /*private getLikes() {
     return this.makeCancelable(
       this.props.firestore
         .collection('skills')
         .doc(this.props.item.id)
         .get()
     )
-  }
+  }*/
 
-  private setLikes(item: any, likes: number) {
+  /*private setLikes(item: any, likes: number) {
     return this.makeCancelable(
       this.props.firestore
         .collection('skills')
         .doc(item.id)
         .set({ ...item.data(), likes })
     )
-  }
+  }*/
 
-  private toggleLiked() {
+  /*private toggleLiked() {
     this.setState({ loading: true })
     this.getLikes().promise.then((item: any) => {
       const added = this.state.liked ? -1 : 1
@@ -95,22 +95,7 @@ export default class ListItem extends React.Component<Props, State> {
         this.setState({ loading: false, likes, liked: !this.state.liked })
       })
     })
-  }
-
-  private makeCancelable = (promise: Promise<any>) => {
-    let hasCanceled_ = false
-
-    const wrappedPromise = new Promise((resolve, reject) => {
-      promise.then(val => (hasCanceled_ ? reject({ isCanceled: true }) : resolve(val)), error => (hasCanceled_ ? reject({ isCanceled: true }) : reject(error)))
-    })
-
-    return {
-      promise: wrappedPromise,
-      cancel() {
-        hasCanceled_ = true
-      }
-    }
-  }
+  }*/
 }
 
 const styles = StyleSheet.create({

@@ -3,7 +3,7 @@ import { NavigationScreenProps } from 'react-navigation'
 import { SKILLS_COLOR } from '../Const'
 import ListScreen from './ListScreen'
 import firebase from 'firebase'
-require('firebase/firestore')
+//require('firebase/firestore')
 import Localizer from '../Localizer'
 
 interface SkillMove {
@@ -19,18 +19,12 @@ interface State {
 }
 
 export default class SkillsScreen extends React.Component<Props, State> {
-  private isXboxSelected: boolean
-  private firestore: firebase.firestore.Firestore
-
+  //private firestore: firebase.firestore.Firestore
   constructor(props: Props) {
     super(props)
     this.state = {
       sections: []
     }
-    this.isXboxSelected = this.props.navigation.getParam('isXboxSelected', true)
-
-    this.firestore = firebase.firestore()
-    this.firestore.settings({ timestampsInSnapshots: true })
   }
 
   componentDidMount() {
@@ -38,10 +32,10 @@ export default class SkillsScreen extends React.Component<Props, State> {
   }
 
   render() {
-    return <ListScreen isXboxSelected={this.isXboxSelected} sections={this.state.sections} color={SKILLS_COLOR} />
+    return <ListScreen sections={this.state.sections} color={SKILLS_COLOR} />
   }
 
-  private fetchFirebase() {
+  /*private fetchFirebase() {
     const data = new Array<any>()
     this.firestore
       .collection('skills')
@@ -52,7 +46,7 @@ export default class SkillsScreen extends React.Component<Props, State> {
         })
         this.makeSections(data)
       })
-  }
+  }*/
 
   private fetchOffline() {
     this.makeSections(require('../../assets/skills.json'))

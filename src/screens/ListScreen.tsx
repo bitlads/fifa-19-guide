@@ -1,9 +1,10 @@
 import React from 'react'
 import { Text, TextInput, SectionList, StyleSheet, View, ActivityIndicator } from 'react-native'
-import firebase from 'firebase'
-require('firebase/firestore')
+//import firebase from 'firebase'
+//require('firebase/firestore')
 import ListItem from '../components/ListItem'
 import Localizer from '../Localizer'
+import { connect } from 'react-redux'
 
 interface Props {
   isXboxSelected: boolean
@@ -20,16 +21,16 @@ interface Section {
   data: Array<any>
 }
 
-export default class ListScreen extends React.Component<Props, State> {
-  private firestore: firebase.firestore.Firestore
+class ListScreen extends React.Component<Props, State> {
+  //private firestore: firebase.firestore.Firestore
   constructor(props: Props) {
     super(props)
     this.state = {
       searchText: ''
     }
 
-    this.firestore = firebase.firestore()
-    this.firestore.settings({ timestampsInSnapshots: true })
+    //this.firestore = firebase.firestore()
+    //this.firestore.settings({ timestampsInSnapshots: true })
   }
 
   render() {
@@ -83,9 +84,17 @@ export default class ListScreen extends React.Component<Props, State> {
   }
 
   private renderItem = ({ item, index }: any) => {
-    return <ListItem item={item} key={index} isXboxSelected={this.props.isXboxSelected} firestore={this.firestore} />
+    return <ListItem item={item} key={index} isXboxSelected={this.props.isXboxSelected} />
   }
 }
+
+function mapStateToProps(state: any, props: any) {
+  return {
+    console: state.dataReducer.console
+  }
+}
+
+export default connect(mapStateToProps)(ListScreen)
 
 const styles = StyleSheet.create({
   container: {

@@ -2,8 +2,8 @@ import React from 'react'
 import { NavigationScreenProps } from 'react-navigation'
 import { CELEBRATIONS_COLOR } from '../Const'
 import ListScreen from './ListScreen'
-import firebase from 'firebase'
-require('firebase/firestore')
+//import firebase from 'firebase'
+//require('firebase/firestore')
 import Localizer from '../Localizer'
 
 interface Celebration {
@@ -19,18 +19,11 @@ interface State {
 }
 
 export default class CelebrationsScreen extends React.Component<Props, State> {
-  private isXboxSelected: boolean
-  private firestore: firebase.firestore.Firestore
-
   constructor(props: Props) {
     super(props)
     this.state = {
       sections: []
     }
-    this.isXboxSelected = this.props.navigation.getParam('isXboxSelected', true)
-
-    this.firestore = firebase.firestore()
-    this.firestore.settings({ timestampsInSnapshots: true })
   }
 
   componentDidMount() {
@@ -38,20 +31,7 @@ export default class CelebrationsScreen extends React.Component<Props, State> {
   }
 
   render() {
-    return <ListScreen isXboxSelected={this.isXboxSelected} sections={this.state.sections} color={CELEBRATIONS_COLOR} />
-  }
-
-  private fetchFirebase() {
-    const data = new Array<any>()
-    this.firestore
-      .collection('celebrations')
-      .get()
-      .then(celebrations => {
-        celebrations.forEach(celebration => {
-          data.push({ ...celebration.data(), name: Localizer.t(`celebrations:${celebration.id}`) })
-        })
-        this.makeSections(data)
-      })
+    return <ListScreen sections={this.state.sections} color={CELEBRATIONS_COLOR} />
   }
 
   private fetchOffline() {
