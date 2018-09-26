@@ -5,11 +5,13 @@ import { Text, TextInput, SectionList, StyleSheet, View, ActivityIndicator } fro
 import ListItem from '../components/ListItem'
 import Localizer from '../Localizer'
 import { connect } from 'react-redux'
+import { CONSOLE_XBOX, CONSOLE_PS } from '../Const'
 
 interface Props {
   isXboxSelected: boolean
   sections: Array<Section>
   color: string
+  console: string
 }
 
 interface State {
@@ -84,7 +86,7 @@ class ListScreen extends React.Component<Props, State> {
   }
 
   private renderItem = ({ item, index }: any) => {
-    return <ListItem item={item} key={index} isXboxSelected={this.props.isXboxSelected} />
+    return <ListItem item={item} key={index} isXboxSelected={this.props.console === CONSOLE_XBOX} />
   }
 }
 

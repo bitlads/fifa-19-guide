@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import Localizer from '../Localizer'
 
 interface Props {
   category: string
@@ -14,7 +15,7 @@ export default class CategoryButton extends React.Component<Props> {
       <TouchableOpacity style={[styles.container, { backgroundColor: this.props.color }]} onPress={this.props.onPress}>
         <View style={{ flex: 1 }}>
           <Text style={{ color: '#fff', alignSelf: 'center', fontSize: 20, fontWeight: 'bold' }}>{this.props.category.toUpperCase()}</Text>
-          <Text style={styles.browse}>BROWSE</Text>
+          <Text style={styles.browse}>{Localizer.t('browse')}</Text>
         </View>
         <Image style={{ height: 100, width: 100 }} resizeMode="contain" source={this.props.image} />
       </TouchableOpacity>
