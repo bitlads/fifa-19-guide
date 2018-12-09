@@ -1,29 +1,29 @@
 import * as React from 'react'
-import { Platform, Linking, ScrollView, StyleSheet, Text, View } from 'react-native'
-import HomeButton from '../components/HomeButton'
-import CategoryButton from '../components/CategoryButton'
+import { Linking, Platform, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { NavigationScreenProps } from 'react-navigation'
-import { SKILLS_COLOR, CELEBRATIONS_COLOR } from '../Const'
-import { FIFA_19_AMAZON_LINK } from '../Secrets'
-import Toggle from '../components/Toggle'
-import Localizer from '../Localizer'
-import { CONSOLE_XBOX, CONSOLE_PS } from '../Const'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import CategoryButton from '../components/CategoryButton'
+import HomeButton from '../components/HomeButton'
+import Toggle from '../components/Toggle'
+import { CELEBRATIONS_COLOR, CONSOLE_PS, CONSOLE_XBOX, SKILLS_COLOR } from '../Const'
+import Localizer from '../Localizer'
 import * as Actions from '../redux/Actions'
 
-interface Props extends NavigationScreenProps {
+interface IProps extends NavigationScreenProps {
   console: string
   setConsole(console: string): void
 }
 
-class HomeScreen extends React.Component<Props> {
-  constructor(props: Props) {
+class HomeScreen extends React.Component<IProps> {
+  public static navigationOptions = {
+    title: 'Home'
+  }
+  constructor(props: IProps) {
     super(props)
-    //firebase.initializeApp(FIREBASE_CONFIG)
   }
 
-  render() {
+  public render() {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.home}>
@@ -91,10 +91,6 @@ class HomeScreen extends React.Component<Props> {
       title: Localizer.t('celebrations')
     })
   }
-
-  static navigationOptions = {
-    title: 'Home'
-  }
 }
 
 function mapStateToProps(state: any, props: any) {
@@ -104,7 +100,7 @@ function mapStateToProps(state: any, props: any) {
 }
 
 function mapDispatchToProps(dispatch: any) {
-  return bindActionCreators(Actions, dispatch)
+  return bindActionCreators(Actions as any, dispatch)
 }
 
 export default connect(

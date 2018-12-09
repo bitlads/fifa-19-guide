@@ -1,14 +1,14 @@
 import React from 'react'
-import { Text, TouchableOpacity, StyleSheet, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-interface Props {
+interface IProps {
   text: string
   actionText: string
   onPress(): void
 }
 
-export default class HomeButton extends React.Component<Props> {
-  render() {
+export default class HomeButton extends React.Component<IProps> {
+  public render() {
     return (
       <TouchableOpacity onPress={this.props.onPress} style={styles.card}>
         <View style={styles.container}>

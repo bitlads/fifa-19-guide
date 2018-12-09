@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux'
-import { SET_CONSOLE } from './Actions'
 import { CONSOLE_XBOX } from '../Const'
+import { SET_CONSOLE } from './Actions'
 
-let dataState = { console: CONSOLE_XBOX }
+const dataState = { console: CONSOLE_XBOX }
 
 const dataReducer = (state = dataState, action: any) => {
   switch (action.type) {
     case SET_CONSOLE:
-      state = Object.assign({}, state, { console: action.console })
+      state = {...state,  console: action.console}
       return state
     default:
       return state

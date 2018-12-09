@@ -1,14 +1,14 @@
 import React from 'react'
-import { Text, TouchableOpacity, StyleSheet, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-interface Props {
+interface IProps {
   isXbSelected: boolean
   onToggleXb(): void
   onTogglePs(): void
 }
 
-export default class Toggle extends React.Component<Props> {
-  render() {
+export default class Toggle extends React.Component<IProps> {
+  public render() {
     return (
       <View style={styles.toggle}>
         <TouchableOpacity onPress={this.props.onToggleXb} style={this.props.isXbSelected ? styles.xbButton : styles.disabledButton}>

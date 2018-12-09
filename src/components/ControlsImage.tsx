@@ -1,15 +1,15 @@
 import React from 'react'
-import { Text, StyleSheet, View } from 'react-native'
-import ControllerButton from './ControllerButton'
+import { StyleSheet, Text, View } from 'react-native'
 import Localizer from '../Localizer'
+import ControllerButton from './ControllerButton'
 
-interface Props {
+interface IProps {
   controls: string
   isXb: boolean
 }
 
-export default class ControlsImage extends React.Component<Props> {
-  render() {
+export default class ControlsImage extends React.Component<IProps> {
+  public render() {
     const items = this.props.controls.split(' ')
     return <View style={styles.container}>{items.map(this.renderItem)}</View>
   }

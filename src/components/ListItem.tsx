@@ -1,23 +1,22 @@
 import React from 'react'
-import { Text, TouchableOpacity, StyleSheet, View, ActivityIndicator } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import ControlsImage from '../components/ControlsImage'
-import { Ionicons } from '@expo/vector-icons'
 import Localizer from '../Localizer'
 
-interface Props {
+interface IProps {
   isXboxSelected: boolean
   item: any
-  //firestore: firebase.firestore.Firestore
+  // firestore: firebase.firestore.Firestore
 }
 
-interface State {
+interface IState {
   likes: number
   loading: boolean
   liked: boolean
 }
 
-export default class ListItem extends React.Component<Props, State> {
-  constructor(props: Props) {
+export default class ListItem extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
     super(props)
     this.state = {
       likes: -1,
@@ -26,7 +25,7 @@ export default class ListItem extends React.Component<Props, State> {
     }
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     /*if (this.state.likes === -1) {
       this.setState({ loading: true })
       this.getLikes().promise.then((item: any) => {
@@ -35,7 +34,7 @@ export default class ListItem extends React.Component<Props, State> {
     }*/
   }
 
-  render() {
+  public render() {
     return (
       <View style={styles.item}>
         <View style={styles.info}>

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Text, StyleSheet, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 
-interface Props {
+interface IProps {
   isXbox: boolean
   id: string
 }
@@ -13,8 +13,8 @@ const BLUE = '#2196F3'
 const YELLOW = '#FFEB3B'
 const PINK = '#E91E63'
 
-export default class ControllerButton extends React.Component<Props> {
-  render() {
+export default class ControllerButton extends React.Component<IProps> {
+  public render() {
     switch (this.props.id) {
       case '@a':
         return this.props.isXbox ? this.renderRoundButton('A', GREEN) : this.renderRoundButton('X', BLUE)

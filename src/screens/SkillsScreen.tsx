@@ -1,52 +1,39 @@
 import React from 'react'
 import { NavigationScreenProps } from 'react-navigation'
 import { SKILLS_COLOR } from '../Const'
-import ListScreen from './ListScreen'
-import firebase from 'firebase'
-//require('firebase/firestore')
 import Localizer from '../Localizer'
+import ListScreen from './ListScreen'
 
-interface SkillMove {
+interface ISkillMove {
   id: string
   stars: number
   controls: string
 }
 
-interface Props extends NavigationScreenProps {}
-
-interface State {
-  sections: Array<any>
+interface IState {
+  sections: any[]
 }
 
-export default class SkillsScreen extends React.Component<Props, State> {
-  //private firestore: firebase.firestore.Firestore
-  constructor(props: Props) {
+export default class SkillsScreen extends React.Component<NavigationScreenProps, IState> {
+  public static navigationOptions = ({ navigation }: NavigationScreenProps) => {
+    return {
+      title: navigation.getParam('title', '')
+    }
+  }
+  constructor(props: NavigationScreenProps) {
     super(props)
     this.state = {
       sections: []
     }
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     this.fetchOffline()
   }
 
-  render() {
+  public render() {
     return <ListScreen sections={this.state.sections} color={SKILLS_COLOR} />
   }
-
-  /*private fetchFirebase() {
-    const data = new Array<any>()
-    this.firestore
-      .collection('skills')
-      .get()
-      .then(skills => {
-        skills.forEach(skill => {
-          data.push({ ...skill.data(), name: Localizer.t(`skills:${skill.id}`) })
-        })
-        this.makeSections(data)
-      })
-  }*/
 
   private fetchOffline() {
     this.makeSections(require('../../assets/skills.json'))
@@ -54,21 +41,15 @@ export default class SkillsScreen extends React.Component<Props, State> {
 
   private makeSections(data: any) {
     const sections = [
-      { title: `1 ${Localizer.t('star')}`, data: new Array<SkillMove>() },
-      { title: `2 ${Localizer.t('star')}`, data: new Array<SkillMove>() },
-      { title: `3 ${Localizer.t('star')}`, data: new Array<SkillMove>() },
-      { title: `4 ${Localizer.t('star')}`, data: new Array<SkillMove>() },
-      { title: `5 ${Localizer.t('star')}`, data: new Array<SkillMove>() }
+      { title: `1 ${Localizer.t('star')}`, data: new Array<ISkillMove>() },
+      { title: `2 ${Localizer.t('star')}`, data: new Array<ISkillMove>() },
+      { title: `3 ${Localizer.t('star')}`, data: new Array<ISkillMove>() },
+      { title: `4 ${Localizer.t('star')}`, data: new Array<ISkillMove>() },
+      { title: `5 ${Localizer.t('star')}`, data: new Array<ISkillMove>() }
     ]
-    data.forEach((item: SkillMove) => {
+    data.forEach((item: ISkillMove) => {
       sections[item.stars - 1].data.push(item)
     })
     this.setState({ sections })
-  }
-
-  static navigationOptions = ({ navigation }: NavigationScreenProps) => {
-    return {
-      title: navigation.getParam('title', '')
-    }
   }
 }

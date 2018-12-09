@@ -2,15 +2,15 @@ import * as React from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import Localizer from '../Localizer'
 
-interface Props {
+interface IProps {
   category: string
   color: string
   image: any
   onPress(): void
 }
 
-export default class CategoryButton extends React.Component<Props> {
-  render() {
+export default class CategoryButton extends React.Component<IProps> {
+  public render() {
     return (
       <TouchableOpacity style={[styles.container, { backgroundColor: this.props.color }]} onPress={this.props.onPress}>
         <View style={{ flex: 1 }}>

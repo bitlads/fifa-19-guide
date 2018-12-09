@@ -19,6 +19,7 @@
     "react-test-renderer": "16.3.1",
     "ts-jest": "^22.4.6",
     "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.17.0",
     "typescript": "^2.8.3"
   },
   "main": "node_modules/expo/AppEntry.js",

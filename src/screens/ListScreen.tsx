@@ -1,41 +1,35 @@
 import React from 'react'
-import { Text, TextInput, SectionList, StyleSheet, View, ActivityIndicator } from 'react-native'
-//import firebase from 'firebase'
-//require('firebase/firestore')
-import ListItem from '../components/ListItem'
-import Localizer from '../Localizer'
+import { ActivityIndicator, SectionList, StyleSheet, Text, TextInput, View } from 'react-native'
 import { connect } from 'react-redux'
-import { CONSOLE_XBOX, CONSOLE_PS } from '../Const'
+import ListItem from '../components/ListItem'
+import { CONSOLE_XBOX } from '../Const'
+import Localizer from '../Localizer'
 
-interface Props {
+interface IProps {
   isXboxSelected: boolean
-  sections: Array<Section>
+  sections: ISection[]
   color: string
   console: string
 }
 
-interface State {
+interface IState {
   searchText: string
 }
 
-interface Section {
+interface ISection {
   title: string
-  data: Array<any>
+  data: any[]
 }
 
-class ListScreen extends React.Component<Props, State> {
-  //private firestore: firebase.firestore.Firestore
-  constructor(props: Props) {
+class ListScreen extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
     super(props)
     this.state = {
       searchText: ''
     }
-
-    //this.firestore = firebase.firestore()
-    //this.firestore.settings({ timestampsInSnapshots: true })
   }
 
-  render() {
+  public render() {
     const sections = this.filterList(this.props.sections)
     const isLoading = sections.length === 0
     return (
@@ -66,8 +60,10 @@ class ListScreen extends React.Component<Props, State> {
     )
   }
 
-  private filterList(sections: Array<Section>) {
-    if (this.state.searchText === '') return sections
+  private filterList(sections: ISection[]) {
+    if (this.state.searchText === '') {
+      return sections
+    }
     return sections.map(section => {
       const filtered = section.data.filter((item: any) => {
         const name = Localizer.locale === 'es' ? item.name_es : item.name_en

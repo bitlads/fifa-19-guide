@@ -1,36 +1,37 @@
 import React from 'react'
 import { NavigationScreenProps } from 'react-navigation'
 import { CELEBRATIONS_COLOR } from '../Const'
-import ListScreen from './ListScreen'
-//import firebase from 'firebase'
-//require('firebase/firestore')
 import Localizer from '../Localizer'
+import ListScreen from './ListScreen'
 
-interface Celebration {
+interface ICelebration {
   id: string
   type: string
   controls: string
 }
 
-interface Props extends NavigationScreenProps {}
-
-interface State {
-  sections: Array<any>
+interface IState {
+  sections: any[]
 }
 
-export default class CelebrationsScreen extends React.Component<Props, State> {
-  constructor(props: Props) {
+export default class CelebrationsScreen extends React.Component<NavigationScreenProps, IState> {
+  public static navigationOptions = ({ navigation }: NavigationScreenProps) => {
+    return {
+      title: navigation.getParam('title', '')
+    }
+  }
+  constructor(props: NavigationScreenProps) {
     super(props)
     this.state = {
       sections: []
     }
   }
 
-  componentDidMount() {
+  public componentDidMount() {
     this.fetchOffline()
   }
 
-  render() {
+  public render() {
     return <ListScreen sections={this.state.sections} color={CELEBRATIONS_COLOR} />
   }
 
@@ -40,13 +41,13 @@ export default class CelebrationsScreen extends React.Component<Props, State> {
 
   private makeSections(data: any) {
     const sections = [
-      { title: Localizer.t('basicMoves'), data: new Array<Celebration>() },
-      { title: Localizer.t('runningMoves'), data: new Array<Celebration>() },
-      { title: Localizer.t('finishingMoves'), data: new Array<Celebration>() },
-      { title: Localizer.t('proUnlockables'), data: new Array<Celebration>() },
-      { title: Localizer.t('eaFcUnlockables'), data: new Array<Celebration>() }
+      { title: Localizer.t('basicMoves'), data: new Array<ICelebration>() },
+      { title: Localizer.t('runningMoves'), data: new Array<ICelebration>() },
+      { title: Localizer.t('finishingMoves'), data: new Array<ICelebration>() },
+      { title: Localizer.t('proUnlockables'), data: new Array<ICelebration>() },
+      { title: Localizer.t('eaFcUnlockables'), data: new Array<ICelebration>() }
     ]
-    data.forEach((item: Celebration) => {
+    data.forEach((item: ICelebration) => {
       switch (item.type) {
         case 'basicMoves':
           sections[0].data.push(item)
@@ -66,11 +67,5 @@ export default class CelebrationsScreen extends React.Component<Props, State> {
       }
     })
     this.setState({ sections })
-  }
-
-  static navigationOptions = ({ navigation }: NavigationScreenProps) => {
-    return {
-      title: navigation.getParam('title', '')
-    }
   }
 }
