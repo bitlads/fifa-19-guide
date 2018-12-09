@@ -3,12 +3,11 @@ import HomeScreen from './screens/HomeScreen'
 import SkillsScreen from './screens/SkillsScreen'
 import CelebrationsScreen from './screens/CelebrationsScreen'
 import { createStackNavigator, SafeAreaView } from 'react-navigation'
-import { Platform, StatusBar, ActivityIndicator } from 'react-native'
+import { Platform, StatusBar } from 'react-native'
 import { ADMOB_BANNER_ANDROID, ADMOB_BANNER_IOS, S8_TEST_ID } from './Secrets'
 import { AdMobBanner } from 'expo'
-import Expo from 'expo'
+import { Localization } from 'expo-localization'
 import Localizer from './Localizer'
-const expo: any = Expo
 
 const StackNav = createStackNavigator(
   {
@@ -46,10 +45,6 @@ export default class Navigator extends React.Component<{}, State> {
   }
 
   render() {
-    return this.state.loading ? <ActivityIndicator /> : this.renderApp()
-  }
-
-  private renderApp() {
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: '#212121' }} forceInset={{ top: 'never' }}>
         <StatusBar barStyle="light-content" />
@@ -65,10 +60,8 @@ export default class Navigator extends React.Component<{}, State> {
   }
 
   private loadLocale() {
-    expo.DangerZone.Localization.getCurrentLocaleAsync().then((lng: string) => {
-      const locale = lng.substr(0, 2)
-      Localizer.init(locale)
-      this.setState({ loading: false })
-    })
+    const lng = Localization.locale
+    const locale = lng.substr(0, 2)
+    Localizer.init(locale)
   }
 }
